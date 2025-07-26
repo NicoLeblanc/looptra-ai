@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rundesk - L'assistant GPT pour consultants itinérants</title>
+    <title>Looptra - Studio d'Applications Intelligentes</title>
     <style>
         * {
             margin: 0;
@@ -15,8 +15,8 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
             color: #1a1a1a;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            background: #ffffff;
+            overflow-x: hidden;
         }
 
         .container {
@@ -28,14 +28,15 @@
         /* Header */
         header {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
             padding: 1rem 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
         }
 
         nav {
@@ -46,9 +47,16 @@
 
         .logo {
             font-size: 1.8rem;
-            font-weight: 700;
-            color: #4f46e5;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-decoration: none;
+        }
+        .logo img {
+            height: 40px;
+            display: block;
         }
 
         .nav-links {
@@ -62,150 +70,284 @@
             color: #64748b;
             font-weight: 500;
             transition: color 0.3s ease;
+            position: relative;
         }
 
         .nav-links a:hover {
-            color: #4f46e5;
+            color: #6366f1;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            background-image: url('img/looptra_vegetal_wall.png'), linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 220px 0 180px;
             text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.20) 100%),
+                linear-gradient(180deg, rgba(30,41,59,0.72) 0%, rgba(30,41,59,0.48) 40%, rgba(255,255,255,0) 100%),
+                radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 80%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 80%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        .hero .subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            line-height: 1;
+            color: #1a1a1a;
             opacity: 0;
             animation: fadeInUp 1s ease 0.2s forwards;
         }
 
-        .cta-button {
-            display: inline-block;
-            background: white;
-            color: #4f46e5;
-            padding: 15px 35px;
+        .hero .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(30,41,59,0.26), 0 1px 2px rgba(255,255,255,0.16);
+            font-weight: 600;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+            text-shadow: 0 2px 12px rgba(30,41,59,0.18), 0 1px 2px rgba(255,255,255,0.12);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+
+        .hero h1,
+        .hero .tagline,
+        .hero .subtitle {
+            text-shadow:
+                0 4px 32px rgba(30,41,59,0.24),
+                0 1px 2px rgba(255,255,255,0.32);
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.8s forwards;
+        }
+
+        .cta-primary, .cta-secondary {
+            padding: 15px 30px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.4s forwards;
+            border: 2px solid transparent;
         }
 
-        .cta-button:hover {
+        .cta-primary {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+        }
+
+        .cta-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
         }
 
-        /* Problem Section */
-        .problem {
+        .cta-secondary {
             background: white;
-            padding: 80px 0;
+            color: #6366f1;
+            border-color: #e2e8f0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .cta-secondary:hover {
+            border-color: #6366f1;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.1);
+        }
+
+        /* Vision Section */
+        .vision {
+            padding: 100px 0;
+            background: white;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             color: #1a1a1a;
         }
 
-        .problem-grid {
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #64748b;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .vision-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
+            margin-top: 4rem;
         }
 
-        .problem-card {
-            background: #f8fafc;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s ease;
+        .vision-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 2.5rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
         }
 
-        .problem-card:hover {
+        .vision-card:hover {
             transform: translateY(-5px);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 0 8px 40px rgba(99, 102, 241, 0.1);
         }
 
-        .problem-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        .vision-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
         }
 
-        .problem-card h3 {
-            font-size: 1.3rem;
+        .vision-card h3 {
+            font-size: 1.4rem;
             font-weight: 600;
             margin-bottom: 1rem;
             color: #1a1a1a;
         }
 
-        .problem-card p {
+        .vision-card p {
             color: #64748b;
             line-height: 1.6;
         }
 
-        /* Solution Section */
-        .solution {
-            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-            padding: 80px 0;
+        /* Applications Portfolio */
+        .portfolio {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
         }
 
-        .solution-content {
+        .app-showcase {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
+            margin-bottom: 6rem;
         }
 
-        .solution-text h2 {
-            font-size: 2.5rem;
+        .app-showcase:nth-child(even) {
+            direction: rtl;
+        }
+
+        .app-showcase:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .app-info h3 {
+            font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             color: #1a1a1a;
         }
 
-        .solution-text p {
-            font-size: 1.1rem;
+        .app-status {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .status-available {
+            background: rgba(16, 185, 129, 0.1);
+            color: #059669;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .status-coming {
+            background: rgba(245, 158, 11, 0.1);
+            color: #d97706;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .status-vision {
+            background: rgba(139, 92, 246, 0.1);
+            color: #7c3aed;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .app-description {
             color: #64748b;
             margin-bottom: 2rem;
-            line-height: 1.7;
+            line-height: 1.6;
+            font-size: 1.1rem;
         }
 
-        .features-list {
+        .app-features {
             list-style: none;
+            margin-bottom: 2rem;
         }
 
-        .features-list li {
+        .app-features li {
             display: flex;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
+            color: #374151;
             font-weight: 500;
-            color: #1a1a1a;
         }
 
-        .features-list li::before {
+        .app-features li::before {
             content: "✓";
             background: #10b981;
             color: white;
@@ -217,161 +359,192 @@
             justify-content: center;
             margin-right: 1rem;
             font-size: 0.8rem;
+            font-weight: bold;
         }
 
-        .solution-visual {
+        .app-visual {
             background: white;
+            border: 1px solid #e2e8f0;
             border-radius: 20px;
             padding: 2rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
         }
 
-        .mockup {
-            background: #4f46e5;
+        .app-mockup {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
             color: white;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 15px;
-            margin-bottom: 1rem;
-        }
-
-        .mockup h4 {
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .chat-bubble {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 1rem;
-            border-radius: 10px;
-            margin-bottom: 0.5rem;
-            text-align: left;
+            font-family: 'Monaco', 'Menlo', monospace;
             font-size: 0.9rem;
         }
 
-        /* Partners Section */
-        .partners {
-            background: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .partners-subtitle {
-            font-size: 1.1rem;
-            color: #64748b;
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .partner-card {
-            background: #f8fafc;
-            padding: 2rem;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .partner-card:hover {
-            transform: translateY(-5px);
-            border-color: #4f46e5;
-            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.1);
-        }
-
-        .partner-logo {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .partner-card h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #1a1a1a;
-        }
-
-        .partner-card p {
-            color: #64748b;
-            font-size: 0.9rem;
+        .mockup-line {
+            margin-bottom: 0.8rem;
+            opacity: 0.95;
             line-height: 1.4;
         }
 
-        .integration-note {
-            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
-            padding: 1.5rem;
-            border-radius: 15px;
-            border-left: 4px solid #4f46e5;
+        .mockup-line.user {
+            color: #e0e7ff;
+            font-weight: 500;
+        }
+
+        .mockup-line.assistant {
+            color: #fef3c7;
+            padding-left: 1rem;
+        }
+
+        /* Future Vision */
+        .future {
+            padding: 100px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .ecosystem-visual {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 3rem auto;
+            padding: 3rem;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 30px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.05);
         }
 
-        .integration-note p {
-            color: #1e1b4b;
-            margin: 0;
-            font-size: 0.95rem;
-        }
-
-        /* Target Section */
-        .target {
-            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .target-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .target-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .central-node {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            font-weight: bold;
+            font-size: 1.1rem;
             color: white;
-            padding: 2.5rem 2rem;
-            border-radius: 20px;
-            text-align: center;
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.3);
         }
 
-        .target-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
+        .satellite-nodes {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
-        /* CTA Section */
-        .final-cta {
-            background: linear-gradient(135deg, #1a1a1a 0%, #4f46e5 100%);
+        .satellite {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #6366f1;
+            transition: all 0.3s ease;
+        }
+
+        .satellite:hover {
+            border-color: #6366f1;
+            transform: scale(1.05);
+        }
+
+        /* Early Access */
+        .early-access {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
             color: white;
-            padding: 80px 0;
             text-align: center;
         }
 
-        .final-cta h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
+        .early-access .section-title {
+            color: white;
         }
 
-        .final-cta p {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
+        .early-access .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .email-form {
+            max-width: 500px;
+            margin: 3rem auto;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .email-input {
+            flex: 1;
+            min-width: 300px;
+            padding: 15px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .email-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .email-submit {
+            padding: 15px 30px;
+            background: white;
+            color: #6366f1;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .email-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
         }
 
         /* Footer */
         footer {
-            background: #1a1a1a;
-            color: white;
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
             padding: 3rem 0;
             text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: #64748b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #6366f1;
         }
 
         /* Animations */
@@ -386,31 +559,6 @@
             }
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.1rem;
-            }
-
-            .solution-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-
-        /* Scroll animations */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -421,164 +569,246 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .app-showcase {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .app-showcase:nth-child(even) {
+                direction: ltr;
+            }
+
+            .email-form {
+                flex-direction: column;
+            }
+
+            .email-input {
+                min-width: auto;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .satellite-nodes {
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <nav class="container">
-            <a href="#" class="logo">🧭 Rundesk</a>
+            <a href="#" class="logo">
+                <img src="img/looptra_line_logo.png" alt="Looptra" style="height:40px; display:block;">
+            </a>
             <ul class="nav-links">
-                <li><a href="#probleme">Problème</a></li>
-                <li><a href="#solution">Solution</a></li>
-                <li><a href="#partenaires">Partenaires</a></li>
-                <li><a href="#cible">Public cible</a></li>
+                <li><a href="#vision">Vision</a></li>
+                <li><a href="#applications">Applications</a></li>
+                <li><a href="#futur">Futur</a></li>
+                <li><a href="#acces">Accès anticipé</a></li>
             </ul>
         </nav>
     </header>
 
     <section class="hero">
         <div class="container">
-            <h1>L'assistant GPT qui optimise vos déplacements professionnels</h1>
-            <p class="subtitle">Rundesk aide les consultants itinérants à organiser intelligemment leurs tournées client, économiser du temps et réduire le stress logistique.</p>
-            <a href="#solution" class="cta-button">Découvrir Rundesk</a>
-        </div>
-    </section>
-
-    <section id="probleme" class="problem">
-        <div class="container">
-            <h2 class="section-title fade-in">Le défi des consultants itinérants</h2>
-            <div class="problem-grid">
-                <div class="problem-card fade-in">
-                    <div class="problem-icon">⏰</div>
-                    <h3>Perte de temps</h3>
-                    <p>Organisation fastidieuse des déplacements entre plusieurs outils : Google Maps, SNCF, Booking...</p>
-                </div>
-                <div class="problem-card fade-in">
-                    <div class="problem-icon">🗺️</div>
-                    <h3>Optimisation complexe</h3>
-                    <p>Difficulté à trouver le meilleur ordre de visites et les trajets les plus efficaces entre les clients.</p>
-                </div>
-                <div class="problem-card fade-in">
-                    <div class="problem-icon">💸</div>
-                    <h3>Coûts non maîtrisés</h3>
-                    <p>Réservations d'hôtels et transports pas toujours optimales, générant des surcoûts evitables.</p>
+            <div class="hero-content">
+                <h1>Studio d'Applications Intelligentes</h1>
+                <p class="tagline">Nous créons des assistants spécialisés pour libérer le potentiel des professionnels</p>
+                <p class="subtitle">Des applications conversationnelles expertes qui comprennent votre métier, s'intègrent à vos outils, et automatisent vos tâches les plus complexes.</p>
+                <div class="cta-group">
+                    <a href="#applications" class="cta-primary">Découvrir nos applications</a>
+                    <a href="#acces" class="cta-secondary">Accès anticipé</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="solution" class="solution">
+    <section id="vision" class="vision">
         <div class="container">
-            <div class="solution-content">
-                <div class="solution-text fade-in">
-                    <h2>Rundesk : Votre assistant intelligent</h2>
-                    <p>Un GPT intégré directement dans ChatGPT qui transforme la planification de vos déplacements professionnels en une conversation simple et intelligente.</p>
-                    
-                    <ul class="features-list">
-                        <li>Optimisation automatique de l'ordre des rendez-vous</li>
-                        <li>Suggestions de trajets multimodaux (train, voiture, marche)</li>
-                        <li>Recherche d'hôtels stratégiquement placés</li>
-                        <li>Simulation de coûts et horaires en temps réel</li>
-                        <li>Conseils proactifs pour éviter les pertes de temps</li>
+            <h2 class="section-title fade-in">Pourquoi maintenant ?</h2>
+            <p class="section-subtitle fade-in">L'intelligence artificielle est puissante, mais la plupart des outils restent génériques. Looptra crée la nouvelle génération : des assistants spécialisés pensés pour des besoins métier précis.</p>
+            
+            <div class="vision-grid">
+                <div class="vision-card fade-in">
+                    <span class="vision-icon">🎯</span>
+                    <h3>Spécialisées</h3>
+                    <p>Chaque application répond à un besoin précis, dans un secteur ou une fonction donnée. Pas de généralisme, que de l'expertise ciblée.</p>
+                </div>
+                <div class="vision-card fade-in">
+                    <span class="vision-icon">🔌</span>
+                    <h3>Connectées</h3>
+                    <p>Nos assistants s'intègrent à vos outils métier (CRM, transport, planning, etc.) pour des actions concrètes et mesurables.</p>
+                </div>
+                <div class="vision-card fade-in">
+                    <span class="vision-icon">⚡</span>
+                    <h3>Méthodiques</h3>
+                    <p>Ils suivent une logique métier rigoureuse, pas juste une conversation floue. Précision et reproductibilité garanties.</p>
+                </div>
+                <div class="vision-card fade-in">
+                    <span class="vision-icon">🚀</span>
+                    <h3>Autonomes</h3>
+                    <p>Ils exécutent des actions, collectent des données, et s'améliorent au fil de l'usage. Moins de supervision, plus de résultats.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="applications" class="portfolio">
+        <div class="container">
+            <h2 class="section-title fade-in">Nos Applications</h2>
+            
+            <div class="app-showcase fade-in">
+                <div class="app-info">
+                    <h3>🧭 Rundesk</h3>
+                    <span class="app-status status-available">✅ Disponible</span>
+                    <p class="app-description">
+                        Assistant de terrain pour consultants itinérants. Optimise les déplacements, planifie les rendez-vous, et gère la logistique en une conversation naturelle.
+                    </p>
+                    <ul class="app-features">
+                        <li>Optimisation automatique des tournées client</li>
+                        <li>Intégration SNCF, Trainline, Booking.com</li>
+                        <li>Recommandations proactives de logistique</li>
+                        <li>Simulation de coûts en temps réel</li>
                     </ul>
+                    <a href="#" class="cta-primary" onclick="showRundesk()">Essayer Rundesk</a>
+                </div>
+                <div class="app-visual">
+                    <div class="app-mockup">
+                        <div class="mockup-line user">Vous: "3 RDV cette semaine: Lyon mardi, Marseille mercredi, Nice jeudi"</div>
+                        <div class="mockup-line assistant">Rundesk: "🎯 Optimisation suggérée: Lyon→Nice→Marseille"</div>
+                        <div class="mockup-line assistant">"Train Lyon-Nice 3h, puis Nice-Marseille 2h30"</div>
+                        <div class="mockup-line assistant">"Hôtel recommandé: Nice centre (-40% déplacements)"</div>
+                        <div class="mockup-line assistant">"Économie estimée: 150€ + 4h de temps"</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-showcase fade-in">
+                <div class="app-info">
+                    <h3>📋 Tasklane</h3>
+                    <span class="app-status status-coming">🚧 En développement</span>
+                    <p class="app-description">
+                        Assistant de priorisation pour chefs de projet débordés. Analyse votre pipeline, calcule l'impact business, et optimise votre planning selon vos objectifs.
+                    </p>
+                    <ul class="app-features">
+                        <li>Scoring automatique des tâches par impact</li>
+                        <li>Intégration Asana, Notion, Trello</li>
+                        <li>Planification optimale selon contraintes</li>
+                        <li>Alertes proactives sur les deadlines</li>
+                    </ul>
+                    <a href="#acces" class="cta-secondary">Être notifié</a>
+                </div>
+                <div class="app-visual">
+                    <div class="app-mockup">
+                        <div class="mockup-line user">Vous: "J'ai 47 tâches en cours, lesquelles prioriser ?"</div>
+                        <div class="mockup-line assistant">Tasklane: "📊 Analyse de votre planning en cours..."</div>
+                        <div class="mockup-line assistant">"🔴 Urgent: 3 tâches deadline cette semaine"</div>
+                        <div class="mockup-line assistant">"💰 High impact: 2 tâches génératrices de revenus"</div>
+                        <div class="mockup-line assistant">"⏰ Planning optimal: matinée focus sur T1, T2, T3"</div>
+                    </div>
                 </div>
                 
-                <div class="solution-visual fade-in">
-                    <div class="mockup">
-                        <h4>💬 Conversation avec Rundesk</h4>
-                        <div class="chat-bubble">
-                            "J'ai 3 rdv cette semaine : Lyon mardi, Marseille mercredi, Nice jeudi. Comment optimiser ?"
-                        </div>
-                        <div class="chat-bubble">
-                            "🎯 Je recommande : Lyon→Nice→Marseille. Train Lyon-Nice (3h), puis Nice-Marseille (2h30). Hôtel à Nice centre = -40% de déplacements !"
-                        </div>
+            </div>
+
+            <div class="app-showcase fade-in">
+                <div class="app-info">
+                    <h3>💼 SalesView</h3>
+                    <span class="app-status status-vision">🔮 Vision 2025</span>
+                    <p class="app-description">
+                        Assistant commercial intelligent. Lead scoring prédictif, relances automatisées, et prévisions de closing pour booster vos performances sales.
+                    </p>
+                    <ul class="app-features">
+                        <li>Lead scoring prédictif par IA</li>
+                        <li>Intégration CRM (Salesforce, HubSpot)</li>
+                        <li>Séquences de relance personnalisées</li>
+                        <li>Prévisions de revenus en temps réel</li>
+                    </ul>
+                    <a href="#acces" class="cta-secondary">Liste d'attente</a>
+                </div>
+                <div class="app-visual">
+                    <div class="app-mockup">
+                        <div class="mockup-line user">Vous: "Quel est l'état de mon pipeline Q1 ?"</div>
+                        <div class="mockup-line assistant">SalesView: "📈 Pipeline Q1: 487K€ (67% prob. closing)"</div>
+                        <div class="mockup-line assistant">"🔥 5 deals chauds nécessitent relance cette semaine"</div>
+                        <div class="mockup-line assistant">"📧 Séquences automatiques lancées pour 12 leads"</div>
+                        <div class="mockup-line assistant">"🎯 Objectif: 89% d'atteinte probable"</div>
                     </div>
-                    <p><em>Interface conversationnelle native dans ChatGPT</em></p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="partenaires" class="partners">
+    <section id="futur" class="future">
         <div class="container">
-            <h2 class="section-title fade-in">Intégrations et partenaires</h2>
-            <p class="partners-subtitle fade-in">Rundesk s'appuie sur les meilleures plateformes pour vous offrir des données fiables et actualisées</p>
+            <h2 class="section-title fade-in">Notre vision long terme</h2>
+            <p class="section-subtitle fade-in">Construire un écosystème d'assistants spécialisés, interopérables, orchestrés par une couche d'intelligence centrale. Votre cockpit professionnel sur-mesure.</p>
             
-            <div class="partners-grid fade-in">
-                <div class="partner-card">
-                    <div class="partner-logo">🚄</div>
-                    <h4>SNCF Connect</h4>
-                    <p>Horaires et réservations train en temps réel</p>
+            <div class="ecosystem-visual fade-in">
+                <h3 style="margin-bottom: 2rem; color: #374151;">Écosystème Looptra</h3>
+                <div class="central-node">Orchestrateur Central</div>
+                <div class="satellite-nodes">
+                    <div class="satellite">Rundesk</div>
+                    <div class="satellite">Tasklane</div>
+                    <div class="satellite">SalesView</div>
+                    <div class="satellite">App N+1</div>
                 </div>
-                <div class="partner-card">
-                    <div class="partner-logo">🎫</div>
-                    <h4>Trainline</h4>
-                    <p>Comparaison de prix et options de transport</p>
-                </div>
-                <div class="partner-card">
-                    <div class="partner-logo">🏨</div>
-                    <h4>Booking.com</h4>
-                    <p>Hôtels géolocalisés selon vos rendez-vous</p>
-                </div>
-                <div class="partner-card">
-                    <div class="partner-logo">🏠</div>
-                    <h4>Airbnb</h4>
-                    <p>Logements flexibles pour séjours prolongés</p>
-                </div>
-                <div class="partner-card">
-                    <div class="partner-logo">🗺️</div>
-                    <h4>Google Maps</h4>
-                    <p>Calcul d'itinéraires et temps de trajet</p>
-                </div>
-                <div class="partner-card">
-                    <div class="partner-logo">🚗</div>
-                    <h4>BlaBlaCar</h4>
-                    <p>Covoiturage pour trajets économiques</p>
-                </div>
+                <p style="margin-top: 2rem; color: #64748b; font-style: italic;">
+                    Chaque professionnel composera son cockpit d'assistants Looptra personnalisé
+                </p>
             </div>
+        </div>
+    </section>
+
+    <section id="acces" class="early-access">
+        <div class="container">
+            <h2 class="section-title fade-in">Accès anticipé</h2>
+            <p class="section-subtitle fade-in">Soyez parmi les premiers à tester nos nouvelles applications et à façonner l'avenir de votre productivité professionnelle.</p>
             
-            <div class="integration-note fade-in">
-                <p><strong>🔌 Intégrations en cours de développement</strong> - Les APIs partenaires seront progressivement intégrées pour enrichir les recommandations de Rundesk</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="cible" class="target">
-        <div class="container">
-            <h2 class="section-title fade-in">Conçu pour les professionnels mobiles</h2>
-            <div class="target-cards">
-                <div class="target-card fade-in">
-                    <h3>🎯 Consultants indépendants</h3>
-                    <p>En mission 2-5 jours/semaine, multiples clients, forte contrainte budget</p>
-                </div>
-                <div class="target-card fade-in">
-                    <h3>🏢 Consultants en cabinet</h3>
-                    <p>Interventions terrain fréquentes, optimisation des frais de mission</p>
-                </div>
-                <div class="target-card fade-in">
-                    <h3>🚀 Équipes commerciales</h3>
-                    <p>Tournées client régionales, besoin d'efficacité logistique</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="final-cta">
-        <div class="container">
-            <h2>Transformez vos déplacements en avantage concurrentiel</h2>
-            <p>Rundesk sera bientôt disponible dans le GPT Store d'OpenAI avec des fonctionnalités premium.</p>
-            <a href="#" class="cta-button" onclick="showComingSoon()">Être notifié du lancement</a>
+            <form class="email-form fade-in" onsubmit="handleSubmit(event)">
+                <input type="email" class="email-input" placeholder="votre.email@entreprise.com" required>
+                <button type="submit" class="email-submit">Rejoindre la liste</button>
+            </form>
+            
+            <p style="color: rgba(255, 255, 255, 0.8); margin-top: 1rem; font-size: 0.9rem;">
+                ✨ Accès prioritaire aux bêtas • 🎯 Influence sur le roadmap • 📧 0 spam garanti
+            </p>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Rundesk. Assistant GPT pour consultants itinérants.</p>
+            <div class="footer-content">
+                <div class="logo">Looptra</div>
+                <div class="footer-links">
+                    <a href="#vision">Vision</a>
+                    <a href="#applications">Applications</a>
+                    <a href="#acces">Contact</a>
+                </div>
+            </div>
+            <p style="color: #64748b;">&copy; 2025 Looptra. Studio d'applications intelligentes.</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -610,17 +840,27 @@
             observer.observe(el);
         });
 
-        // Coming soon modal
-        function showComingSoon() {
-            alert('🚀 Rundesk sera bientôt disponible ! Nous vous tiendrons informé du lancement dans le GPT Store d\'OpenAI.');
+        // Functions
+        function showRundesk() {
+            window.location.href = 'rundesk.html';
         }
 
+        function handleSubmit(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('.email-input').value;
+            alert(`✅ Merci ! ${email} a été ajouté à notre liste d'accès anticipé. Vous recevrez un email dès que les nouvelles applications seront disponibles.`);
+            event.target.reset();
+        }
+
+        // Header background on scroll
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
                 header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
             } else {
                 header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
             }
         });
     </script>

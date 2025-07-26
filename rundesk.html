@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rundesk - L'assistant GPT pour consultants itinérants</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #4f46e5;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #4f46e5;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #4f46e5;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Problem Section */
+        .problem {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .problem-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .problem-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Solution Section */
+        .solution {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            padding: 80px 0;
+        }
+
+        .solution-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .solution-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #1a1a1a;
+        }
+
+        .solution-text p {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .features-list {
+            list-style: none;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            background: #10b981;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 0.8rem;
+        }
+
+        .solution-visual {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .mockup {
+            background: #4f46e5;
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+        }
+
+        .mockup h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .chat-bubble {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 0.5rem;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        /* Partners Section */
+        .partners {
+            background: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .partners-subtitle {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .partners-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .partner-logo-img {
+            width: auto;
+            height: 56px;
+            transition: transform 0.3s ease;
+        }
+
+        .partner-logo-img:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Target Section */
+        .target {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .target-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .target-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .target-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, #1a1a1a 0%, #4f46e5 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .solution-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.7rem;">
+                Rundesk
+                <span style="font-size: 1rem; color: #64748b; font-weight: 500; display: flex; align-items: center; gap: 0.32rem;">
+                  by
+                  <img src="img/looptra_line_logo.png" alt="Looptra" style="height: 21px; vertical-align: middle;">
+                </span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#probleme">Problème</a></li>
+                <li><a href="#solution">Solution</a></li>
+                <li><a href="#partenaires">Partenaires</a></li>
+                <li><a href="#cible">Public cible</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>L'assistant GPT qui optimise vos déplacements professionnels</h1>
+            <p class="subtitle">Rundesk aide les consultants itinérants à organiser intelligemment leurs tournées client, économiser du temps et réduire le stress logistique.</p>
+            <a href="https://chatgpt.com/g/g-687ea303160481918a476e32f2fbd956-rundesk" class="cta-button" target="_blank" rel="noopener">Découvrir Rundesk</a>
+        </div>
+    </section>
+
+    <section id="probleme" class="problem">
+        <div class="container">
+            <h2 class="section-title fade-in">Le défi des consultants itinérants</h2>
+            <div class="problem-grid">
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">⏰</div>
+                    <h3>Perte de temps</h3>
+                    <p>Organisation fastidieuse des déplacements entre plusieurs outils : Google Maps, SNCF, Booking...</p>
+                </div>
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">🗺️</div>
+                    <h3>Optimisation complexe</h3>
+                    <p>Difficulté à trouver le meilleur ordre de visites et les trajets les plus efficaces entre les clients.</p>
+                </div>
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">💸</div>
+                    <h3>Coûts non maîtrisés</h3>
+                    <p>Réservations d'hôtels et transports pas toujours optimales, générant des surcoûts evitables.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solution" class="solution">
+        <div class="container">
+            <div class="solution-content">
+                <div class="solution-text fade-in">
+                    <h2>Rundesk : Votre assistant intelligent</h2>
+                    <p>Un GPT intégré directement dans ChatGPT qui transforme la planification de vos déplacements professionnels en une conversation simple et intelligente.</p>
+                    
+                    <ul class="features-list">
+                        <li>Optimisation automatique de l'ordre des rendez-vous</li>
+                        <li>Suggestions de trajets multimodaux (train, voiture, marche)</li>
+                        <li>Recherche d'hôtels stratégiquement placés</li>
+                        <li>Simulation de coûts et horaires en temps réel</li>
+                        <li>Conseils proactifs pour éviter les pertes de temps</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-visual fade-in">
+                    <div class="mockup">
+                        <h4>💬 Conversation avec Rundesk</h4>
+                        <div class="chat-bubble">
+                            "J'ai 3 rdv cette semaine : Lyon mardi, Marseille mercredi, Nice jeudi. Comment optimiser ?"
+                        </div>
+                        <div class="chat-bubble">
+                            "🎯 Je recommande : Lyon→Nice→Marseille. Train Lyon-Nice (3h), puis Nice-Marseille (2h30). Hôtel à Nice centre = -40% de déplacements !"
+                        </div>
+                    </div>
+                    <p><em>Interface conversationnelle native dans ChatGPT</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="partenaires" class="partners">
+        <div class="container">
+            <h2 class="section-title fade-in">Intégrations et partenaires</h2>
+            <p class="partners-subtitle fade-in">Rundesk s'appuie sur les meilleures plateformes pour vous offrir des données fiables et actualisées</p>
+            <div class="partners-logos">
+                <img src="img/sncf_logo.png" alt="SNCF Connect" class="partner-logo-img">
+                <img src="img/trainline_logo.png" alt="Trainline" class="partner-logo-img">
+                <img src="img/booking_logo.png" alt="Booking.com" class="partner-logo-img">
+                <img src="img/airbnb_logo.png" alt="Airbnb" class="partner-logo-img">
+                <img src="img/googlemaps_logo.png" alt="Google Maps" class="partner-logo-img">
+            </div>
+        </div>
+    </section>
+
+    <section id="cible" class="target">
+        <div class="container">
+            <h2 class="section-title fade-in">Conçu pour les professionnels mobiles</h2>
+            <div class="target-cards">
+                <div class="target-card fade-in">
+                    <h3>🎯 Consultants indépendants</h3>
+                    <p>En mission 2-5 jours/semaine, multiples clients, forte contrainte budget</p>
+                </div>
+                <div class="target-card fade-in">
+                    <h3>🏢 Consultants en cabinet</h3>
+                    <p>Interventions terrain fréquentes, optimisation des frais de mission</p>
+                </div>
+                <div class="target-card fade-in">
+                    <h3>🚀 Équipes commerciales</h3>
+                    <p>Tournées client régionales, besoin d'efficacité logistique</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="container">
+            <h2>Essayez Rundesk dès maintenant</h2>
+            <p>Testez gratuitement l’assistant GPT qui optimise vos déplacements professionnels.<br>
+            Réservez vos trajets, hôtels et planifiez vos tournées client directement depuis ChatGPT.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfErT3W8NDDuYPpu51YJi8-60U3rzgJz_yvbf5mjndT84-vIA/viewform?usp=dialog"
+               class="cta-button"
+               target="_blank"
+               rel="noopener">
+               Être notifié du lancement
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Rundesk. Assistant GPT pour consultants itinérants.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Coming soon modal
+        function showComingSoon() {
+            alert('🚀 Rundesk sera bientôt disponible ! Nous vous tiendrons informé du lancement dans le GPT Store d\'OpenAI.');
+        }
+
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>

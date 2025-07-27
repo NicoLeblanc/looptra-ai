@@ -26,18 +26,18 @@
             padding: 0 20px;
         }
 
-        /* Header */
+        /* Header amélioré */
         header {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
             padding: 1rem 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
         }
 
         nav {
@@ -49,11 +49,25 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #071c3b 0%, #0b2a56 50%, #06b6d4 100%);
+            text-decoration: none;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            transition: all 0.3s ease;
+        }
+        .looptra-text-logo {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 25%, #06b6d4 50%, #8b5cf6 75%, #ffffff 100%);
+            background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-decoration: none;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+            transition: all 0.3s ease;
+            border: none;
+            padding: 0;
+            display: block;
+            line-height: 1.1;
         }
         .logo img {
             height: 40px;
@@ -68,14 +82,18 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #64748b;
+            color: rgba(255, 255, 255, 0.9);
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
         }
 
         .nav-links a:hover {
-            color: #071c3b;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            backdrop-filter: blur(10px);
         }
 
         .nav-links a::after {
@@ -85,7 +103,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(135deg, #071c3b, #0b2a56);
+            background: linear-gradient(135deg, #ffffff, #06b6d4);
             transition: width 0.3s ease;
         }
 
@@ -93,119 +111,243 @@
             width: 100%;
         }
 
-        /* Hero Section */
+        /* Hero Section avec Vagues Fluides */
         .hero {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            background-image: url('img/looptra_vegetal_wall.png'), linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            padding: 220px 0 180px;
-            text-align: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            cursor: none;
         }
 
-        .hero::before {
-            content: '';
+        /* Curseur personnalisé */
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.8) 0%, rgba(6, 182, 212, 0.2) 70%, transparent 100%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+            mix-blend-mode: screen;
+        }
+
+        /* Background fluide interactif */
+        .fluid-bg {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.20) 100%),
-                linear-gradient(180deg, rgba(30,41,59,0.72) 0%, rgba(30,41,59,0.48) 40%, rgba(255,255,255,0) 100%),
-                radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 80%),
-                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 80%);
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 50% 50%, 
+                    rgba(6, 182, 212, 0.15) 0%, 
+                    rgba(139, 92, 246, 0.1) 40%, 
+                    transparent 70%),
+                radial-gradient(circle at 30% 70%, 
+                    rgba(245, 158, 11, 0.08) 0%, 
+                    transparent 50%),
+                radial-gradient(circle at 70% 30%, 
+                    rgba(16, 185, 129, 0.06) 0%, 
+                    transparent 50%);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             pointer-events: none;
+        }
+
+        /* Particules flottantes pour enrichir l'effet */
+        .floating-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(odd) {
+            animation-delay: -2s;
+            animation-duration: 8s;
+        }
+
+        .particle:nth-child(3n) {
+            animation-delay: -4s;
+            animation-duration: 10s;
+        }
+
+        /* Vagues d'ondulation */
+        .wave-ripples {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .ripple {
+            position: absolute;
+            border: 2px solid rgba(6, 182, 212, 0.3);
+            border-radius: 50%;
+            opacity: 0;
+            animation: ripple-expand 2s ease-out;
         }
 
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
         }
 
         .hero h1 {
-            font-size: 4rem;
-            font-weight: 800;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
             margin-bottom: 2rem;
-            line-height: 1;
-            color: #1a1a1a;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.2s forwards;
+            line-height: 1.1;
+            background: linear-gradient(135deg, 
+                #ffffff 0%, 
+                #e0e7ff 25%, 
+                #06b6d4 50%, 
+                #8b5cf6 75%, 
+                #ffffff 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease-in-out infinite, fadeInScale 1.2s ease-out;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+            position: relative;
+        }
+
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #06b6d4, transparent);
+            border-radius: 2px;
+            animation: expandWidth 1.5s ease-out 0.8s forwards;
+            transform-origin: center;
+            scale: 0;
         }
 
         .hero .tagline {
-            font-size: 1.5rem;
+            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
             margin-bottom: 1.5rem;
-            color: #ffffff;
-            text-shadow: 0 2px 10px rgba(30,41,59,0.26), 0 1px 2px rgba(255,255,255,0.16);
+            color: rgba(255, 255, 255, 0.95);
             font-weight: 600;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.4s forwards;
+            animation: fadeInUp 1s ease 0.4s both;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            position: relative;
         }
 
         .hero .subtitle {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2vw, 1.3rem);
             margin-bottom: 3rem;
-            color: #1a1a1a;
-            text-shadow: 0 2px 12px rgba(30,41,59,0.18), 0 1px 2px rgba(255,255,255,0.12);
+            color: rgba(255, 255, 255, 0.8);
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.6s forwards;
+            animation: fadeInUp 1s ease 0.6s both;
+            line-height: 1.6;
         }
 
-        .hero h1,
-        .hero .tagline,
-        .hero .subtitle {
-            text-shadow:
-                0 4px 32px rgba(30,41,59,0.24),
-                0 1px 2px rgba(255,255,255,0.32);
-        }
-
+        /* Boutons CTA améliorés */
         .cta-group {
             display: flex;
             gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.8s forwards;
+            animation: fadeInUp 1s ease 0.8s both;
         }
 
         .cta-primary, .cta-secondary {
-            padding: 15px 30px;
+            padding: 18px 36px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
         }
 
         .cta-primary {
-            background: #071c3b;
+            background: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
             color: white;
-            box-shadow: 0 4px 15px rgba(7, 28, 59, 0.12);
+            box-shadow: 0 8px 32px rgba(6, 182, 212, 0.3);
+        }
+
+        .cta-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-primary:hover::before {
+            left: 100%;
         }
 
         .cta-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(7, 28, 59, 0.18);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 12px 40px rgba(6, 182, 212, 0.4);
         }
 
         .cta-secondary {
-            background: white;
-            color: #071c3b;
-            border-color: #e2e8f0;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         .cta-secondary:hover {
-            border-color: #071c3b;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.1);
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Indicateur de scroll */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator::before {
+            content: '↓';
+            display: block;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
         }
 
         /* Vision Section */
@@ -549,14 +691,79 @@
         }
 
         /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px);
+                opacity: 0.6;
+            }
+            50% {
+                transform: translateY(-20px) translateX(10px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes expandWidth {
+            from {
+                scale: 0;
+            }
+            to {
+                scale: 1;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        @keyframes ripple-expand {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+            100% {
+                width: 300px;
+                height: 300px;
+                opacity: 0;
             }
         }
 
@@ -573,8 +780,27 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .hero {
+                padding: 120px 0 80px;
+                cursor: auto;
+            }
+            
+            .custom-cursor {
+                display: none;
+            }
+            
+            .cta-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-primary, .cta-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .nav-links {
+                display: none;
             }
 
             .app-showcase {
@@ -592,10 +818,6 @@
 
             .email-input {
                 min-width: auto;
-            }
-
-            .nav-links {
-                display: none;
             }
 
             .footer-content {
@@ -616,9 +838,7 @@
 <body>
     <header>
         <nav class="container">
-            <a href="#" class="logo">
-                <img src="img/looptra_line_logo.png" alt="Looptra" style="height:40px; display:block;">
-            </a>
+            <a href="#" class="logo looptra-text-logo">Looptra</a>
             <ul class="nav-links">
                 <li><a href="#vision">Vision</a></li>
                 <li><a href="#applications">Applications</a></li>
@@ -628,7 +848,19 @@
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="hero">
+        <!-- Curseur personnalisé -->
+        <div class="custom-cursor"></div>
+        
+        <!-- Background fluide interactif -->
+        <div class="fluid-bg" id="fluidBg"></div>
+        
+        <!-- Particules flottantes -->
+        <div class="floating-particles" id="particles"></div>
+        
+        <!-- Conteneur pour les ondulations -->
+        <div class="wave-ripples" id="ripples"></div>
+        
         <div class="container">
             <div class="hero-content">
                 <h1>Studio d'Applications Intelligentes</h1>
@@ -640,34 +872,43 @@
                 </div>
             </div>
         </div>
+        
+        <div class="scroll-indicator">
+            <span>Découvrir</span>
+        </div>
     </section>
 
     <section id="vision" class="vision">
         <div class="container">
-            <h2 class="section-title fade-in">Pourquoi maintenant ?</h2>
-            <p class="section-subtitle fade-in">L'intelligence artificielle est puissante, mais la plupart des outils restent génériques. Looptra crée la nouvelle génération : des assistants spécialisés pensés pour des besoins métier précis.</p>
+            <h2 class="section-title fade-in">Le basculement a commencé</h2>
+            <p class="section-subtitle fade-in">Nous vivons un basculement : les applications deviennent des intelligences. Looptra est né de cette conviction : <strong>le futur du logiciel s'écrit à travers des agents IA</strong> — spécialisés, actionnables, intégrés dans des écosystèmes que les professionnels utilisent déjà.</p>
             
             <div class="vision-grid">
                 <div class="vision-card fade-in">
-                    <span class="vision-icon">🎯</span>
-                    <h3>Spécialisées</h3>
-                    <p>Chaque application répond à un besoin précis, dans un secteur ou une fonction donnée. Pas de généralisme, que de l'expertise ciblée.</p>
-                </div>
-                <div class="vision-card fade-in">
-                    <span class="vision-icon">🔌</span>
-                    <h3>Connectées</h3>
-                    <p>Nos assistants s'intègrent à vos outils métier (CRM, transport, planning, etc.) pour des actions concrètes et mesurables.</p>
+                    <span class="vision-icon">🤖</span>
+                    <h3>Agents, pas outils</h3>
+                    <p>Chaque assistant est une application à part entière, qui <strong>raisonne, agit, et s'intègre</strong> au cœur des outils métier. Fini les interfaces, place à l'intelligence.</p>
                 </div>
                 <div class="vision-card fade-in">
                     <span class="vision-icon">⚡</span>
-                    <h3>Méthodiques</h3>
-                    <p>Ils suivent une logique métier rigoureuse, pas juste une conversation floue. Précision et reproductibilité garanties.</p>
+                    <h3>Construire par-dessus</h3>
+                    <p>Là où d'autres construisent de nouveaux modèles, nous faisons un choix stratégique : <strong>concevoir par-dessus</strong> ce qui existe, et aller vite.</p>
                 </div>
                 <div class="vision-card fade-in">
-                    <span class="vision-icon">🚀</span>
-                    <h3>Autonomes</h3>
-                    <p>Ils exécutent des actions, collectent des données, et s'améliorent au fil de l'usage. Moins de supervision, plus de résultats.</p>
+                    <span class="vision-icon">🏪</span>
+                    <h3>Nouvel App Store</h3>
+                    <p>Nous voyons l'émergence d'un <strong>App Store d'agents intelligents</strong> où chaque spécialité métier a son assistant dédié et expert.</p>
                 </div>
+                <div class="vision-card fade-in">
+                    <span class="vision-icon">🎯</span>
+                    <h3>Terrain, pas labo</h3>
+                    <p>Notre mission : <strong>créer ces agents spécialisés</strong>, pour répondre aux vrais enjeux des pros sur le terrain, pas dans des labos.</p>
+                </div>
+            </div>
+            
+            <div class="vision-statement fade-in" style="text-align: center; margin-top: 4rem; padding: 2rem; background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%); border-radius: 20px; border-left: 4px solid #06b6d4;">
+                <h3 style="font-size: 1.5rem; color: #071c3b; margin-bottom: 1rem; font-weight: 700;">Looptra est le studio de ces nouveaux agents</h3>
+                <p style="color: #64748b; font-size: 1.1rem; max-width: 600px; margin: 0 auto; line-height: 1.6;">Nous façonnons l'avenir du travail, un agent intelligent à la fois.</p>
             </div>
         </div>
     </section>
@@ -728,32 +969,6 @@
                 </div>
                 
             </div>
-
-            <div class="app-showcase fade-in">
-                <div class="app-info">
-                    <h3>💼 SalesView</h3>
-                    <span class="app-status status-vision">🔮 Vision 2025</span>
-                    <p class="app-description">
-                        Assistant commercial intelligent. Lead scoring prédictif, relances automatisées, et prévisions de closing pour booster vos performances sales.
-                    </p>
-                    <ul class="app-features">
-                        <li>Lead scoring prédictif par IA</li>
-                        <li>Intégration CRM (Salesforce, HubSpot)</li>
-                        <li>Séquences de relance personnalisées</li>
-                        <li>Prévisions de revenus en temps réel</li>
-                    </ul>
-                    <a href="#acces" class="cta-secondary">Liste d'attente</a>
-                </div>
-                <div class="app-visual">
-                    <div class="app-mockup">
-                        <div class="mockup-line user">Vous: "Quel est l'état de mon pipeline Q1 ?"</div>
-                        <div class="mockup-line assistant">SalesView: "📈 Pipeline Q1: 487K€ (67% prob. closing)"</div>
-                        <div class="mockup-line assistant">"🔥 5 deals chauds nécessitent relance cette semaine"</div>
-                        <div class="mockup-line assistant">"📧 Séquences automatiques lancées pour 12 leads"</div>
-                        <div class="mockup-line assistant">"🎯 Objectif: 89% d'atteinte probable"</div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -768,7 +983,6 @@
                 <div class="satellite-nodes">
                     <div class="satellite">Rundesk</div>
                     <div class="satellite">Tasklane</div>
-                    <div class="satellite">SalesView</div>
                     <div class="satellite">App N+1</div>
                 </div>
                 <p style="margin-top: 2rem; color: #64748b; font-style: italic;">
@@ -811,6 +1025,152 @@
     </footer>
 
     <script>
+        let mouseX = 0, mouseY = 0;
+        let lastRippleTime = 0;
+
+        // Curseur personnalisé
+        const cursor = document.querySelector('.custom-cursor');
+        
+        // Gestionnaire principal du mouvement de souris
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Curseur personnalisé
+            if (cursor) {
+                cursor.style.left = (mouseX - 10) + 'px';
+                cursor.style.top = (mouseY - 10) + 'px';
+            }
+            
+            // Vérifier si la souris est dans la section hero
+            const heroRect = document.getElementById('hero').getBoundingClientRect();
+            if (e.clientY >= heroRect.top && e.clientY <= heroRect.bottom) {
+                handleFluidEffect(e.clientX - heroRect.left, e.clientY - heroRect.top);
+                
+                // Créer des ondulations de temps en temps
+                const now = Date.now();
+                if (now - lastRippleTime > 100) { // Limiter la fréquence
+                    createRipple(e.clientX - heroRect.left, e.clientY - heroRect.top);
+                    lastRippleTime = now;
+                }
+            }
+        });
+
+        // Effet de vagues fluides
+        function handleFluidEffect(x, y) {
+            const fluidBg = document.getElementById('fluidBg');
+            const heroRect = document.getElementById('hero').getBoundingClientRect();
+            
+            const xPercent = (x / heroRect.width) * 100;
+            const yPercent = (y / heroRect.height) * 100;
+            
+            // Créer des gradients multiples qui suivent la souris
+            fluidBg.style.background = `
+                radial-gradient(circle at ${xPercent}% ${yPercent}%, 
+                    rgba(6, 182, 212, 0.25) 0%, 
+                    rgba(139, 92, 246, 0.15) 40%, 
+                    transparent 70%),
+                radial-gradient(circle at ${100-xPercent}% ${100-yPercent}%, 
+                    rgba(245, 158, 11, 0.12) 0%, 
+                    rgba(16, 185, 129, 0.08) 50%,
+                    transparent 70%),
+                radial-gradient(circle at ${xPercent * 0.8}% ${yPercent * 1.2}%, 
+                    rgba(239, 68, 68, 0.06) 0%, 
+                    transparent 50%)
+            `;
+        }
+
+        // Créer des ondulations au clic
+        function createRipple(x, y) {
+            const ripplesContainer = document.getElementById('ripples');
+            const ripple = document.createElement('div');
+            
+            ripple.className = 'ripple';
+            ripple.style.left = (x - 150) + 'px';
+            ripple.style.top = (y - 150) + 'px';
+            
+            ripplesContainer.appendChild(ripple);
+            
+            // Supprimer l'ondulation après l'animation
+            setTimeout(() => {
+                if (ripple.parentNode) {
+                    ripple.parentNode.removeChild(ripple);
+                }
+            }, 2000);
+        }
+
+        // Créer des particules flottantes
+        function createFloatingParticles() {
+            const particlesContainer = document.getElementById('particles');
+            
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const delay = Math.random() * 6;
+                
+                particle.style.left = x + '%';
+                particle.style.top = y + '%';
+                particle.style.animationDelay = delay + 's';
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Effet de clic pour créer une grosse ondulation
+        document.getElementById('hero').addEventListener('click', (e) => {
+            const heroRect = e.currentTarget.getBoundingClientRect();
+            const x = e.clientX - heroRect.left;
+            const y = e.clientY - heroRect.top;
+            
+            // Créer une ondulation plus grande
+            const ripplesContainer = document.getElementById('ripples');
+            const bigRipple = document.createElement('div');
+            
+            bigRipple.className = 'ripple';
+            bigRipple.style.left = (x - 200) + 'px';
+            bigRipple.style.top = (y - 200) + 'px';
+            bigRipple.style.borderWidth = '3px';
+            bigRipple.style.borderColor = 'rgba(6, 182, 212, 0.6)';
+            
+            // Animation plus grande
+            bigRipple.style.animation = 'ripple-expand 3s ease-out';
+            
+            ripplesContainer.appendChild(bigRipple);
+            
+            setTimeout(() => {
+                if (bigRipple.parentNode) {
+                    bigRipple.parentNode.removeChild(bigRipple);
+                }
+            }, 3000);
+        });
+
+        // Header background change
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const header = document.querySelector('header');
+            const logo = header.querySelector('.logo');
+            const navLinks = header.querySelectorAll('.nav-links a');
+            
+            if (scrolled > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.borderBottom = '1px solid rgba(0, 0, 0, 0.1)';
+                // logo.style.background = 'linear-gradient(135deg, #071c3b 0%, #0b2a56 50%, #06b6d4 100%)';
+                navLinks.forEach(link => {
+                    link.style.color = '#64748b';
+                });
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.1)';
+                header.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
+                // logo.style.background = 'linear-gradient(135deg, #ffffff 0%, #e0e7ff 50%, #06b6d4 100%)';
+                navLinks.forEach(link => {
+                    link.style.color = 'rgba(255, 255, 255, 0.9)';
+                });
+            }
+        });
+
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -855,17 +1215,16 @@
             event.target.reset();
         }
 
-        // Header background on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
-            }
+        // Initialisation
+        window.addEventListener('load', () => {
+            createFloatingParticles();
         });
+
+        // Responsive - Désactiver les effets sur mobile
+        if (window.innerWidth <= 768) {
+            document.querySelector('.custom-cursor').style.display = 'none';
+            document.getElementById('hero').style.cursor = 'auto';
+        }
     </script>
 </body>
 </html>

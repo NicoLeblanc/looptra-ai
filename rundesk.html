@@ -210,13 +210,15 @@
             background: #10b981;
             color: white;
             border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: flex;
+            width: 1.25em;
+            height: 1.25em;
+            min-width: 1.25em;
+            min-height: 1.25em;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             margin-right: 1rem;
-            font-size: 0.8rem;
+            font-size: 1em;
         }
 
         .solution-visual {
@@ -385,16 +387,80 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Logo styles */
+        .logo-title {
+            display: flex;
+            align-items: baseline;
+            gap: 0.35em;
+            font-size: 2.3rem;
+        }
+        .rundesk {
+            font-weight: 800;
+            color: #5755ee;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+        .by {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: #64748b;
+            margin-left: 0.25em;
+            margin-right: 0em;
+            letter-spacing: 0.01em;
+        }
+        .looptra {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #071c3b;
+            letter-spacing: 0.02em;
+        }
+
+        .partners-logos {
+            margin-top: 3rem;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        .logos-track {
+            display: flex;
+            animation: scroll-logos 20s linear infinite;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .partner-logo-img {
+            width: auto;
+            height: 56px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+            filter: grayscale(0.7) opacity(0.8);
+        }
+
+        .partner-logo-img:hover {
+            transform: translateY(-4px);
+            filter: grayscale(0) opacity(1);
+        }
+
+        @keyframes scroll-logos {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <nav class="container">
-            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.7rem;">
-                Rundesk
-                <span style="font-size: 1rem; color: #64748b; font-weight: 500; display: flex; align-items: center; gap: 0.32rem;">
-                  by
-                  <img src="img/looptra_line_logo.png" alt="Looptra" style="height: 21px; vertical-align: middle;">
+            <a href="index.html" class="logo" style="text-decoration: none;">
+                <span class="logo-title">
+                    <span class="rundesk">Rundesk</span>
+                    <span class="by">by</span>
+                    <span class="looptra">Looptra</span>
                 </span>
             </a>
             <ul class="nav-links">
@@ -410,7 +476,7 @@
         <div class="container">
             <h1>L'assistant GPT qui optimise vos déplacements professionnels</h1>
             <p class="subtitle">Rundesk aide les consultants itinérants à organiser intelligemment leurs tournées client, économiser du temps et réduire le stress logistique.</p>
-            <a href="https://chatgpt.com/g/g-687ea303160481918a476e32f2fbd956-rundesk" class="cta-button" target="_blank" rel="noopener">Découvrir Rundesk</a>
+            <a href="https://chatgpt.com/g/g-687ea303160481918a476e32f2fbd956-rundesk" class="cta-button" target="_blank" rel="noopener">Essayer Rundesk</a>
         </div>
     </section>
 
@@ -456,11 +522,26 @@
                 <div class="solution-visual fade-in">
                     <div class="mockup">
                         <h4>💬 Conversation avec Rundesk</h4>
-                        <div class="chat-bubble">
+                        <div class="chat-bubble" style="background: rgba(255,255,255,0.95); color: #1a1a1a;">
                             "J'ai 3 rdv cette semaine : Lyon mardi, Marseille mercredi, Nice jeudi. Comment optimiser ?"
                         </div>
                         <div class="chat-bubble">
                             "🎯 Je recommande : Lyon→Nice→Marseille. Train Lyon-Nice (3h), puis Nice-Marseille (2h30). Hôtel à Nice centre = -40% de déplacements !"
+                        </div>
+                        <div class="chat-bubble">
+                            Voici un récapitulatif des différents choix possibles :<br><br>
+                            <strong>Trains :</strong><br>
+                            <a href="https://www.sncf-connect.com/" target="_blank" style="color:#4f46e5;text-decoration:underline;">Lyon → Nice (SNCF)</a> <span style="color:#1a1a1a; font-size:0.98em;">— Mercredi 12 Nov • 120 €</span> <br>
+                            <a href="https://www.trainline.fr/" target="_blank" style="color:#4f46e5;text-decoration:underline;">Nice → Marseille (Trainline)</a> <span style="color:#1a1a1a; font-size:0.98em;">— Jeudi 13 Nov • 64 €</span> <br><br>
+                            <strong>Hôtels recommandés :</strong><br>
+                            <a href="https://www.booking.com/" target="_blank" style="color:#4f46e5;text-decoration:underline;">Booking.com : Hôtel Nice Centre</a> <span style="color:#1a1a1a; font-size:0.98em;">— 2 nuits • 198 €</span> <br>
+                            <a href="https://www.airbnb.fr/" target="_blank" style="color:#4f46e5;text-decoration:underline;">Airbnb : Studio proche gare Nice</a> <span style="color:#1a1a1a; font-size:0.98em;">— 2 nuits • 140 €</span> <br><br>
+                        </div>
+                        <div class="chat-bubble" style="padding: 0.5rem 0.5rem 1.2rem;">
+                            <strong>Récapitulatif :</strong><br>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1478382.7564427725!2d5.367678440788138!3d44.62150671115429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1753620016032!5m2!1sfr!2sfr"
+                                width="100%" height="220" style="border-radius:12px;border:0;margin-top:0.5rem;box-shadow:0 4px 18px rgba(30,41,59,0.08);"
+                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                     <p><em>Interface conversationnelle native dans ChatGPT</em></p>
@@ -508,12 +589,7 @@
             <h2>Essayez Rundesk dès maintenant</h2>
             <p>Testez gratuitement l’assistant GPT qui optimise vos déplacements professionnels.<br>
             Réservez vos trajets, hôtels et planifiez vos tournées client directement depuis ChatGPT.</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfErT3W8NDDuYPpu51YJi8-60U3rzgJz_yvbf5mjndT84-vIA/viewform?usp=dialog"
-               class="cta-button"
-               target="_blank"
-               rel="noopener">
-               Être notifié du lancement
-            </a>
+            <a href="https://chatgpt.com/g/g-687ea303160481918a476e32f2fbd956-rundesk" class="cta-button" target="_blank" rel="noopener">Essayer Rundesk</a>
         </div>
     </section>
 

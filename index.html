@@ -4,1187 +4,442 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="img/looptra_favicon.png">
-    <title>Looptra - Studio d'Applications Intelligentes</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: #1a1a1a;
-            background: #ffffff;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header amélioré */
-        header {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            text-decoration: none;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-            transition: all 0.3s ease;
-        }
-        .looptra-text-logo {
-            font-size: clamp(1.2rem, 3vw, 2rem);
-            font-weight: 900;
-            background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 25%, #06b6d4 50%, #8b5cf6 75%, #ffffff 100%);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-decoration: none;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-            transition: all 0.3s ease;
-            border: none;
-            padding: 0;
-            display: block;
-            line-height: 1.1;
-        }
-        .logo img {
-            height: 40px;
-            display: block;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-        }
-
-        .nav-links a:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-            backdrop-filter: blur(10px);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(135deg, #ffffff, #06b6d4);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section avec Vagues Fluides */
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            cursor: none;
-        }
-
-        /* Curseur personnalisé */
-        .custom-cursor {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            background: radial-gradient(circle, rgba(6, 182, 212, 0.8) 0%, rgba(6, 182, 212, 0.2) 70%, transparent 100%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.1s ease;
-            mix-blend-mode: screen;
-        }
-
-        /* Background fluide interactif */
-        .fluid-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 50% 50%, 
-                    rgba(6, 182, 212, 0.15) 0%, 
-                    rgba(139, 92, 246, 0.1) 40%, 
-                    transparent 70%),
-                radial-gradient(circle at 30% 70%, 
-                    rgba(245, 158, 11, 0.08) 0%, 
-                    transparent 50%),
-                radial-gradient(circle at 70% 30%, 
-                    rgba(16, 185, 129, 0.06) 0%, 
-                    transparent 50%);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            pointer-events: none;
-        }
-
-        /* Particules flottantes pour enrichir l'effet */
-        .floating-particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .particle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .particle:nth-child(odd) {
-            animation-delay: -2s;
-            animation-duration: 8s;
-        }
-
-        .particle:nth-child(3n) {
-            animation-delay: -4s;
-            animation-duration: 10s;
-        }
-
-        /* Vagues d'ondulation */
-        .wave-ripples {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .ripple {
-            position: absolute;
-            border: 2px solid rgba(6, 182, 212, 0.3);
-            border-radius: 50%;
-            opacity: 0;
-            animation: ripple-expand 2s ease-out;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            font-weight: 900;
-            margin-bottom: 2rem;
-            line-height: 1.1;
-            background: linear-gradient(135deg, 
-                #ffffff 0%, 
-                #e0e7ff 25%, 
-                #06b6d4 50%, 
-                #8b5cf6 75%, 
-                #ffffff 100%);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 4s ease-in-out infinite, fadeInScale 1.2s ease-out;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-            position: relative;
-        }
-
-        .hero h1::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, #06b6d4, transparent);
-            border-radius: 2px;
-            animation: expandWidth 1.5s ease-out 0.8s forwards;
-            transform-origin: center;
-            scale: 0;
-        }
-
-        .hero .tagline {
-            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
-            margin-bottom: 1.5rem;
-            color: rgba(255, 255, 255, 0.95);
-            font-weight: 600;
-            animation: fadeInUp 1s ease 0.4s both;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-            position: relative;
-        }
-
-        .hero .subtitle {
-            font-size: clamp(1rem, 2vw, 1.3rem);
-            margin-bottom: 3rem;
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 1s ease 0.6s both;
-            line-height: 1.6;
-        }
-
-        /* Boutons CTA améliorés */
-        .cta-group {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.8s both;
-        }
-
-        .cta-primary, .cta-secondary {
-            padding: 18px 36px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-primary {
-            background: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
-            color: white;
-            box-shadow: 0 8px 32px rgba(6, 182, 212, 0.3);
-        }
-
-        .cta-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .cta-primary:hover::before {
-            left: 100%;
-        }
-
-        .cta-primary:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 12px 40px rgba(6, 182, 212, 0.4);
-        }
-
-        .cta-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .cta-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.4);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(255, 255, 255, 0.1);
-        }
-
-        /* Indicateur de scroll */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: rgba(255, 255, 255, 0.7);
-            text-align: center;
-            animation: bounce 2s infinite;
-        }
-
-        .scroll-indicator::before {
-            content: '↓';
-            display: block;
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Vision Section */
-        .vision {
-            padding: 100px 0;
-            background: white;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            color: #1a1a1a;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.3rem;
-            color: #64748b;
-            margin-bottom: 4rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .vision-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .vision-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            padding: 2.5rem;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
-        }
-
-        .vision-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(99, 102, 241, 0.3);
-            box-shadow: 0 8px 40px rgba(99, 102, 241, 0.1);
-        }
-
-        .vision-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .vision-card h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-
-        .vision-card p {
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        /* Applications Portfolio */
-        .portfolio {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-        }
-
-        .app-showcase {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 6rem;
-        }
-
-        .app-showcase:nth-child(even) {
-            direction: rtl;
-        }
-
-        .app-showcase:nth-child(even) > * {
-            direction: ltr;
-        }
-
-        .app-info h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-
-        .app-status {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .status-available {
-            background: rgba(16, 185, 129, 0.1);
-            color: #059669;
-            border: 1px solid rgba(16, 185, 129, 0.2);
-        }
-
-        .status-coming {
-            background: rgba(245, 158, 11, 0.1);
-            color: #d97706;
-            border: 1px solid rgba(245, 158, 11, 0.2);
-        }
-
-        .status-vision {
-            background: rgba(139, 92, 246, 0.1);
-            color: #7c3aed;
-            border: 1px solid rgba(139, 92, 246, 0.2);
-        }
-
-        .app-description {
-            color: #64748b;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-            font-size: 1.1rem;
-        }
-
-        .app-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .app-features li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.8rem;
-            color: #374151;
-            font-weight: 500;
-        }
-
-        .app-features li::before {
-            content: "✓";
-            background: #10b981;
-            color: white;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        .app-visual {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
-        }
-
-        .app-mockup {
-            background: linear-gradient(135deg, #071c3b 0%, #0b2a56 100%);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 15px;
-            font-family: 'Monaco', 'Menlo', monospace;
-            font-size: 0.9rem;
-        }
-
-        .mockup-line {
-            margin-bottom: 0.8rem;
-            opacity: 0.95;
-            line-height: 1.4;
-        }
-
-        .mockup-line.user {
-            color: #e0e7ff;
-            font-weight: 500;
-        }
-
-        .mockup-line.assistant {
-            color: #ffffff;
-            padding-left: 1rem;
-        }
-
-        /* Future Vision */
-        .future {
-            padding: 100px 0;
-            background: white;
-            text-align: center;
-        }
-
-        .ecosystem-visual {
-            max-width: 800px;
-            margin: 3rem auto;
-            padding: 3rem;
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 30px;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.05);
-        }
-
-        .central-node {
-            background: linear-gradient(135deg, #071c3b 0%, #0b2a56 100%);
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 2rem auto;
-            font-weight: bold;
-            font-size: 1.1rem;
-            color: white;
-            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.3);
-        }
-
-        .satellite-nodes {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .satellite {
-            background: #f8fafc;
-            border: 2px solid #e2e8f0;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #071c3b;
-            transition: all 0.3s ease;
-        }
-
-        .satellite:hover {
-            border-color: #071c3b;
-            transform: scale(1.05);
-        }
-
-        /* Early Access */
-        .early-access {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #071c3b 0%, #0b2a56 100%);
-            color: white;
-            text-align: center;
-        }
-
-        .early-access .section-title {
-            color: white;
-        }
-
-        .early-access .section-subtitle {
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .email-form {
-            max-width: 500px;
-            margin: 3rem auto;
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .email-input {
-            flex: 1;
-            min-width: 300px;
-            padding: 15px 20px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .email-input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .email-input:focus {
-            outline: none;
-            border-color: rgba(255, 255, 255, 0.5);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .email-submit {
-            padding: 15px 30px;
-            background: white;
-            color: #071c3b;
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .email-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
-        }
-
-        /* Footer */
-        footer {
-            background: #f8fafc;
-            border-top: 1px solid #e2e8f0;
-            padding: 3rem 0;
-            text-align: center;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .footer-links a {
-            color: #64748b;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: #071c3b;
-        }
-
-        /* Animations */
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px) translateX(0px);
-                opacity: 0.6;
-            }
-            50% {
-                transform: translateY(-20px) translateX(10px);
-                opacity: 1;
-            }
-        }
-
-        @keyframes gradientShift {
-            0%, 100% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: translateY(40px) scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        @keyframes expandWidth {
-            from {
-                scale: 0;
-            }
-            to {
-                scale: 1;
-            }
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-10px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-5px);
-            }
-        }
-
-        @keyframes ripple-expand {
-            0% {
-                width: 0;
-                height: 0;
-                opacity: 1;
-            }
-            100% {
-                width: 300px;
-                height: 300px;
-                opacity: 0;
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 120px 0 80px;
-                cursor: auto;
-            }
-            
-            .custom-cursor {
-                display: none;
-            }
-            
-            .cta-group {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .cta-primary, .cta-secondary {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .app-showcase {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .app-showcase:nth-child(even) {
-                direction: ltr;
-            }
-
-            .email-form {
-                flex-direction: column;
-            }
-
-            .email-input {
-                min-width: auto;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .satellite-nodes {
-                justify-content: center;
-            }
-        }
-    </style>
+    <title>Looptra - Des agents IA qui maîtrisent votre métier</title>
+    <link rel="stylesheet" href="css/looptra-styles.css">
 </head>
 <body>
     <header>
         <nav class="container">
-            <a href="#" class="logo looptra-text-logo">Looptra</a>
+            <a href="#" class="logo">Looptra</a>
             <ul class="nav-links">
-                <li><a href="#vision">Vision</a></li>
                 <li><a href="#applications">Applications</a></li>
-                <li><a href="#futur">Futur</a></li>
-                <li><a href="#acces">Accès anticipé</a></li>
+                <li><a href="#ecosysteme">Écosystème</a></li>
+                <li><a href="#temoignages">Témoignages</a></li>
+                <li><a href="#faq">FAQ</a></li>
             </ul>
+            <a href="#contact" class="nav-cta">Commencer</a>
         </nav>
     </header>
 
-    <section class="hero" id="hero">
-        <!-- Curseur personnalisé -->
-        <div class="custom-cursor"></div>
+    <section class="hero">
+        <div class="hero-bg" id="heroBg"></div>
         
-        <!-- Background fluide interactif -->
-        <div class="fluid-bg" id="fluidBg"></div>
-        
-        <!-- Particules flottantes -->
-        <div class="floating-particles" id="particles"></div>
-        
-        <!-- Conteneur pour les ondulations -->
-        <div class="wave-ripples" id="ripples"></div>
+        <div class="floating-elements">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+        </div>
         
         <div class="container">
             <div class="hero-content">
-                <h1>Studio d'Applications Intelligentes</h1>
-                <p class="tagline">Nous créons des assistants spécialisés pour libérer le potentiel des professionnels</p>
-                <p class="subtitle">Des applications conversationnelles expertes qui comprennent votre métier, s'intègrent à vos outils, et automatisent vos tâches les plus complexes.</p>
-                <div class="cta-group">
-                    <a href="#applications" class="cta-primary">Découvrir nos applications</a>
-                    <a href="#acces" class="cta-secondary">Accès anticipé</a>
+                <h1>Des agents IA directement dans ChatGPT.</h1>
+                <p class="subtitle">Accédez à des assistants spécialisés sans quitter votre interface IA habituelle. Looptra construit sur l'infrastructure existante pour créer le nouvel App Store des agents génératifs.</p>
+                <a href="#applications" class="hero-cta">
+                    Découvrir nos agents
+                    <span>→</span>
+                </a>
+                <div class="hero-image">
+                    <div class="hero-mockup">
+                        <img src="img/chatgpt-rundesk-conversation.png" alt="ChatGPT avec agent Rundesk en conversation" style="max-width:100%;border-radius:18px;box-shadow:0 2px 28px rgba(30,41,59,0.13);">
+                    </div>
                 </div>
-            </div>
-        </div>
-        
-        <div class="scroll-indicator">
-            <span>Découvrir</span>
-        </div>
-    </section>
-
-    <section id="vision" class="vision">
-        <div class="container">
-            <h2 class="section-title fade-in">Le basculement a commencé</h2>
-            <p class="section-subtitle fade-in">Nous vivons un basculement : les applications deviennent des intelligences. Looptra est né de cette conviction : <strong>le futur du logiciel s'écrit à travers des agents IA</strong> — spécialisés, actionnables, intégrés dans des écosystèmes que les professionnels utilisent déjà.</p>
-            
-            <div class="vision-grid">
-                <div class="vision-card fade-in">
-                    <span class="vision-icon">🤖</span>
-                    <h3>Agents, pas outils</h3>
-                    <p>Chaque assistant est une application à part entière, qui <strong>raisonne, agit, et s'intègre</strong> au cœur des outils métier. Fini les interfaces, place à l'intelligence.</p>
-                </div>
-                <div class="vision-card fade-in">
-                    <span class="vision-icon">⚡</span>
-                    <h3>Construire par-dessus</h3>
-                    <p>Là où d'autres construisent de nouveaux modèles, nous faisons un choix stratégique : <strong>concevoir par-dessus</strong> ce qui existe, et aller vite.</p>
-                </div>
-                <div class="vision-card fade-in">
-                    <span class="vision-icon">🏪</span>
-                    <h3>Nouvel App Store</h3>
-                    <p>Nous voyons l'émergence d'un <strong>App Store d'agents intelligents</strong> où chaque spécialité métier a son assistant dédié et expert.</p>
-                </div>
-                <div class="vision-card fade-in">
-                    <span class="vision-icon">🎯</span>
-                    <h3>Terrain, pas labo</h3>
-                    <p>Notre mission : <strong>créer ces agents spécialisés</strong>, pour répondre aux vrais enjeux des pros sur le terrain, pas dans des labos.</p>
-                </div>
-            </div>
-            
-            <div class="vision-statement fade-in" style="text-align: center; margin-top: 4rem; padding: 2rem; background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%); border-radius: 20px; border-left: 4px solid #06b6d4;">
-                <h3 style="font-size: 1.5rem; color: #071c3b; margin-bottom: 1rem; font-weight: 700;">Looptra est le studio de ces nouveaux agents</h3>
-                <p style="color: #64748b; font-size: 1.1rem; max-width: 600px; margin: 0 auto; line-height: 1.6;">Nous façonnons l'avenir du travail, un agent intelligent à la fois.</p>
             </div>
         </div>
     </section>
 
-    <section id="applications" class="portfolio">
+    <section class="benefits">
         <div class="container">
-            <h2 class="section-title fade-in">Nos Applications</h2>
-            
-            <div class="app-showcase fade-in">
-                <div class="app-info">
-                    <h3>🧭 Rundesk</h3>
-                    <span class="app-status status-available">✅ Disponible</span>
-                    <p class="app-description">
-                        Assistant de terrain pour consultants itinérants. Optimise les déplacements, planifie les rendez-vous, et gère la logistique en une conversation naturelle.
-                    </p>
-                    <ul class="app-features">
-                        <li>Optimisation automatique des tournées client</li>
-                        <li>Intégration SNCF, Trainline, Booking.com</li>
-                        <li>Recommandations proactives de logistique</li>
-                        <li>Simulation de coûts en temps réel</li>
-                    </ul>
-                    <a href="#" class="cta-primary" onclick="showRundesk()">Essayer Rundesk</a>
+            <div class="benefit-item fade-in">
+                <div class="benefit-content">
+                    <h2>Zéro app supplémentaire.</h2>
+                    <p>Nos agents vivent directement dans ChatGPT. Vous gardez vos habitudes, on ajoute la spécialisation métier. Pas de nouvelle interface à apprendre, pas de compte à créer.</p>
                 </div>
-                <div class="app-visual">
-                    <div class="app-mockup">
-                        <div class="mockup-line user">Vous: "3 RDV cette semaine: Lyon mardi, Marseille mercredi, Nice jeudi"</div>
-                        <div class="mockup-line assistant">Rundesk: "🎯 Optimisation suggérée: Lyon→Nice→Marseille"</div>
-                        <div class="mockup-line assistant">"Train Lyon-Nice 3h, puis Nice-Marseille 2h30"</div>
-                        <div class="mockup-line assistant">"Hôtel recommandé: Nice centre (-40% déplacements)"</div>
-                        <div class="mockup-line assistant">"Économie estimée: 150€ + 4h de temps"</div>
-                    </div>
+                <div class="benefit-visual">
+                    <img src="img/chatgpt-rundesk-integration.png" alt="ChatGPT avec agent Rundesk intégré">
                 </div>
             </div>
 
-            <div class="app-showcase fade-in">
-                <div class="app-info">
-                    <h3>📋 Tasklane</h3>
-                    <span class="app-status status-coming">🚧 En développement</span>
-                    <p class="app-description">
-                        Assistant de priorisation pour chefs de projet débordés. Analyse votre pipeline, calcule l'impact business, et optimise votre planning selon vos objectifs.
-                    </p>
+            <div class="benefit-item fade-in">
+                <div class="benefit-content">
+                    <h2>Construits sur l'infrastructure IA existante.</h2>
+                    <p>Nous ne réinventons pas la roue. Nos agents exploitent la puissance des modèles GPT en évolution perpétuelle et y ajoutent notre propre couche de données contextuelles. Vous bénéficiez des dernières avancées IA avec la personnalisation métier en plus.</p>
+                </div>
+                <div class="benefit-visual">
+                    <img src="img/gpt-infrastructure-evolution.png" alt="Architecture agents sur modèles GPT évolutifs">
+                </div>
+            </div>
+
+            <div class="benefit-item fade-in">
+                <div class="benefit-content">
+                    <h2>Le nouvel App Store génératif.</h2>
+                    <p>Nous sommes les pionniers d'un nouveau modèle : des agents spécialisés disponibles directement dans vos outils IA. Choisissez votre expert métier comme vous installeriez une app sur votre téléphone.</p>
+                </div>
+                <div class="benefit-visual">
+                    <img src="img/gpt-store-looptra-agents.png" alt="GPT Store avec agents métier Looptra">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="applications" class="applications">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Nos agents dans le GPT Store.</h2>
+                <p>Des spécialistes métier accessibles directement depuis ChatGPT. Pas d'installation, pas de configuration — juste l'expertise dont vous avez besoin.</p>
+            </div>
+
+            <div class="apps-grid">
+                <div class="app-card fade-in">
+                    <span class="app-status available">Disponible sur GPT Store</span>
+                    <h3>Rundesk</h3>
+                    <p>Tapez @Rundesk dans ChatGPT pour accéder à votre assistant logistique. Exploite GPT-4 + nos spécialisations transport pour optimiser vos déplacements directement dans votre conversation.</p>
                     <ul class="app-features">
-                        <li>Scoring automatique des tâches par impact</li>
-                        <li>Intégration Asana, Notion, Trello</li>
-                        <li>Planification optimale selon contraintes</li>
-                        <li>Alertes proactives sur les deadlines</li>
+                        <li>Accessible via ChatGPT (aucune app à installer)</li>
+                        <li>Connecté aux APIs SNCF, Trainline en temps réel</li>
+                        <li>Mémoire de vos préférences et historiques</li>
+                        <li>Calculs et réservations dans la conversation</li>
                     </ul>
-                    <a href="#acces" class="cta-secondary">Être notifié</a>
+                    <a href="#" class="app-cta" onclick="showRundesk()">Accéder sur ChatGPT</a>
                 </div>
-                <div class="app-visual">
-                    <div class="app-mockup">
-                        <div class="mockup-line user">Vous: "J'ai 47 tâches en cours, lesquelles prioriser ?"</div>
-                        <div class="mockup-line assistant">Tasklane: "📊 Analyse de votre planning en cours..."</div>
-                        <div class="mockup-line assistant">"🔴 Urgent: 3 tâches deadline cette semaine"</div>
-                        <div class="mockup-line assistant">"💰 High impact: 2 tâches génératrices de revenus"</div>
-                        <div class="mockup-line assistant">"⏰ Planning optimal: matinée focus sur T1, T2, T3"</div>
-                    </div>
+
+                <div class="app-card fade-in">
+                    <span class="app-status coming">Bientôt sur GPT Store</span>
+                    <h3>Tasklane</h3>
+                    <p>L'agent de priorisation qui transforme votre ChatGPT en chef de projet expert. Analyse vos tâches via GPT et applique les méthodologies de gestion de projet avancées.</p>
+                    <ul class="app-features">
+                        <li>Intégration native dans votre workflow ChatGPT</li>
+                        <li>Connexions Asana, Notion via l'infrastructure GPT</li>
+                        <li>Algorithmes de priorisation sur modèles évolutifs</li>
+                        <li>Mises à jour automatiques avec les nouveaux GPT</li>
+                    </ul>
+                    <a href="#contact" class="app-cta secondary">Être notifié</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ecosysteme" class="ecosystem-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>L'écosystème Looptra</h2>
+                <p>Un orchestrateur central qui connecte vos agents à l'ensemble des données et services nécessaires à leur expertise métier, avec notre propre couche de données contextuelles sécurisée.</p>
+            </div>
+
+            <div class="ecosystem-diagram fade-in">
+                <!-- Suggestion: Diagramme complet de l'architecture Looptra -->
+                <!-- Alternative: Créer un SVG interactif de l'écosystème -->
+                <!-- Image suggérée: img/looptra-ecosystem-architecture.png -->
                 
-            </div>
-        </div>
-    </section>
-
-    <section id="futur" class="future">
-        <div class="container">
-            <h2 class="section-title fade-in">Notre vision long terme</h2>
-            <p class="section-subtitle fade-in">Construire un écosystème d'assistants spécialisés, interopérables, orchestrés par une couche d'intelligence centrale. Votre cockpit professionnel sur-mesure.</p>
-            
-            <div class="ecosystem-visual fade-in">
-                <h3 style="margin-bottom: 2rem; color: #374151;">Écosystème Looptra</h3>
-                <div class="central-node">Orchestrateur Central</div>
-                <div class="satellite-nodes">
-                    <div class="satellite">Rundesk</div>
-                    <div class="satellite">Tasklane</div>
-                    <div class="satellite">App N+1</div>
+                <!-- Orchestrateur Central -->
+                <div class="central-orchestrator">
+                    <div class="orchestrator-core">
+                        <h3>Looptra</h3>
+                        <p>Orchestrateur Central</p>
+                    </div>
                 </div>
-                <p style="margin-top: 2rem; color: #64748b; font-style: italic;">
-                    Chaque professionnel composera son cockpit d'assistants Looptra personnalisé
-                </p>
+
+                <!-- Base de données utilisateur -->
+                <div class="ecosystem-layer user-data">
+                    <div class="layer-header">
+                        <h4>🔐 Base de données Looptra sécurisée</h4>
+                    </div>
+                    <div class="layer-items">
+                        <span class="data-item">Préférences métier</span>
+                        <span class="data-item">Historiques d'interactions</span>
+                        <span class="data-item">Contextes business</span>
+                        <span class="data-item">Configurations agents</span>
+                        <span class="data-item">Données d'apprentissage</span>
+                    </div>
+                </div>
+
+                <!-- MCP et APIs -->
+                <div class="ecosystem-layer apis-layer">
+                    <div class="layer-header">
+                        <h4>🔌 Looptra-MCP & APIs externes</h4>
+                    </div>
+                    <div class="api-grid">
+                        <div class="api-category transport">
+                            <h5>Transport</h5>
+                            <span class="api-item">SNCF Connect</span>
+                            <span class="api-item">Trainline</span>
+                            <span class="api-item">Google Maps</span>
+                        </div>
+                        <div class="api-category productivity">
+                            <h5>Productivité</h5>
+                            <span class="api-item">Notion</span>
+                            <span class="api-item">Asana</span>
+                            <span class="api-item">Trello</span>
+                        </div>
+                        <div class="api-category booking">
+                            <h5>Réservation</h5>
+                            <span class="api-item">Booking.com</span>
+                            <span class="api-item">Hotels.com</span>
+                            <span class="api-item">Airbnb</span>
+                        </div>
+                        <div class="api-category expanding">
+                            <h5>+ À venir</h5>
+                            <span class="api-item">Calendly</span>
+                            <span class="api-item">Slack</span>
+                            <span class="api-item">HubSpot</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Moteurs LLM -->
+                <div class="ecosystem-layer llm-layer">
+                    <div class="layer-header">
+                        <h4>🧠 Moteurs LLM spécialisés</h4>
+                    </div>
+                    <div class="llm-items">
+                        <div class="llm-item">
+                            <span class="llm-name">GPT-4</span>
+                            <span class="llm-desc">Base conversationnelle</span>
+                        </div>
+                        <div class="llm-item">
+                            <span class="llm-name">Perplexity</span>
+                            <span class="llm-desc">Recherche temps réel</span>
+                        </div>
+                        <div class="llm-item">
+                            <span class="llm-name">Grok</span>
+                            <span class="llm-desc">Analyse de données</span>
+                        </div>
+                        <div class="llm-item expanding">
+                            <span class="llm-name">+ Autres</span>
+                            <span class="llm-desc">Moteurs spécialisés</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agents spécialisés -->
+                <div class="ecosystem-layer agents-layer">
+                    <div class="layer-header">
+                        <h4>🤖 Agents IA spécialisés</h4>
+                    </div>
+                    <div class="agents-grid">
+                        <div class="agent-card available">
+                            <h5>Rundesk</h5>
+                            <p>Expert logistique & transport</p>
+                            <span class="status">Disponible</span>
+                        </div>
+                        <div class="agent-card coming">
+                            <h5>Tasklane</h5>
+                            <p>Expert gestion de projet</p>
+                            <span class="status">Bientôt</span>
+                        </div>
+                        <div class="agent-card future">
+                            <h5>Agent N+1</h5>
+                            <p>Spécialiste à définir</p>
+                            <span class="status">À venir</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Connexions visuelles -->
+                <div class="connections">
+                    <div class="connection-line data-to-core"></div>
+                    <div class="connection-line apis-to-core"></div>
+                    <div class="connection-line llm-to-core"></div>
+                    <div class="connection-line core-to-agents"></div>
+                </div>
+            </div>
+
+            <div class="ecosystem-benefits fade-in">
+                <div class="benefit-point">
+                    <h4>Performance optimisée</h4>
+                    <p>Chaque agent accède instantanément aux bonnes données et API selon son domaine d'expertise.</p>
+                </div>
+                <div class="benefit-point">
+                    <h4>Sécurité centralisée</h4>
+                    <p>Un seul point de contrôle pour la gestion des accès, des permissions et de la confidentialité. Vos données contextuelles sont stockées de manière chiffrée dans notre infrastructure européenne sécurisée.</p>
+                </div>
+                <div class="benefit-point">
+                    <h4>Évolutivité garantie</h4>
+                    <p>L'ajout de nouveaux agents, APIs ou moteurs LLM se fait sans impact sur l'existant.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="acces" class="early-access">
+    <section id="temoignages" class="testimonials">
         <div class="container">
-            <h2 class="section-title fade-in">Accès anticipé</h2>
-            <p class="section-subtitle fade-in">Soyez parmi les premiers à tester nos nouvelles applications et à façonner l'avenir de votre productivité professionnelle.</p>
-            
-            <form class="email-form fade-in" onsubmit="handleSubmit(event)">
-                <input type="email" class="email-input" placeholder="votre.email@entreprise.com" required>
-                <button type="submit" class="email-submit">Rejoindre la liste</button>
-            </form>
-            
-            <p style="color: rgba(255, 255, 255, 0.8); margin-top: 1rem; font-size: 0.9rem;">
-                ✨ Accès prioritaire aux bêtas • 🎯 Influence sur le roadmap • 📧 0 spam garanti
-            </p>
+            <div class="section-header fade-in">
+                <h2>Ils ont adopté les agents Looptra.</h2>
+                <p>Plus de 500 professionnels utilisent déjà nos agents pour transformer leur productivité.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial fade-in">
+                    <div class="testimonial-content">
+                        "Je reste dans ChatGPT, je tape @Rundesk et j'ai directement mon expert transport. Pas besoin d'apprendre un nouvel outil, c'est génial. Je gagne 4h par semaine sur ma logistique."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>Sophie Martin</h4>
+                            <p>Consultante Marketing • Paris</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial fade-in">
+                    <div class="testimonial-content">
+                        "L'approche Looptra est brillante : utiliser GPT-4 comme base et ajouter la spécialisation métier. Rundesk comprend mes contraintes de déplacement mieux qu'un humain."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>Thomas Dubois</h4>
+                            <p>Consultant IT • Lyon</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial fade-in">
+                    <div class="testimonial-content">
+                        "Enfin des agents IA qui ont du sens ! Pas une énième app à installer, mais une évolution naturelle de ChatGPT vers la spécialisation métier. C'est l'avenir."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>Marie Lefevre</h4>
+                            <p>Chef de Projet • Bordeaux</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial fade-in">
+                    <div class="testimonial-content">
+                        "Mes collègues utilisent déjà ChatGPT. Avec Rundesk, on a gardé nos habitudes mais on a gagné un expert logistique. Adoption instantanée dans l'équipe."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>Lucas Rodriguez</h4>
+                            <p>Fondateur • Toulouse</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial fade-in">
+                    <div class="testimonial-content">
+                        "La vision Looptra d'un App Store d'agents dans ChatGPT est exactement ce qu'on attendait. Chaque métier va avoir ses spécialistes, directement intégrés."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>Camille Moreau</h4>
+                            <p>Directrice Ops • Lille</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial fade-in">
+                    <div class="testimonial-content">
+                        "J'adore le fait que Rundesk évolue automatiquement avec les mises à jour de GPT. Je bénéficie des dernières avancées IA sans rien faire."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>Antoine Blanc</h4>
+                            <p>Business Developer • Nice</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer>
+    <section class="early-access">
+        <div class="container early-access-centered">
+            <h2>Accès anticipé</h2>
+            <p>Soyez parmi les premiers à tester nos nouvelles applications et à façonner l'avenir de votre productivité professionnelle.</p>
+            <form class="early-access-form">
+                <input type="email" placeholder="votre.email@entreprise.com" required />
+                <button type="submit">Rejoindre la liste</button>
+            </form>
+            <div class="early-access-benefits">
+                ✨ Accès prioritaire aux bêtas &nbsp;•&nbsp; 🎯 Influence sur le roadmap &nbsp;•&nbsp; 📄 0 spam garanti
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Questions fréquentes</h2>
+                <p>Tout ce que vous devez savoir sur les agents Looptra.</p>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Comment accéder aux agents Looptra ?
+                        <span>+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Nos agents sont disponibles directement dans ChatGPT via le GPT Store. Tapez simplement @Rundesk dans votre conversation ChatGPT pour accéder à l'expertise transport. Aucune app supplémentaire à installer, aucun compte à créer.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Qu'est-ce qui différencie Looptra des autres agents IA ?
+                        <span>+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Nous construisons sur l'infrastructure OpenAI existante au lieu de créer de nouveaux modèles. Nos agents exploitent GPT-4 et y ajoutent l'expertise métier spécialisée. Vous bénéficiez automatiquement des évolutions de GPT sans changer d'outil.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Pourquoi parlez-vous de "nouvel App Store" ?
+                        <span>+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Nous sommes pionniers d'un nouveau modèle : des agents spécialisés disponibles directement dans vos outils IA génératifs. Comme les apps sur votre téléphone, mais pour l'expertise métier dans ChatGPT. C'est l'évolution naturelle de l'IA générative vers la spécialisation.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Mes données sont-elles sécurisées ?
+                        <span>+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Nos agents respectent la politique de confidentialité d'OpenAI. Nous n'ajoutons aucune couche de stockage supplémentaire. Vos conversations restent dans l'écosystème ChatGPT avec les mêmes garanties de sécurité.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Comment les agents évoluent-ils ?
+                        <span>+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Nos agents bénéficient automatiquement des améliorations de GPT (nouvelles versions, capacités étendues). Nous mettons à jour régulièrement les spécialisations métier. Vous n'avez aucune maintenance à faire, tout se fait en arrière-plan.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
         <div class="container">
             <div class="footer-content">
-                <div class="logo">
-                    <img src="img/looptra_line_logo.png" alt="Looptra" style="height:40px; display:block;">
-                </div>
+                <div class="logo">Looptra</div>
                 <div class="footer-links">
-                    <a href="#vision">Vision</a>
-                    <a href="#applications">Applications</a>
-                    <a href="#acces">Contact</a>
+                    <a href="/politique-confidentialite">Politique de confidentialité</a>
+                    <a href="/cgu-cgv">CGU/CGV</a>
                 </div>
             </div>
-            <p style="color: #64748b;">&copy; 2025 Looptra. Studio d'applications intelligentes.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Looptra. Le studio des agents intelligents.</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        let mouseX = 0, mouseY = 0;
-        let lastRippleTime = 0;
-
-        // Curseur personnalisé
-        const cursor = document.querySelector('.custom-cursor');
-        
-        // Gestionnaire principal du mouvement de souris
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            
-            // Curseur personnalisé
-            if (cursor) {
-                cursor.style.left = (mouseX - 10) + 'px';
-                cursor.style.top = (mouseY - 10) + 'px';
-            }
-            
-            // Vérifier si la souris est dans la section hero
-            const heroRect = document.getElementById('hero').getBoundingClientRect();
-            if (e.clientY >= heroRect.top && e.clientY <= heroRect.bottom) {
-                handleFluidEffect(e.clientX - heroRect.left, e.clientY - heroRect.top);
-                
-                // Créer des ondulations de temps en temps
-                const now = Date.now();
-                if (now - lastRippleTime > 100) { // Limiter la fréquence
-                    createRipple(e.clientX - heroRect.left, e.clientY - heroRect.top);
-                    lastRippleTime = now;
-                }
-            }
-        });
-
-        // Effet de vagues fluides
-        function handleFluidEffect(x, y) {
-            const fluidBg = document.getElementById('fluidBg');
-            const heroRect = document.getElementById('hero').getBoundingClientRect();
-            
-            const xPercent = (x / heroRect.width) * 100;
-            const yPercent = (y / heroRect.height) * 100;
-            
-            // Créer des gradients multiples qui suivent la souris
-            fluidBg.style.background = `
-                radial-gradient(circle at ${xPercent}% ${yPercent}%, 
-                    rgba(6, 182, 212, 0.25) 0%, 
-                    rgba(139, 92, 246, 0.15) 40%, 
-                    transparent 70%),
-                radial-gradient(circle at ${100-xPercent}% ${100-yPercent}%, 
-                    rgba(245, 158, 11, 0.12) 0%, 
-                    rgba(16, 185, 129, 0.08) 50%,
-                    transparent 70%),
-                radial-gradient(circle at ${xPercent * 0.8}% ${yPercent * 1.2}%, 
-                    rgba(239, 68, 68, 0.06) 0%, 
-                    transparent 50%)
-            `;
-        }
-
-        // Créer des ondulations au clic
-        function createRipple(x, y) {
-            const ripplesContainer = document.getElementById('ripples');
-            const ripple = document.createElement('div');
-            
-            ripple.className = 'ripple';
-            ripple.style.left = (x - 150) + 'px';
-            ripple.style.top = (y - 150) + 'px';
-            
-            ripplesContainer.appendChild(ripple);
-            
-            // Supprimer l'ondulation après l'animation
-            setTimeout(() => {
-                if (ripple.parentNode) {
-                    ripple.parentNode.removeChild(ripple);
-                }
-            }, 2000);
-        }
-
-        // Créer des particules flottantes
-        function createFloatingParticles() {
-            const particlesContainer = document.getElementById('particles');
-            
-            for (let i = 0; i < 20; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                
-                const x = Math.random() * 100;
-                const y = Math.random() * 100;
-                const delay = Math.random() * 6;
-                
-                particle.style.left = x + '%';
-                particle.style.top = y + '%';
-                particle.style.animationDelay = delay + 's';
-                
-                particlesContainer.appendChild(particle);
-            }
-        }
-
-        // Effet de clic pour créer une grosse ondulation
-        document.getElementById('hero').addEventListener('click', (e) => {
-            const heroRect = e.currentTarget.getBoundingClientRect();
-            const x = e.clientX - heroRect.left;
-            const y = e.clientY - heroRect.top;
-            
-            // Créer une ondulation plus grande
-            const ripplesContainer = document.getElementById('ripples');
-            const bigRipple = document.createElement('div');
-            
-            bigRipple.className = 'ripple';
-            bigRipple.style.left = (x - 200) + 'px';
-            bigRipple.style.top = (y - 200) + 'px';
-            bigRipple.style.borderWidth = '3px';
-            bigRipple.style.borderColor = 'rgba(6, 182, 212, 0.6)';
-            
-            // Animation plus grande
-            bigRipple.style.animation = 'ripple-expand 3s ease-out';
-            
-            ripplesContainer.appendChild(bigRipple);
-            
-            setTimeout(() => {
-                if (bigRipple.parentNode) {
-                    bigRipple.parentNode.removeChild(bigRipple);
-                }
-            }, 3000);
-        });
-
-        // Header background change
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const header = document.querySelector('header');
-            const logo = header.querySelector('.logo');
-            const navLinks = header.querySelectorAll('.nav-links a');
-            
-            if (scrolled > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.borderBottom = '1px solid rgba(0, 0, 0, 0.1)';
-                // logo.style.background = 'linear-gradient(135deg, #071c3b 0%, #0b2a56 50%, #06b6d4 100%)';
-                navLinks.forEach(link => {
-                    link.style.color = '#64748b';
-                });
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.1)';
-                header.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
-                // logo.style.background = 'linear-gradient(135deg, #ffffff 0%, #e0e7ff 50%, #06b6d4 100%)';
-                navLinks.forEach(link => {
-                    link.style.color = 'rgba(255, 255, 255, 0.9)';
-                });
-            }
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
         // Scroll animations
         const observerOptions = {
             threshold: 0.1,
@@ -1203,27 +458,55 @@
             observer.observe(el);
         });
 
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentNode;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Fermer tous les autres items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-question span').textContent = '+';
+                });
+                
+                // Toggle l'item courant
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                    question.querySelector('span').textContent = '−';
+                }
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
         // Functions
         function showRundesk() {
             window.location.href = 'rundesk.html';
-        }
-
-        function handleSubmit(event) {
-            event.preventDefault();
-            const email = event.target.querySelector('.email-input').value;
-            alert(`✅ Merci ! ${email} a été ajouté à notre liste d'accès anticipé. Vous recevrez un email dès que les nouvelles applications seront disponibles.`);
-            event.target.reset();
-        }
-
-        // Initialisation
-        window.addEventListener('load', () => {
-            createFloatingParticles();
-        });
-
-        // Responsive - Désactiver les effets sur mobile
-        if (window.innerWidth <= 768) {
-            document.querySelector('.custom-cursor').style.display = 'none';
-            document.getElementById('hero').style.cursor = 'auto';
         }
     </script>
 </body>

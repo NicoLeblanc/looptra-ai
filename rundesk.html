@@ -3,145 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/looptra_favicon.png">
     <title>Rundesk - L'assistant GPT pour consultants itinérants</title>
+    <link rel="stylesheet" href="css/looptra-styles.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* Surcharges spécifiques à Rundesk - Couleurs et thème */
+        :root {
+            --rundesk-primary: #4f46e5;
+            --rundesk-secondary: #667eea;
+            --rundesk-accent: #764ba2;
+            --rundesk-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --rundesk-gradient-light: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            --rundesk-gradient-dark: linear-gradient(135deg, #1a1a1a 0%, #4f46e5 100%);
         }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: #1a1a1a;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 1rem 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #4f46e5;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #64748b;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #4f46e5;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        /* Hero avec couleurs Rundesk */
+        .rundesk-hero {
+            background: var(--rundesk-gradient);
             color: white;
-            padding: 120px 0 80px;
-            text-align: center;
+            min-height: 80vh;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            opacity: 0;
+        .rundesk-hero h1 {
+            color: white;
             animation: fadeInUp 1s ease forwards;
         }
 
-        .hero .subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.2s forwards;
+        .rundesk-hero .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            animation: fadeInUp 1s ease 0.2s both;
         }
 
-        .cta-button {
-            display: inline-block;
+        .rundesk-hero .hero-cta {
             background: white;
-            color: #4f46e5;
-            padding: 15px 35px;
-            border-radius: 50px;
+            color: var(--rundesk-primary);
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .rundesk-hero .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+            height: 70vh;
+        }
+
+        .rundesk-hero .hero-cta:hover {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--rundesk-primary);
+        }
+
+        /* Logo spécifique Rundesk */
+        .rundesk-logo {
+            display: flex;
+            align-items: baseline;
+            gap: 0.35em;
+            font-size: 1.8rem;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.4s forwards;
         }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        
+        .rundesk-logo .rundesk {
+            font-weight: 800;
+            color: var(--rundesk-primary);
+            font-size: 1.5rem;
+            line-height: 1;
         }
-
-        /* Problem Section */
-        .problem {
-            background: white;
-            padding: 80px 0;
+        
+        .rundesk-logo .by {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--color-text-light);
+            margin-left: 0.25em;
+            margin-right: 0em;
+            letter-spacing: 0.01em;
         }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
+        
+        .rundesk-logo .looptra {
+            font-size: 1rem;
             font-weight: 700;
-            margin-bottom: 3rem;
-            color: #1a1a1a;
+            color: #071c3b;
+            letter-spacing: 0.02em;
         }
 
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+        /* Sections avec couleurs Rundesk */
+        .rundesk-gradient-bg {
+            background: var(--rundesk-gradient-light);
         }
 
+        .rundesk-cards-gradient {
+            background: var(--rundesk-gradient);
+            color: white;
+        }
+
+        .rundesk-final-cta {
+            background: var(--rundesk-gradient-dark);
+            color: white;
+        }
+
+        /* Problem cards avec style Rundesk */
         .problem-card {
-            background: #f8fafc;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
+            background: var(--color-background-light);
             transition: transform 0.3s ease;
         }
 
@@ -154,90 +115,16 @@
             margin-bottom: 1rem;
         }
 
-        .problem-card h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-
-        .problem-card p {
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        /* Solution Section */
-        .solution {
-            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-            padding: 80px 0;
-        }
-
-        .solution-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .solution-text h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            color: #1a1a1a;
-        }
-
-        .solution-text p {
-            font-size: 1.1rem;
-            color: #64748b;
-            margin-bottom: 2rem;
-            line-height: 1.7;
-        }
-
-        .features-list {
-            list-style: none;
-        }
-
-        .features-list li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            font-weight: 500;
-            color: #1a1a1a;
-        }
-
-        .features-list li::before {
-            content: "✓";
-            background: #10b981;
-            color: white;
-            border-radius: 50%;
-            width: 1.25em;
-            height: 1.25em;
-            min-width: 1.25em;
-            min-height: 1.25em;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            font-size: 1em;
-        }
-
-        .solution-visual {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .mockup {
-            background: #4f46e5;
+        /* Mockup chat avec style Rundesk */
+        .rundesk-mockup {
+            background: var(--rundesk-primary);
             color: white;
             padding: 2rem;
             border-radius: 15px;
             margin-bottom: 1rem;
         }
 
-        .mockup h4 {
+        .rundesk-mockup h4 {
             margin-bottom: 1rem;
             font-size: 1.2rem;
         }
@@ -251,22 +138,41 @@
             font-size: 0.9rem;
         }
 
-        /* Partners Section */
-        .partners {
-            background: white;
-            padding: 80px 0;
+        .chat-bubble.user {
+            background: rgba(255,255,255,0.95);
+            color: #1a1a1a;
+        }
+
+        .chat-bubble iframe {
+            border-radius: 12px;
+            border: 0;
+            margin-top: 0.5rem;
+            box-shadow: 0 4px 18px rgba(30,41,59,0.08);
+        }
+
+        .chat-bubble a {
+            color: var(--rundesk-primary);
+            text-decoration: underline;
+        }
+
+        /* Target cards */
+        .target-card {
+            background: var(--rundesk-gradient);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
             text-align: center;
         }
 
-        .partners-subtitle {
-            font-size: 1.1rem;
-            color: #64748b;
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        .target-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
         }
 
+        /* Partners section */
         .partners-logos {
             display: flex;
             flex-wrap: wrap;
@@ -279,65 +185,12 @@
             width: auto;
             height: 56px;
             transition: transform 0.3s ease;
+            filter: grayscale(0.7) opacity(0.8);
         }
 
         .partner-logo-img:hover {
             transform: translateY(-4px);
-        }
-
-        /* Target Section */
-        .target {
-            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .target-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .target-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2.5rem 2rem;
-            border-radius: 20px;
-            text-align: center;
-        }
-
-        .target-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
-
-        /* CTA Section */
-        .final-cta {
-            background: linear-gradient(135deg, #1a1a1a 0%, #4f46e5 100%);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .final-cta h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-
-        .final-cta p {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-        }
-
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
+            filter: grayscale(0) opacity(1);
         }
 
         /* Animations */
@@ -352,165 +205,135 @@
             }
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .rundesk-logo {
+                font-size: 1.5rem;
+            }
+            
+            .rundesk-logo .rundesk {
+                font-size: 1.2rem;
             }
 
-            .hero .subtitle {
-                font-size: 1.1rem;
-            }
-
-            .solution-content {
-                grid-template-columns: 1fr;
+            .partners-logos {
                 gap: 2rem;
             }
-
-            .nav-links {
-                display: none;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
         }
 
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Logo styles */
-        .logo-title {
-            display: flex;
-            align-items: baseline;
-            gap: 0.35em;
-            font-size: 2.3rem;
-        }
-        .rundesk {
+        .section-header h2 {
+            font-size: 2.5rem;
             font-weight: 800;
-            color: #5755ee;
-            font-size: 1.5rem;
-            line-height: 1;
+            color: var(--rundesk-gradient-dark);
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.01em;
+            line-height: 1.1;
+            text-align: center;
         }
-        .by {
-            font-size: 0.8rem;
-            font-weight: 400;
-            color: #64748b;
-            margin-left: 0.25em;
-            margin-right: 0em;
+
+        .target-card p {
+            color: #fff;
+            text-shadow: 0 1px 8px rgba(76, 41, 100, 0.17);
+            font-weight: 500;
+            font-size: 1.08rem;
             letter-spacing: 0.01em;
         }
-        .looptra {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #071c3b;
-            letter-spacing: 0.02em;
-        }
 
-        .partners-logos {
-            margin-top: 3rem;
-            overflow: hidden;
-            position: relative;
-            width: 100%;
-        }
-
-        .logos-track {
+        .rundesk-final-cta .container {
             display: flex;
-            animation: scroll-logos 20s linear infinite;
-            gap: 4rem;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 35vh;
+            height: 35vh;
+        }
+
+        .rundesk-final-cta .section-header {
+            width: 100%;
+            max-width: 560px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
             align-items: center;
         }
 
-        .partner-logo-img {
-            width: auto;
-            height: 56px;
-            flex-shrink: 0;
-            transition: transform 0.3s ease;
-            filter: grayscale(0.7) opacity(0.8);
+        .rundesk-final-cta .section-header h2,
+        .rundesk-final-cta .section-header p,
+        .rundesk-final-cta .section-header a {
+            margin-bottom: 2rem;
         }
 
-        .partner-logo-img:hover {
-            transform: translateY(-4px);
-            filter: grayscale(0) opacity(1);
+        .rundesk-final-cta .section-header h2 {
+            font-size: 2.6rem;
         }
 
-        @keyframes scroll-logos {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
+        .rundesk-final-cta .section-header p {
+            font-size: 1.13rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .target-card h3 {
+            color: #fff;
+            text-shadow: 0 2px 8px rgba(30, 41, 59, 0.18);
+            font-weight: 700;
+            letter-spacing: -0.01em;
         }
     </style>
 </head>
 <body>
     <header>
         <nav class="container">
-            <a href="index.html" class="logo" style="text-decoration: none;">
-                <span class="logo-title">
-                    <span class="rundesk">Rundesk</span>
-                    <span class="by">by</span>
-                    <span class="looptra">Looptra</span>
-                </span>
+            <a href="index.html" class="rundesk-logo">
+                <span class="rundesk">Rundesk</span>
+                <span class="by">by</span>
+                <span class="looptra">Looptra</span>
             </a>
             <ul class="nav-links">
                 <li><a href="#probleme">Problème</a></li>
                 <li><a href="#solution">Solution</a></li>
                 <li><a href="#partenaires">Partenaires</a></li>
-                <li><a href="#cible">Public cible</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero rundesk-hero">
         <div class="container">
-            <h1>L'assistant GPT qui optimise vos déplacements professionnels</h1>
-            <p class="subtitle">Rundesk aide les consultants itinérants à organiser intelligemment leurs tournées client, économiser du temps et réduire le stress logistique.</p>
-            <a href="https://chatgpt.com/g/g-687ea303160481918a476e32f2fbd956-rundesk" class="cta-button" target="_blank" rel="noopener">Essayer Rundesk</a>
+            <div class="hero-content">
+                <h1>L'assistant GPT qui optimise vos déplacements professionnels</h1>
+                <p class="subtitle">Rundesk aide les consultants itinérants à organiser intelligemment leurs tournées client, économiser du temps et réduire le stress logistique.</p>
+                <a href="https://chatgpt.com/g/g-687ea303160481918a476e32f2fbd956-rundesk" class="hero-cta" target="_blank" rel="noopener">Essayer Rundesk →</a>
+            </div>
         </div>
     </section>
 
-    <section id="probleme" class="problem">
+    <section id="probleme" class="benefits">
         <div class="container">
-            <h2 class="section-title fade-in">Le défi des consultants itinérants</h2>
-            <div class="problem-grid">
-                <div class="problem-card fade-in">
-                    <div class="problem-icon">⏰</div>
+            <div class="section-header fade-in">
+                <h2>Le défi des consultants itinérants</h2>
+            </div>
+            <div class="apps-grid">
+                <div class="problem-card app-card fade-in">
                     <h3>Perte de temps</h3>
                     <p>Organisation fastidieuse des déplacements entre plusieurs outils : Google Maps, SNCF, Booking...</p>
                 </div>
-                <div class="problem-card fade-in">
-                    <div class="problem-icon">🗺️</div>
+                <div class="problem-card app-card fade-in">
                     <h3>Optimisation complexe</h3>
                     <p>Difficulté à trouver le meilleur ordre de visites et les trajets les plus efficaces entre les clients.</p>
                 </div>
-                <div class="problem-card fade-in">
-                    <div class="problem-icon">💸</div>
+                <div class="problem-card app-card fade-in">
                     <h3>Coûts non maîtrisés</h3>
-                    <p>Réservations d'hôtels et transports pas toujours optimales, générant des surcoûts evitables.</p>
+                    <p>Réservations d'hôtels et transports pas toujours optimales, générant des surcoûts évitables.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="solution" class="solution">
+    <section id="solution" class="benefits rundesk-gradient-bg">
         <div class="container">
-            <div class="solution-content">
-                <div class="solution-text fade-in">
+            <div class="benefit-item fade-in">
+                <div class="benefit-content">
                     <h2>Rundesk : Votre assistant intelligent</h2>
                     <p>Un GPT intégré directement dans ChatGPT qui transforme la planification de vos déplacements professionnels en une conversation simple et intelligente.</p>
                     
-                    <ul class="features-list">
+                    <ul class="app-features">
                         <li>Optimisation automatique de l'ordre des rendez-vous</li>
                         <li>Suggestions de trajets multimodaux (train, voiture, marche)</li>
                         <li>Recherche d'hôtels stratégiquement placés</li>
@@ -519,42 +342,42 @@
                     </ul>
                 </div>
                 
-                <div class="solution-visual fade-in">
-                    <div class="mockup">
+                <div class="benefit-visual">
+                    <div class="rundesk-mockup">
                         <h4>💬 Conversation avec Rundesk</h4>
-                        <div class="chat-bubble" style="background: rgba(255,255,255,0.95); color: #1a1a1a;">
+                        <div class="chat-bubble user">
                             "J'ai 3 rdv cette semaine : Lyon mardi, Marseille mercredi, Nice jeudi. Comment optimiser ?"
                         </div>
                         <div class="chat-bubble">
                             "🎯 Je recommande : Lyon→Nice→Marseille. Train Lyon-Nice (3h), puis Nice-Marseille (2h30). Hôtel à Nice centre = -40% de déplacements !"
                         </div>
                         <div class="chat-bubble">
-                            Voici un récapitulatif des différents choix possibles :<br><br>
+                            Voici un récapitulatif des différents choix possibles :<br><br>
                             <strong>Trains :</strong><br>
-                            <a href="https://www.sncf-connect.com/" target="_blank" style="color:#4f46e5;text-decoration:underline;">Lyon → Nice (SNCF)</a> <span style="color:#1a1a1a; font-size:0.98em;">— Mercredi 12 Nov • 120 €</span> <br>
-                            <a href="https://www.trainline.fr/" target="_blank" style="color:#4f46e5;text-decoration:underline;">Nice → Marseille (Trainline)</a> <span style="color:#1a1a1a; font-size:0.98em;">— Jeudi 13 Nov • 64 €</span> <br><br>
-                            <strong>Hôtels recommandés :</strong><br>
-                            <a href="https://www.booking.com/" target="_blank" style="color:#4f46e5;text-decoration:underline;">Booking.com : Hôtel Nice Centre</a> <span style="color:#1a1a1a; font-size:0.98em;">— 2 nuits • 198 €</span> <br>
-                            <a href="https://www.airbnb.fr/" target="_blank" style="color:#4f46e5;text-decoration:underline;">Airbnb : Studio proche gare Nice</a> <span style="color:#1a1a1a; font-size:0.98em;">— 2 nuits • 140 €</span> <br><br>
+                            <a href="https://www.sncf-connect.com/" target="_blank">Lyon → Nice (SNCF)</a> <span style="color:#fff; font-size:0.98em;">— Mercredi 12 Nov • 120 €</span> <br>
+                            <a href="https://www.trainline.fr/" target="_blank">Nice → Marseille (Trainline)</a> <span style="color:#fff; font-size:0.98em;">— Jeudi 13 Nov • 64 €</span> <br><br>
+                            <strong>Hôtels recommandés :</strong><br>
+                            <a href="https://www.booking.com/" target="_blank">Booking.com : Hôtel Nice Centre</a> <span style="color:#fff; font-size:0.98em;">— 2 nuits • 198 €</span> <br>
+                            <a href="https://www.airbnb.fr/" target="_blank">Airbnb : Studio proche gare Nice</a> <span style="color:#fff; font-size:0.98em;">— 2 nuits • 140 €</span> <br><br>
                         </div>
                         <div class="chat-bubble" style="padding: 0.5rem 0.5rem 1.2rem;">
                             <strong>Récapitulatif :</strong><br>
                             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1478382.7564427725!2d5.367678440788138!3d44.62150671115429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1753620016032!5m2!1sfr!2sfr"
-                                width="100%" height="220" style="border-radius:12px;border:0;margin-top:0.5rem;box-shadow:0 4px 18px rgba(30,41,59,0.08);"
-                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                width="100%" height="220" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
-                    <p><em>Interface conversationnelle native dans ChatGPT</em></p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="partenaires" class="partners">
+    <section id="partenaires" class="benefits">
         <div class="container">
-            <h2 class="section-title fade-in">Intégrations et partenaires</h2>
-            <p class="partners-subtitle fade-in">Rundesk s'appuie sur les meilleures plateformes pour vous offrir des données fiables et actualisées</p>
-            <div class="partners-logos">
+            <div class="section-header fade-in">
+                <h2>Intégrations et partenaires</h2>
+                <p>Rundesk s'appuie sur les meilleures plateformes pour vous offrir des données fiables et actualisées</p>
+            </div>
+            <div class="partners-logos fade-in">
                 <img src="img/sncf_logo.png" alt="SNCF Connect" class="partner-logo-img">
                 <img src="img/trainline_logo.png" alt="Trainline" class="partner-logo-img">
                 <img src="img/booking_logo.png" alt="Booking.com" class="partner-logo-img">
@@ -564,38 +387,53 @@
         </div>
     </section>
 
-    <section id="cible" class="target">
+    <section id="cible" class="applications rundesk-gradient-bg">
         <div class="container">
-            <h2 class="section-title fade-in">Conçu pour les professionnels mobiles</h2>
-            <div class="target-cards">
-                <div class="target-card fade-in">
-                    <h3>🎯 Consultants indépendants</h3>
+            <div class="section-header fade-in">
+                <h2>Conçu pour les professionnels mobiles</h2>
+            </div>
+            <div class="apps-grid">
+                <div class="target-card app-card fade-in rundesk-cards-gradient">
+                    <h3>Consultants indépendants</h3>
                     <p>En mission 2-5 jours/semaine, multiples clients, forte contrainte budget</p>
                 </div>
-                <div class="target-card fade-in">
-                    <h3>🏢 Consultants en cabinet</h3>
+                <div class="target-card app-card fade-in rundesk-cards-gradient">
+                    <h3>Consultants en cabinet</h3>
                     <p>Interventions terrain fréquentes, optimisation des frais de mission</p>
                 </div>
-                <div class="target-card fade-in">
-                    <h3>🚀 Équipes commerciales</h3>
+                <div class="target-card app-card fade-in rundesk-cards-gradient">
+                    <h3>Équipes commerciales</h3>
                     <p>Tournées client régionales, besoin d'efficacité logistique</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="final-cta">
+    <section class="benefits rundesk-final-cta">
         <div class="container">
-            <h2>Essayez Rundesk dès maintenant</h2>
-            <p>Testez gratuitement l’assistant GPT qui optimise vos déplacements professionnels.<br>
-            Réservez vos trajets, hôtels et planifiez vos tournées client directement depuis ChatGPT.</p>
-            <a href="https://chatgpt.com/g/g-687ea303160481918a476e32f2fbd956-rundesk" class="cta-button" target="_blank" rel="noopener">Essayer Rundesk</a>
+            <div class="section-header fade-in">
+                <h2>Essayez Rundesk dès maintenant</h2>
+                <p>Testez gratuitement l'assistant GPT qui optimise vos déplacements professionnels.<br>
+                Réservez vos trajets, hôtels et planifiez vos tournées client directement depuis ChatGPT.</p>
+                <a href="https://chatgpt.com/g/g-687ea303160481918a476e32f2fbd956-rundesk" class="hero-cta" target="_blank" rel="noopener" style="background: white; color: var(--rundesk-primary);">Essayer Rundesk →</a>
+            </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Rundesk. Assistant GPT pour consultants itinérants.</p>
+            <div class="footer-content">
+                <a href="index.html" class="rundesk-logo">
+                    <span class="rundesk">Rundesk</span>
+                </a>
+                <div class="footer-links">
+                    <a href="/politique-confidentialite">Politique de confidentialité</a>
+                    <a href="/cgu-cgv">CGU/CGV</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Rundesk. Assistant GPT pour consultants itinérants.</p>
+            </div>
         </div>
     </footer>
 
@@ -632,17 +470,15 @@
             observer.observe(el);
         });
 
-        // Coming soon modal
-        function showComingSoon() {
-            alert('🚀 Rundesk sera bientôt disponible ! Nous vous tiendrons informé du lancement dans le GPT Store d\'OpenAI.');
-        }
-
+        // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
                 header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
             } else {
                 header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
             }
         });
     </script>

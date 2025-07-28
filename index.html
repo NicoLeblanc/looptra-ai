@@ -4,20 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="img/looptra_favicon.png">
-    <title>Looptra - Des agents IA qui maîtrisent votre métier</title>
+    <title>Looptra - Des assistants IA qui maîtrisent votre métier</title>
     <link rel="stylesheet" href="css/looptra-styles.css">
+    <script src="js/translations.js" defer></script>
 </head>
 <body>
     <header>
         <nav class="container">
             <a href="#" class="logo">Looptra</a>
             <ul class="nav-links">
-                <li><a href="#applications">Applications</a></li>
-                <li><a href="#ecosysteme">Écosystème</a></li>
-                <li><a href="#temoignages">Témoignages</a></li>
-                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#applications" data-translate="nav-applications">Applications</a></li>
+                <li><a href="#ecosysteme" data-translate="nav-ecosysteme">Écosystème</a></li>
+                <li><a href="#temoignages" data-translate="nav-temoignages">Témoignages</a></li>
+                <li><a href="#faq" data-translate="nav-faq">FAQ</a></li>
             </ul>
-            <a href="#contact" class="nav-cta">Commencer</a>
+            <div class="nav-right">
+                <div class="language-selector">
+                    <select id="languageSelect" onchange="changeLanguage(this.value)">
+                        <option value="fr">FR</option>
+                        <option value="en">EN</option>
+                    </select>
+                </div>
+                <a href="#contact" class="nav-cta" data-translate="nav-cta">Commencer</a>
+            </div>
         </nav>
     </header>
 
@@ -32,15 +41,15 @@
         
         <div class="container">
             <div class="hero-content">
-                <h1>Des agents IA directement dans ChatGPT.</h1>
-                <p class="subtitle">Accédez à des assistants spécialisés sans quitter votre interface IA habituelle. Looptra construit sur l'infrastructure existante pour créer le nouvel App Store des agents génératifs.</p>
+                <h1 data-translate="hero-title">Des assistants IA directement dans ChatGPT.</h1>
+                <p class="subtitle" data-translate="hero-subtitle">Accédez à des assistants spécialisés sans quitter votre interface IA habituelle. Looptra construit sur l'infrastructure existante pour créer le nouvel App Store des agents génératifs.</p>
                 <a href="#applications" class="hero-cta">
-                    Découvrir nos agents
+                    <span data-translate="hero-cta">Découvrir nos assistants</span>
                     <span>→</span>
                 </a>
                 <div class="hero-image">
                     <div class="hero-mockup">
-                        <img src="img/chatgpt-rundesk-conversation.png" alt="ChatGPT avec agent Rundesk en conversation" style="max-width:100%;border-radius:18px;box-shadow:0 2px 28px rgba(30,41,59,0.13);">
+                        <img src="img/chatgpt-rundesk-conversation.png" alt="ChatGPT avec assistant Rundesk en conversation" style="max-width:100%;border-radius:18px;box-shadow:0 2px 28px rgba(30,41,59,0.13);">
                     </div>
                 </div>
             </div>
@@ -51,31 +60,31 @@
         <div class="container">
             <div class="benefit-item fade-in">
                 <div class="benefit-content">
-                    <h2>Zéro app supplémentaire.</h2>
-                    <p>Nos agents vivent directement dans ChatGPT. Vous gardez vos habitudes, on ajoute la spécialisation métier. Pas de nouvelle interface à apprendre, pas de compte à créer.</p>
+                    <h2 data-translate="benefit-1-title">Zéro app supplémentaire.</h2>
+                    <p data-translate="benefit-1-text">Nos assistants vivent directement dans ChatGPT. Vous gardez vos habitudes, on ajoute la spécialisation métier. Pas de nouvelle interface à apprendre, pas de compte à créer.</p>
                 </div>
                 <div class="benefit-visual">
-                    <img src="img/chatgpt-rundesk-integration.png" alt="ChatGPT avec agent Rundesk intégré">
+                    <img src="img/chatgpt-rundesk-integration.png" alt="ChatGPT avec assistant Rundesk intégré">
                 </div>
             </div>
 
             <div class="benefit-item fade-in">
                 <div class="benefit-content">
-                    <h2>Construits sur l'infrastructure IA existante.</h2>
-                    <p>Nous ne réinventons pas la roue. Nos agents exploitent la puissance des modèles GPT en évolution perpétuelle et y ajoutent notre propre couche de données contextuelles. Vous bénéficiez des dernières avancées IA avec la personnalisation métier en plus.</p>
+                    <h2 data-translate="benefit-2-title">Construits sur l'infrastructure IA existante.</h2>
+                    <p data-translate="benefit-2-text">Nous ne réinventons pas la roue. Nos assistants exploitent la puissance des modèles GPT en évolution perpétuelle et y ajoutent notre propre couche de données contextuelles. Vous bénéficiez des dernières avancées IA avec la personnalisation métier en plus.</p>
                 </div>
                 <div class="benefit-visual">
-                    <img src="img/gpt-infrastructure-evolution.png" alt="Architecture agents sur modèles GPT évolutifs">
+                    <img src="img/gpt-infrastructure-evolution.png" alt="Architecture assistants sur modèles GPT évolutifs">
                 </div>
             </div>
 
             <div class="benefit-item fade-in">
                 <div class="benefit-content">
-                    <h2>Le nouvel App Store génératif.</h2>
-                    <p>Nous sommes les pionniers d'un nouveau modèle : des agents spécialisés disponibles directement dans vos outils IA. Choisissez votre expert métier comme vous installeriez une app sur votre téléphone.</p>
+                    <h2 data-translate="benefit-3-title">Le nouvel App Store génératif.</h2>
+                    <p data-translate="benefit-3-text">Nous sommes les pionniers d'un nouveau modèle : des assistants spécialisés disponibles directement dans vos outils IA. Choisissez votre expert métier comme vous installeriez une app sur votre téléphone.</p>
                 </div>
                 <div class="benefit-visual">
-                    <img src="img/gpt-store-looptra-agents.png" alt="GPT Store avec agents métier Looptra">
+                    <img src="img/gpt-store-looptra-agents.png" alt="GPT Store avec assistants métier Looptra">
                 </div>
             </div>
         </div>
@@ -84,35 +93,35 @@
     <section id="applications" class="applications">
         <div class="container">
             <div class="section-header fade-in">
-                <h2>Nos agents dans le GPT Store.</h2>
-                <p>Des spécialistes métier accessibles directement depuis ChatGPT. Pas d'installation, pas de configuration — juste l'expertise dont vous avez besoin.</p>
+                <h2 data-translate="applications-title">Nos assistants dans le GPT Store.</h2>
+                <p data-translate="applications-subtitle">Des spécialistes métier accessibles directement depuis ChatGPT. Pas d'installation, pas de configuration — juste l'expertise dont vous avez besoin.</p>
             </div>
 
             <div class="apps-grid">
                 <div class="app-card fade-in">
-                    <span class="app-status available">Disponible sur GPT Store</span>
+                    <span class="app-status available" data-translate="app-status-available">Disponible sur GPT Store</span>
                     <h3>Rundesk</h3>
-                    <p>Tapez @Rundesk dans ChatGPT pour accéder à votre assistant logistique. Exploite GPT-4 + nos spécialisations transport pour optimiser vos déplacements directement dans votre conversation.</p>
+                    <p data-translate="rundesk-description">Tapez @Rundesk dans ChatGPT pour accéder à votre assistant logistique. Exploite GPT-4 + nos spécialisations transport pour optimiser vos déplacements directement dans votre conversation.</p>
                     <ul class="app-features">
-                        <li>Accessible via ChatGPT (aucune app à installer)</li>
-                        <li>Connecté aux APIs SNCF, Trainline en temps réel</li>
-                        <li>Mémoire de vos préférences et historiques</li>
-                        <li>Calculs et réservations dans la conversation</li>
+                        <li data-translate="rundesk-feature-1">Accessible via ChatGPT (aucune app à installer)</li>
+                        <li data-translate="rundesk-feature-2">Connecté aux APIs SNCF, Trainline en temps réel</li>
+                        <li data-translate="rundesk-feature-3">Mémoire de vos préférences et historiques</li>
+                        <li data-translate="rundesk-feature-4">Calculs et réservations dans la conversation</li>
                     </ul>
-                    <a href="#" class="app-cta" onclick="showRundesk()">Accéder sur ChatGPT</a>
+                    <a href="#" class="app-cta" onclick="showRundesk()" data-translate="rundesk-cta">Accéder sur ChatGPT</a>
                 </div>
 
                 <div class="app-card fade-in">
-                    <span class="app-status coming">Bientôt sur GPT Store</span>
+                    <span class="app-status coming" data-translate="app-status-coming">Bientôt sur GPT Store</span>
                     <h3>Tasklane</h3>
-                    <p>L'agent de priorisation qui transforme votre ChatGPT en chef de projet expert. Analyse vos tâches via GPT et applique les méthodologies de gestion de projet avancées.</p>
+                    <p data-translate="tasklane-description">L'assistant de priorisation qui transforme votre ChatGPT en chef de projet expert. Analyse vos tâches via GPT et applique les méthodologies de gestion de projet avancées.</p>
                     <ul class="app-features">
-                        <li>Intégration native dans votre workflow ChatGPT</li>
-                        <li>Connexions Asana, Notion via l'infrastructure GPT</li>
-                        <li>Algorithmes de priorisation sur modèles évolutifs</li>
-                        <li>Mises à jour automatiques avec les nouveaux GPT</li>
+                        <li data-translate="tasklane-feature-1">Intégration native dans votre workflow ChatGPT</li>
+                        <li data-translate="tasklane-feature-2">Connexions Asana, Notion via l'infrastructure GPT</li>
+                        <li data-translate="tasklane-feature-3">Algorithmes de priorisation sur modèles évolutifs</li>
+                        <li data-translate="tasklane-feature-4">Mises à jour automatiques avec les nouveaux GPT</li>
                     </ul>
-                    <a href="#contact" class="app-cta secondary">Être notifié</a>
+                    <a href="#contact" class="app-cta secondary" data-translate="tasklane-cta">Être notifié</a>
                 </div>
             </div>
         </div>
@@ -121,8 +130,8 @@
     <section id="ecosysteme" class="ecosystem-section">
         <div class="container">
             <div class="section-header fade-in">
-                <h2>L'écosystème Looptra</h2>
-                <p>Un orchestrateur central qui connecte vos agents à l'ensemble des données et services nécessaires à leur expertise métier, avec notre propre couche de données contextuelles sécurisée.</p>
+                <h2 data-translate="ecosystem-title">L'écosystème Looptra</h2>
+                <p data-translate="ecosystem-subtitle">Un orchestrateur central qui connecte vos assistants à l'ensemble des données et services nécessaires à leur expertise métier, avec notre propre couche de données contextuelles sécurisée.</p>
             </div>
 
             <div class="ecosystem-diagram fade-in">
@@ -133,54 +142,54 @@
                 <!-- Orchestrateur Central -->
                 <div class="central-orchestrator">
                     <div class="orchestrator-core">
-                        <h3>Looptra</h3>
-                        <p>Orchestrateur Central</p>
+                        <h3 data-translate="orchestrator-title">Looptra</h3>
+                        <p data-translate="orchestrator-subtitle">Orchestrateur Central</p>
                     </div>
                 </div>
 
                 <!-- Base de données utilisateur -->
                 <div class="ecosystem-layer user-data">
                     <div class="layer-header">
-                        <h4>🔐 Base de données Looptra sécurisée</h4>
+                        <h4 data-translate="user-data-title">🔐 Base de données Looptra sécurisée</h4>
                     </div>
                     <div class="layer-items">
-                        <span class="data-item">Préférences métier</span>
-                        <span class="data-item">Historiques d'interactions</span>
-                        <span class="data-item">Contextes business</span>
-                        <span class="data-item">Configurations agents</span>
-                        <span class="data-item">Données d'apprentissage</span>
+                        <span class="data-item" data-translate="data-item-1">Préférences métier</span>
+                        <span class="data-item" data-translate="data-item-2">Historiques d'interactions</span>
+                        <span class="data-item" data-translate="data-item-3">Contextes business</span>
+                        <span class="data-item" data-translate="data-item-4">Configurations assistants</span>
+                        <span class="data-item" data-translate="data-item-5">Données d'apprentissage</span>
                     </div>
                 </div>
 
                 <!-- MCP et APIs -->
                 <div class="ecosystem-layer apis-layer">
                     <div class="layer-header">
-                        <h4>🔌 Looptra-MCP & APIs externes</h4>
+                        <h4 data-translate="apis-title">🔌 Looptra-MCP & APIs externes</h4>
                     </div>
                     <div class="api-grid">
                         <div class="api-category transport">
-                            <h5>Transport</h5>
-                            <span class="api-item">SNCF Connect</span>
-                            <span class="api-item">Trainline</span>
-                            <span class="api-item">Google Maps</span>
+                            <h5 data-translate="transport-category">Transport</h5>
+                            <span class="api-item" data-translate="transport-api-1">SNCF Connect</span>
+                            <span class="api-item" data-translate="transport-api-2">Trainline</span>
+                            <span class="api-item" data-translate="transport-api-3">Google Maps</span>
                         </div>
                         <div class="api-category productivity">
-                            <h5>Productivité</h5>
-                            <span class="api-item">Notion</span>
-                            <span class="api-item">Asana</span>
-                            <span class="api-item">Trello</span>
+                            <h5 data-translate="productivity-category">Productivité</h5>
+                            <span class="api-item" data-translate="productivity-api-1">Notion</span>
+                            <span class="api-item" data-translate="productivity-api-2">Asana</span>
+                            <span class="api-item" data-translate="productivity-api-3">Trello</span>
                         </div>
                         <div class="api-category booking">
-                            <h5>Réservation</h5>
-                            <span class="api-item">Booking.com</span>
-                            <span class="api-item">Hotels.com</span>
-                            <span class="api-item">Airbnb</span>
+                            <h5 data-translate="booking-category">Réservation</h5>
+                            <span class="api-item" data-translate="booking-api-1">Booking.com</span>
+                            <span class="api-item" data-translate="booking-api-2">Hotels.com</span>
+                            <span class="api-item" data-translate="booking-api-3">Airbnb</span>
                         </div>
                         <div class="api-category expanding">
-                            <h5>+ À venir</h5>
-                            <span class="api-item">Calendly</span>
-                            <span class="api-item">Slack</span>
-                            <span class="api-item">HubSpot</span>
+                            <h5 data-translate="expanding-category">+ À venir</h5>
+                            <span class="api-item" data-translate="expanding-api-1">Calendly</span>
+                            <span class="api-item" data-translate="expanding-api-2">Slack</span>
+                            <span class="api-item" data-translate="expanding-api-3">HubSpot</span>
                         </div>
                     </div>
                 </div>
@@ -188,48 +197,47 @@
                 <!-- Moteurs LLM -->
                 <div class="ecosystem-layer llm-layer">
                     <div class="layer-header">
-                        <h4>🧠 Moteurs LLM spécialisés</h4>
+                        <h4 data-translate="llm-title">🧠 Moteurs LLM spécialisés</h4>
                     </div>
                     <div class="llm-items">
                         <div class="llm-item">
-                            <span class="llm-name">GPT-4</span>
-                            <span class="llm-desc">Base conversationnelle</span>
+                            <span class="llm-name" data-translate="llm-gpt4">GPT-4</span>
+                            <span class="llm-desc" data-translate="llm-gpt4-desc">Base conversationnelle</span>
                         </div>
                         <div class="llm-item">
-                            <span class="llm-name">Perplexity</span>
-                            <span class="llm-desc">Recherche temps réel</span>
+                            <span class="llm-name" data-translate="llm-perplexity">Perplexity</span>
+                            <span class="llm-desc" data-translate="llm-perplexity-desc">Recherche temps réel</span>
                         </div>
                         <div class="llm-item">
-                            <span class="llm-name">Grok</span>
-                            <span class="llm-desc">Analyse de données</span>
+                            <span class="llm-name" data-translate="llm-grok">Grok</span>
+                            <span class="llm-desc" data-translate="llm-grok-desc">Analyse de données</span>
                         </div>
                         <div class="llm-item expanding">
-                            <span class="llm-name">+ Autres</span>
-                            <span class="llm-desc">Moteurs spécialisés</span>
+                            <span class="llm-name" data-translate="llm-others">+ Autres</span>
+                            <span class="llm-desc" data-translate="llm-others-desc">Moteurs spécialisés</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Agents spécialisés -->
                 <div class="ecosystem-layer agents-layer">
                     <div class="layer-header">
-                        <h4>🤖 Agents IA spécialisés</h4>
+                        <h4 data-translate="agents-title">🤖 Assistants IA spécialisés</h4>
                     </div>
                     <div class="agents-grid">
                         <div class="agent-card available">
-                            <h5>Rundesk</h5>
-                            <p>Expert logistique & transport</p>
-                            <span class="status">Disponible</span>
+                            <h5 data-translate="agent-rundesk">Rundesk</h5>
+                            <p data-translate="agent-rundesk-desc">Expert logistique & transport</p>
+                            <span class="status" data-translate="agent-rundesk-status">Disponible</span>
                         </div>
                         <div class="agent-card coming">
-                            <h5>Tasklane</h5>
-                            <p>Expert gestion de projet</p>
-                            <span class="status">Bientôt</span>
+                            <h5 data-translate="agent-tasklane">Tasklane</h5>
+                            <p data-translate="agent-tasklane-desc">Expert gestion de projet</p>
+                            <span class="status" data-translate="agent-tasklane-status">Bientôt</span>
                         </div>
                         <div class="agent-card future">
-                            <h5>Agent N+1</h5>
-                            <p>Spécialiste à définir</p>
-                            <span class="status">À venir</span>
+                            <h5 data-translate="agent-future">Agent N+1</h5>
+                            <p data-translate="agent-future-desc">Spécialiste à définir</p>
+                            <span class="status" data-translate="agent-future-status">À venir</span>
                         </div>
                     </div>
                 </div>
@@ -245,16 +253,16 @@
 
             <div class="ecosystem-benefits fade-in">
                 <div class="benefit-point">
-                    <h4>Performance optimisée</h4>
-                    <p>Chaque agent accède instantanément aux bonnes données et API selon son domaine d'expertise.</p>
+                    <h4 data-translate="ecosystem-benefit-1-title">Performance optimisée</h4>
+                    <p data-translate="ecosystem-benefit-1-text">Chaque assistant accède instantanément aux bonnes données et API selon son domaine d'expertise.</p>
                 </div>
                 <div class="benefit-point">
-                    <h4>Sécurité centralisée</h4>
-                    <p>Un seul point de contrôle pour la gestion des accès, des permissions et de la confidentialité. Vos données contextuelles sont stockées de manière chiffrée dans notre infrastructure européenne sécurisée.</p>
+                    <h4 data-translate="ecosystem-benefit-2-title">Sécurité centralisée</h4>
+                    <p data-translate="ecosystem-benefit-2-text">Un seul point de contrôle pour la gestion des accès, des permissions et de la confidentialité. Vos données contextuelles sont stockées de manière chiffrée dans notre infrastructure européenne sécurisée.</p>
                 </div>
                 <div class="benefit-point">
-                    <h4>Évolutivité garantie</h4>
-                    <p>L'ajout de nouveaux agents, APIs ou moteurs LLM se fait sans impact sur l'existant.</p>
+                    <h4 data-translate="ecosystem-benefit-3-title">Évolutivité garantie</h4>
+                    <p data-translate="ecosystem-benefit-3-text">L'ajout de nouveaux assistants, APIs ou moteurs LLM se fait sans impact sur l'existant.</p>
                 </div>
             </div>
         </div>
@@ -263,14 +271,14 @@
     <section id="temoignages" class="testimonials">
         <div class="container">
             <div class="section-header fade-in">
-                <h2>Ils ont adopté les agents Looptra.</h2>
-                <p>Plus de 500 professionnels utilisent déjà nos agents pour transformer leur productivité.</p>
+                <h2 data-translate="testimonials-title">Ils ont adopté les assistants Looptra.</h2>
+                <p data-translate="testimonials-subtitle">Plus de 500 professionnels utilisent déjà nos assistants pour transformer leur productivité.</p>
             </div>
 
             <div class="testimonials-grid">
                 <div class="testimonial fade-in">
                     <div class="testimonial-content">
-                        "Je reste dans ChatGPT, je tape @Rundesk et j'ai directement mon expert transport. Pas besoin d'apprendre un nouvel outil, c'est génial. Je gagne 4h par semaine sur ma logistique."
+                        <span data-translate="testimonial-1">"Je reste dans ChatGPT, je tape @Rundesk et j'ai directement mon expert transport. Pas besoin d'apprendre un nouvel outil, c'est génial. Je gagne 4h par semaine sur ma logistique."</span>
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar"></div>
@@ -283,7 +291,7 @@
 
                 <div class="testimonial fade-in">
                     <div class="testimonial-content">
-                        "L'approche Looptra est brillante : utiliser GPT-4 comme base et ajouter la spécialisation métier. Rundesk comprend mes contraintes de déplacement mieux qu'un humain."
+                        <span data-translate="testimonial-2">"L'approche Looptra est brillante : utiliser GPT-4 comme base et ajouter la spécialisation métier. Rundesk comprend mes contraintes de déplacement mieux qu'un humain."</span>
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar"></div>
@@ -296,7 +304,7 @@
 
                 <div class="testimonial fade-in">
                     <div class="testimonial-content">
-                        "Enfin des agents IA qui ont du sens ! Pas une énième app à installer, mais une évolution naturelle de ChatGPT vers la spécialisation métier. C'est l'avenir."
+                        <span data-translate="testimonial-3">"Enfin des agents IA qui ont du sens ! Pas une énième app à installer, mais une évolution naturelle de ChatGPT vers la spécialisation métier. C'est l'avenir."</span>
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar"></div>
@@ -309,7 +317,7 @@
 
                 <div class="testimonial fade-in">
                     <div class="testimonial-content">
-                        "Mes collègues utilisent déjà ChatGPT. Avec Rundesk, on a gardé nos habitudes mais on a gagné un expert logistique. Adoption instantanée dans l'équipe."
+                        <span data-translate="testimonial-4">"Mes collègues utilisent déjà ChatGPT. Avec Rundesk, on a gardé nos habitudes mais on a gagné un expert logistique. Adoption instantanée dans l'équipe."</span>
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar"></div>
@@ -322,7 +330,7 @@
 
                 <div class="testimonial fade-in">
                     <div class="testimonial-content">
-                        "La vision Looptra d'un App Store d'agents dans ChatGPT est exactement ce qu'on attendait. Chaque métier va avoir ses spécialistes, directement intégrés."
+                        <span data-translate="testimonial-5">"La vision Looptra d'un App Store d'agents dans ChatGPT est exactement ce qu'on attendait. Chaque métier va avoir ses spécialistes, directement intégrés."</span>
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar"></div>
@@ -335,7 +343,7 @@
 
                 <div class="testimonial fade-in">
                     <div class="testimonial-content">
-                        "J'adore le fait que Rundesk évolue automatiquement avec les mises à jour de GPT. Je bénéficie des dernières avancées IA sans rien faire."
+                        <span data-translate="testimonial-6">"J'adore le fait que Rundesk évolue automatiquement avec les mises à jour de GPT. Je bénéficie des dernières avancées IA sans rien faire."</span>
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar"></div>
@@ -351,14 +359,14 @@
 
     <section class="early-access">
         <div class="container early-access-centered">
-            <h2>Accès anticipé</h2>
-            <p>Soyez parmi les premiers à tester nos nouvelles applications et à façonner l'avenir de votre productivité professionnelle.</p>
+            <h2 data-translate="early-access-title">Accès anticipé</h2>
+            <p data-translate="early-access-subtitle">Soyez parmi les premiers à tester nos nouvelles applications et à façonner l'avenir de votre productivité professionnelle.</p>
             <form class="early-access-form">
-                <input type="email" placeholder="votre.email@entreprise.com" required />
-                <button type="submit">Rejoindre la liste</button>
+                <input type="email" placeholder="votre.email@entreprise.com" data-translate="early-access-email-placeholder" required />
+                <button type="submit" data-translate="early-access-button">Rejoindre la liste</button>
             </form>
             <div class="early-access-benefits">
-                ✨ Accès prioritaire aux bêtas &nbsp;•&nbsp; 🎯 Influence sur le roadmap &nbsp;•&nbsp; 📄 0 spam garanti
+                <span data-translate="early-access-benefits">✨ Accès prioritaire aux bêtas &nbsp;•&nbsp; 🎯 Influence sur le roadmap &nbsp;•&nbsp; 📄 0 spam garanti</span>
             </div>
         </div>
     </section>
@@ -366,58 +374,58 @@
     <section id="faq" class="faq">
         <div class="container">
             <div class="section-header fade-in">
-                <h2>Questions fréquentes</h2>
-                <p>Tout ce que vous devez savoir sur les agents Looptra.</p>
+                <h2 data-translate="faq-title">Questions fréquentes</h2>
+                <p data-translate="faq-subtitle">Tout ce que vous devez savoir sur les assistants Looptra.</p>
             </div>
 
             <div class="faq-list">
                 <div class="faq-item">
-                    <button class="faq-question">
-                        Comment accéder aux agents Looptra ?
+                    <button class="faq-question" data-translate="faq-question-1">
+                        Comment accéder aux assistants Looptra ?
                         <span>+</span>
                     </button>
-                    <div class="faq-answer">
-                        Nos agents sont disponibles directement dans ChatGPT via le GPT Store. Tapez simplement @Rundesk dans votre conversation ChatGPT pour accéder à l'expertise transport. Aucune app supplémentaire à installer, aucun compte à créer.
+                    <div class="faq-answer" data-translate="faq-answer-1">
+                        Nos assistants sont disponibles directement dans ChatGPT via le GPT Store. Tapez simplement @Rundesk dans votre conversation ChatGPT pour accéder à l'expertise transport. Aucune app supplémentaire à installer, aucun compte à créer.
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
-                        Qu'est-ce qui différencie Looptra des autres agents IA ?
+                    <button class="faq-question" data-translate="faq-question-2">
+                        Qu'est-ce qui différencie Looptra des autres assistants IA ?
                         <span>+</span>
                     </button>
-                    <div class="faq-answer">
-                        Nous construisons sur l'infrastructure OpenAI existante au lieu de créer de nouveaux modèles. Nos agents exploitent GPT-4 et y ajoutent l'expertise métier spécialisée. Vous bénéficiez automatiquement des évolutions de GPT sans changer d'outil.
+                    <div class="faq-answer" data-translate="faq-answer-2">
+                        Nous construisons sur l'infrastructure OpenAI existante au lieu de créer de nouveaux modèles. Nos assistants exploitent GPT-4 et y ajoutent l'expertise métier spécialisée. Vous bénéficiez automatiquement des évolutions de GPT sans changer d'outil.
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" data-translate="faq-question-3">
                         Pourquoi parlez-vous de "nouvel App Store" ?
                         <span>+</span>
                     </button>
-                    <div class="faq-answer">
-                        Nous sommes pionniers d'un nouveau modèle : des agents spécialisés disponibles directement dans vos outils IA génératifs. Comme les apps sur votre téléphone, mais pour l'expertise métier dans ChatGPT. C'est l'évolution naturelle de l'IA générative vers la spécialisation.
+                    <div class="faq-answer" data-translate="faq-answer-3">
+                        Nous sommes pionniers d'un nouveau modèle : des assistants spécialisés disponibles directement dans vos outils IA génératifs. Comme les apps sur votre téléphone, mais pour l'expertise métier dans ChatGPT. C'est l'évolution naturelle de l'IA générative vers la spécialisation.
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" data-translate="faq-question-4">
                         Mes données sont-elles sécurisées ?
                         <span>+</span>
                     </button>
-                    <div class="faq-answer">
-                        Nos agents respectent la politique de confidentialité d'OpenAI. Nous n'ajoutons aucune couche de stockage supplémentaire. Vos conversations restent dans l'écosystème ChatGPT avec les mêmes garanties de sécurité.
+                    <div class="faq-answer" data-translate="faq-answer-4">
+                        Nos assistants respectent la politique de confidentialité d'OpenAI. Nous n'ajoutons aucune couche de stockage supplémentaire. Vos conversations restent dans l'écosystème ChatGPT avec les mêmes garanties de sécurité.
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
-                        Comment les agents évoluent-ils ?
+                    <button class="faq-question" data-translate="faq-question-5">
+                        Comment les assistants évoluent-ils ?
                         <span>+</span>
                     </button>
-                    <div class="faq-answer">
-                        Nos agents bénéficient automatiquement des améliorations de GPT (nouvelles versions, capacités étendues). Nous mettons à jour régulièrement les spécialisations métier. Vous n'avez aucune maintenance à faire, tout se fait en arrière-plan.
+                    <div class="faq-answer" data-translate="faq-answer-5">
+                        Nos assistants bénéficient automatiquement des améliorations de GPT (nouvelles versions, capacités étendues). Nous mettons à jour régulièrement les spécialisations métier. Vous n'avez aucune maintenance à faire, tout se fait en arrière-plan.
                     </div>
                 </div>
             </div>
@@ -429,12 +437,12 @@
             <div class="footer-content">
                 <div class="logo">Looptra</div>
                 <div class="footer-links">
-                    <a href="/politique-confidentialite">Politique de confidentialité</a>
-                    <a href="/cgu-cgv">CGU/CGV</a>
+                    <a href="/politique-confidentialite" data-translate="footer-privacy">Politique de confidentialité</a>
+                    <a href="/cgu-cgv" data-translate="footer-terms">CGU/CGV</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Looptra. Le studio des agents intelligents.</p>
+                <p data-translate="footer-copyright">&copy; 2025 Looptra. Le studio des agents intelligents.</p>
             </div>
         </div>
     </footer>
@@ -508,6 +516,8 @@
         function showRundesk() {
             window.location.href = 'rundesk.html';
         }
+
+        // Translation functionality is now handled by js/translations.js
     </script>
 </body>
 </html>

@@ -104,6 +104,27 @@ nav {
     align-items: center;
 }
 
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.language-selector select {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: 8px 12px;
+    font-size: 14px;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.language-selector select:hover {
+    border-color: var(--color-primary);
+}
+
 .logo {
     font-size: 28px;
     font-weight: 700;

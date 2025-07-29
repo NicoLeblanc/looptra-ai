@@ -175,7 +175,7 @@ nav {
 }
 
 .nav-cta, .back-link {
-    background: var(--color-primary);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     padding: 12px 24px;
     border-radius: var(--border-radius);
@@ -193,7 +193,7 @@ nav {
 }
 
 .nav-cta:hover {
-    background: #333;
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
     transform: translateY(-1px);
 }
 
@@ -241,7 +241,7 @@ nav {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: var(--color-primary);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     padding: 16px 32px;
     border-radius: var(--border-radius-lg);
@@ -253,7 +253,7 @@ nav {
 }
 
 .hero-cta:hover {
-    background: #333;
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
     transform: translateY(-2px);
     box-shadow: var(--shadow-xl);
 }
@@ -522,14 +522,14 @@ nav {
     border: none;
     border-radius: var(--border-radius-lg);
     padding: 13px 32px;
-    background: var(--color-primary);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     cursor: pointer;
     box-shadow: var(--shadow-sm);
     transition: background 0.15s, color 0.15s;
 }
 .early-access-form button:hover {
-    background: #222;
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
 }
 
 .early-access-benefits {
@@ -633,7 +633,7 @@ nav {
 }
 
 .app-cta {
-    background: var(--color-primary);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     padding: 12px 24px;
     border-radius: var(--border-radius);
@@ -645,7 +645,7 @@ nav {
 }
 
 .app-cta:hover {
-    background: #333;
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
 }
 
 .app-cta.secondary {
@@ -685,7 +685,7 @@ nav {
 }
 
 .orchestrator-core {
-    background: linear-gradient(135deg, var(--color-primary) 0%, #333 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     padding: 24px 32px;
     border-radius: var(--border-radius-xl);

@@ -56,7 +56,7 @@
         /* Logo spécifique Rundesk */
         .rundesk-logo {
             display: flex;
-            align-items: baseline;
+            align-items: flex-end;
             gap: 0.35em;
             font-size: 1.8rem;
             text-decoration: none;
@@ -83,6 +83,13 @@
             font-weight: 700;
             color: #071c3b;
             letter-spacing: 0.02em;
+        }
+
+        .rundesk-logo .looptra-img {
+            height: 0.7em;
+            width: auto;
+            display: inline-block;
+            vertical-align: -0.14em;
         }
 
         /* Sections avec couleurs Rundesk */
@@ -284,7 +291,7 @@
             <a href="index.html" class="rundesk-logo">
                 <span class="rundesk">Rundesk</span>
                 <span class="by">by</span>
-                <span class="looptra">Looptra</span>
+                <img src="img/looptra_line_logo2.png" alt="Looptra" class="looptra-img" />
             </a>
         </nav>
     </header>

@@ -163,26 +163,26 @@ const TRANSLATIONS = {
         "nav-cta": "Get Started",
 
         // Hero Section
-        "hero-title": "AI assistants directly in ChatGPT.",
-        "hero-subtitle": "Access specialized assistants without leaving your usual AI interface. Looptra builds on existing infrastructure to create the new App Store for generative agents.",
-        "hero-cta": "Discover our assistants",
+        "hero-title": "AI helpers directly in ChatGPT.",
+        "hero-subtitle": "Access specialized helpers without leaving your usual AI interface. Looptra builds on existing infrastructure to create the new App Store for generative agents.",
+        "hero-cta": "Discover our helpers",
 
         // Benefits Section
         "benefit-1-title": "Zero additional apps.",
-        "benefit-1-text": "Our assistants live directly in ChatGPT. You keep your habits, we add industry specialization. No new interface to learn, no account to create.",
+        "benefit-1-text": "Our helpers live directly in ChatGPT. You keep your habits, we add industry specialization. No new interface to learn, no account to create.",
         "benefit-2-title": "Built on existing AI infrastructure.",
-        "benefit-2-text": "We don't reinvent the wheel. Our assistants leverage the power of ever-evolving GPT models and add our own contextual data layer. You benefit from the latest AI advances with added industry personalization.",
+        "benefit-2-text": "We don't reinvent the wheel. Our helpers leverage the power of ever-evolving GPT models and add our own contextual data layer. You benefit from the latest AI advances with added industry personalization.",
         "benefit-3-title": "The new generative App Store.",
-        "benefit-3-text": "We are pioneers of a new model: specialized assistants available directly in your generative AI tools. Choose your industry expert like you would install an app on your phone.",
+        "benefit-3-text": "We are pioneers of a new model: specialized helpers available directly in your generative AI tools. Choose your industry expert like you would install an app on your phone.",
 
         // Applications Section
-        "applications-title": "Our assistants in the GPT Store.",
+        "applications-title": "Our helpers in the GPT Store.",
         "applications-subtitle": "Industry specialists accessible directly from ChatGPT. No installation, no configuration — just the expertise you need.",
         "app-status-available": "Available on GPT Store",
         "app-status-coming": "Coming Soon on GPT Store",
         
         // Rundesk App
-        "rundesk-description": "Type @Rundesk in ChatGPT to access your logistics assistant. Leverages GPT-4 + our transportation specializations to optimize your travel directly in your conversation.",
+        "rundesk-description": "Type @Rundesk in ChatGPT to access your logistics helper. Leverages GPT-4 + our transportation specializations to optimize your travel directly in your conversation.",
         "rundesk-feature-1": "Accessible via ChatGPT (no app to install)",
         "rundesk-feature-2": "Connected to SNCF, Trainline APIs in real-time",
         "rundesk-feature-3": "Memory of your preferences and history",
@@ -190,7 +190,7 @@ const TRANSLATIONS = {
         "rundesk-cta": "Access on ChatGPT",
         
         // Tasklane App
-        "tasklane-description": "The prioritization assistant that transforms your ChatGPT into an expert project manager. Analyzes your tasks via GPT and applies advanced project management methodologies.",
+        "tasklane-description": "The prioritization helper that transforms your ChatGPT into an expert project manager. Analyzes your tasks via GPT and applies advanced project management methodologies.",
         "tasklane-feature-1": "Native integration in your ChatGPT workflow",
         "tasklane-feature-2": "Asana, Notion connections via GPT infrastructure",
         "tasklane-feature-3": "Prioritization algorithms on evolving models",
@@ -199,7 +199,7 @@ const TRANSLATIONS = {
 
         // Ecosystem Section
         "ecosystem-title": "The Looptra Ecosystem",
-        "ecosystem-subtitle": "A central orchestrator that connects your assistants to all the data and services needed for their industry expertise, with our own secure contextual data layer.",
+        "ecosystem-subtitle": "A central orchestrator that connects your helpers to all the data and services needed for their industry expertise, with our own secure contextual data layer.",
         
         // Ecosystem Diagram
         "orchestrator-title": "Looptra",
@@ -208,7 +208,7 @@ const TRANSLATIONS = {
         "data-item-1": "Business preferences",
         "data-item-2": "Interaction history",
         "data-item-3": "Business contexts",
-        "data-item-4": "Assistant configurations",
+        "data-item-4": "Helper configurations",
         "data-item-5": "Learning data",
         "apis-title": "🔌 Looptra-MCP & External APIs",
         "transport-category": "Transport",
@@ -236,7 +236,7 @@ const TRANSLATIONS = {
         "llm-grok-desc": "Data analysis",
         "llm-others": "+ Others",
         "llm-others-desc": "Specialized engines",
-        "agents-title": "🤖 Specialized AI assistants",
+        "agents-title": "🤖 Specialized AI helpers",
         "agent-rundesk": "Rundesk",
         "agent-rundesk-desc": "Logistics & transport expert",
         "agent-rundesk-status": "Available",
@@ -249,15 +249,15 @@ const TRANSLATIONS = {
         
         // Ecosystem Benefits
         "ecosystem-benefit-1-title": "Optimized Performance",
-        "ecosystem-benefit-1-text": "Each assistant instantly accesses the right data and APIs according to their domain expertise.",
+        "ecosystem-benefit-1-text": "Each helper instantly accesses the right data and APIs according to their domain expertise.",
         "ecosystem-benefit-2-title": "Centralized Security",
         "ecosystem-benefit-2-text": "A single control point for managing access, permissions and confidentiality. Your contextual data is stored encrypted in our secure European infrastructure.",
         "ecosystem-benefit-3-title": "Guaranteed Scalability",
-        "ecosystem-benefit-3-text": "Adding new assistants, APIs or LLM engines is done without impact on existing systems.",
+        "ecosystem-benefit-3-text": "Adding new helpers, APIs or LLM engines is done without impact on existing systems.",
 
         // Testimonials Section
-        "testimonials-title": "They've adopted Looptra assistants.",
-        "testimonials-subtitle": "Over 500 professionals already use our assistants to transform their productivity.",
+        "testimonials-title": "They've adopted Looptra helpers.",
+        "testimonials-subtitle": "Over 500 professionals already use our helpers to transform their productivity.",
         "testimonial-1": "I stay in ChatGPT, type @Rundesk and I directly have my transport expert. No need to learn a new tool, it's brilliant. I save 4 hours per week on logistics.",
         "testimonial-2": "Looptra's approach is brilliant: using GPT-4 as a base and adding industry specialization. Rundesk understands my travel constraints better than a human.",
         "testimonial-3": "Finally AI agents that make sense! Not yet another app to install, but a natural evolution of ChatGPT towards industry specialization. This is the future.",
@@ -267,17 +267,17 @@ const TRANSLATIONS = {
 
         // FAQ Section
         "faq-title": "Frequently Asked Questions",
-        "faq-subtitle": "Everything you need to know about Looptra assistants.",
-        "faq-question-1": "How do I access Looptra assistants?",
-        "faq-answer-1": "Our assistants are available directly in ChatGPT via the GPT Store. Simply type @Rundesk in your ChatGPT conversation to access transport expertise. No additional app to install, no account to create.",
-        "faq-question-2": "What differentiates Looptra from other AI assistants?",
-        "faq-answer-2": "We build on existing OpenAI infrastructure instead of creating new models. Our assistants leverage GPT-4 and add specialized industry expertise. You automatically benefit from GPT evolutions without changing tools.",
+        "faq-subtitle": "Everything you need to know about Looptra helpers.",
+        "faq-question-1": "How do I access Looptra helpers?",
+        "faq-answer-1": "Our helpers are available directly in ChatGPT via the GPT Store. Simply type @Rundesk in your ChatGPT conversation to access transport expertise. No additional app to install, no account to create.",
+        "faq-question-2": "What differentiates Looptra from other AI helpers?"
+        "faq-answer-2": "We build on existing OpenAI infrastructure instead of creating new models. Our helpers leverage GPT-4 and add specialized industry expertise. You automatically benefit from GPT evolutions without changing tools.",
         "faq-question-3": "Why do you talk about a \"new App Store\"?",
-        "faq-answer-3": "We are pioneers of a new model: specialized assistants available directly in your generative AI tools. Like apps on your phone, but for industry expertise in ChatGPT. It's the natural evolution of generative AI towards specialization.",
+        "faq-answer-3": "We are pioneers of a new model: specialized helpers available directly in your generative AI tools. Like apps on your phone, but for industry expertise in ChatGPT. It's the natural evolution of generative AI towards specialization.",
         "faq-question-4": "Is my data secure?",
-        "faq-answer-4": "Our assistants respect OpenAI's privacy policy. We don't add any additional storage layer. Your conversations remain in the ChatGPT ecosystem with the same security guarantees.",
-        "faq-question-5": "How do assistants evolve?",
-        "faq-answer-5": "Our assistants automatically benefit from GPT improvements (new versions, extended capabilities). We regularly update industry specializations. You have no maintenance to do, everything happens in the background.",
+        "faq-answer-4": "Our helpers respect OpenAI's privacy policy. We don't add any additional storage layer. Your conversations remain in the ChatGPT ecosystem with the same security guarantees.",
+        "faq-question-5": "How do helpers evolve?",
+        "faq-answer-5": "Our helpers automatically benefit from GPT improvements (new versions, extended capabilities). We regularly update industry specializations. You have no maintenance to do, everything happens in the background.",
 
         // Early Access Section
         "early-access-title": "Early Access",

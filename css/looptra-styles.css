@@ -132,11 +132,19 @@ nav {
     text-decoration: none;
     letter-spacing: -0.5px;
     transition: var(--transition-default);
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.logo img {
-    height: 40px;
-    display: block;
+.logo .logo-favicon {
+    width: 32px;
+    height: 32px;
+}
+
+.logo .logo-main {
+    height: 30px;
+    width: auto;
 }
 
 .nav-links {

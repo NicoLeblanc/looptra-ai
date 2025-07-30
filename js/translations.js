@@ -147,12 +147,269 @@ const TRANSLATIONS = {
         "early-access-subtitle": "Soyez parmi les premiers à tester nos nouvelles applications et à façonner l'avenir de votre productivité professionnelle.",
         "early-access-email-placeholder": "votre.email@entreprise.com",
         "early-access-button": "Rejoindre la liste",
-        "early-access-benefits": "✨ Accès prioritaire aux bêtas  •  🎯 Influence sur le roadmap  •  📄 0 spam garanti",
+        "early-access-benefits": "✨ Accès prioritaire aux bêtas  •  🎯 Influence sur le roadmap",
 
         // Footer Section
         "footer-privacy": "Politique de confidentialité",
         "footer-terms": "CGU/CGV", 
-        "footer-copyright": "© 2025 Looptra. Le studio des agents intelligents."
+        "footer-copyright": "© 2025 Looptra. Le studio des agents intelligents.",
+
+        // Legal Pages
+        "back-home": "← Retour à l'accueil",
+        "last-updated": "Dernière mise à jour :",
+        "privacy-title": "Politique de confidentialité",
+        "privacy-subtitle": "Comment nous collectons, utilisons et protégeons vos données personnelles",
+        "terms-title": "Conditions générales",
+        "terms-subtitle": "Conditions d'utilisation et de vente de nos agents IA spécialisés",
+        "toc-title": "Sommaire",
+        
+        // Table of Contents
+        "toc-article-1": "1. Objet et champ d'application",
+        "toc-article-2": "2. Acceptation des conditions",
+        "toc-article-3": "3. Présentation des services",
+        "toc-article-4": "4. Accès aux services",
+        "toc-article-5": "5. Utilisation des services",
+        "toc-article-6": "6. Conditions financières",
+        "toc-article-7": "7. Responsabilités",
+        "toc-article-8": "8. Propriété intellectuelle",
+        "toc-article-9": "9. Données personnelles",
+        "toc-article-10": "10. Durée et résiliation",
+        "toc-article-11": "11. Force majeure",
+        "toc-article-12": "12. Droit applicable et juridiction",
+        
+        // Article titles
+        "terms-article-1-title": "1. Objet et champ d'application",
+        "terms-article-2-title": "2. Acceptation des conditions",
+        "terms-article-3-title": "3. Présentation des services",
+        "terms-article-4-title": "4. Accès aux services",
+        "terms-article-5-title": "5. Utilisation des services",
+        "terms-article-6-title": "6. Conditions financières",
+        "terms-article-7-title": "7. Responsabilités",
+        "terms-article-8-title": "8. Propriété intellectuelle",
+        "terms-article-9-title": "9. Données personnelles",
+        "terms-article-10-title": "10. Durée et résiliation",
+        "terms-article-11-title": "11. Force majeure",
+        "terms-article-12-title": "12. Droit applicable et juridiction",
+        
+        // Article 1 - Objet et champ d'application
+        "terms-article-1-p1": "Les présentes conditions générales d'utilisation et de vente (ci-après \"CGU/CGV\") régissent l'accès et l'utilisation des services proposés par Looptra, société [forme juridique à compléter], immatriculée sous le numéro [numéro à compléter], dont le siège social est situé [adresse à compléter] (ci-après \"Looptra\", \"nous\", \"notre\").",
+        "terms-article-1-p2": "Ces services comprennent l'accès à nos agents IA spécialisés intégrés dans l'écosystème ChatGPT/OpenAI, notamment :",
+        "terms-article-1-li1": "Rundesk : Agent spécialisé en logistique et transport",
+        "terms-article-1-li2": "Tasklane : Agent spécialisé en gestion de projet",
+        "terms-article-1-li3": "Tout autre agent développé par Looptra",
+        
+        // Article 2 - Acceptation des conditions
+        "terms-article-2-p1": "L'accès et l'utilisation de nos services impliquent l'acceptation pleine et entière des présentes CGU/CGV. Si vous n'acceptez pas ces conditions, vous ne devez pas utiliser nos services.",
+        "terms-article-2-p2": "Ces conditions s'appliquent également aux conditions d'utilisation d'OpenAI, notre partenaire technologique pour l'infrastructure ChatGPT.",
+        
+        // Highlight box
+        "terms-highlight": "<strong>Important :</strong> Nos agents fonctionnent dans l'écosystème ChatGPT. Vous devez également respecter les conditions d'utilisation d'OpenAI.",
+        
+        // Article 3 - Présentation des services
+        "terms-article-3-subtitle-1": "3.1 Description générale",
+        "terms-article-3-p1": "Looptra développe et propose des agents IA spécialisés accessibles directement via ChatGPT. Ces agents combinent la puissance des modèles de langage GPT avec des spécialisations métier spécifiques et une couche de données contextuelles propriétaire.",
+        "terms-article-3-subtitle-2": "3.2 Architecture technique",
+        "terms-article-3-p2": "Nos services reposent sur une architecture hybride :",
+        "terms-article-3-li1": "<strong>Couche ChatGPT/OpenAI :</strong> Interface conversationnelle et modèles de langage",
+        "terms-article-3-li2": "<strong>Couche Looptra :</strong> Base de données sécurisée stockant vos préférences, historiques et contextes métier",
+        "terms-article-3-li3": "<strong>Intégrations tierces :</strong> APIs spécialisées selon votre domaine d'activité",
+        "terms-article-3-subtitle-3": "3.3 Fonctionnalités",
+        "terms-article-3-feature1": "Accès à des agents spécialisés via ChatGPT",
+        "terms-article-3-feature2": "Intégrations avec des APIs tierces (SNCF, Trainline, Notion, etc.)",
+        "terms-article-3-feature3": "Personnalisation selon vos préférences métier",
+        "terms-article-3-feature4": "Mises à jour automatiques avec l'évolution des modèles GPT",
+        "terms-article-3-subtitle-4": "3.4 Disponibilité",
+        "terms-article-3-p3": "Nous nous efforçons de maintenir nos services disponibles 24h/24 et 7j/7, mais ne pouvons garantir une disponibilité absolue. Les interruptions programmées pour maintenance seront communiquées à l'avance.",
+        
+        // Article 4 - Accès aux services
+        "terms-article-4-subtitle-1": "4.1 Conditions d'accès",
+        "terms-article-4-p1": "Pour accéder à nos services, vous devez :",
+        "terms-article-4-li1": "Être âgé d'au moins 18 ans ou représenter une personne morale",
+        "terms-article-4-li2": "Disposer d'un compte ChatGPT actif",
+        "terms-article-4-li3": "Avoir souscrit à un abonnement Looptra le cas échéant",
+        "terms-article-4-li4": "Fournir des informations exactes et à jour",
+        "terms-article-4-subtitle-2": "4.2 Compte utilisateur",
+        "terms-article-4-p2": "La création d'un compte peut être nécessaire pour certains services. Vous êtes responsable de la confidentialité de vos identifiants et de toutes les activités réalisées sous votre compte.",
+
+        // Article 5 - Utilisation des services
+        "terms-article-5-subtitle-1": "5.1 Usage autorisé",
+        "terms-article-5-p1": "Nos services sont destinés à un usage professionnel légitime. Vous vous engagez à :",
+        "terms-article-5-li1": "Utiliser les services conformément à leur destination",
+        "terms-article-5-li2": "Respecter les lois et réglementations applicables",
+        "terms-article-5-li3": "Ne pas porter atteinte aux droits de tiers",
+        "terms-article-5-li4": "Fournir des informations exactes",
+        "terms-article-5-subtitle-2": "5.2 Usages interdits",
+        "terms-article-5-p2": "Il est strictement interdit de :",
+        "terms-article-5-li5": "Utiliser nos services à des fins illégales ou frauduleuses",
+        "terms-article-5-li6": "Tenter de contourner les mesures de sécurité",
+        "terms-article-5-li7": "Copier, modifier ou distribuer nos services sans autorisation",
+        "terms-article-5-li8": "Utiliser nos services pour concurrencer directement Looptra",
+        "terms-article-5-li9": "Surcharger nos systèmes par un usage anormal",
+
+        // Article 6 - Conditions financières
+        "terms-article-6-subtitle-1": "6.1 Tarification",
+        "terms-article-6-p1": "Les tarifs de nos services sont indiqués sur notre site web et peuvent évoluer. Les modifications tarifaires ne s'appliquent pas aux abonnements en cours jusqu'à leur renouvellement.",
+        "terms-article-6-subtitle-2": "6.2 Modalités de paiement",
+        "terms-article-6-p2": "Le paiement s'effectue par les moyens proposés sur notre plateforme. Pour les abonnements, le paiement est effectué à l'avance selon la périodicité choisie.",
+        "terms-article-6-subtitle-3": "6.3 Remboursement",
+        "terms-article-6-p3": "Nous proposons une garantie satisfait ou remboursé de 30 jours pour les nouveaux abonnements. Passé ce délai, aucun remboursement ne sera effectué sauf cas particulier à notre discrétion.",
+        "terms-article-6-subtitle-4": "6.4 Retard de paiement",
+        "terms-article-6-p4": "En cas de retard de paiement, l'accès aux services pourra être suspendu après mise en demeure restée sans effet.",
+
+        // Article 7 - Responsabilités
+        "terms-article-7-subtitle-1": "7.1 Responsabilité de Looptra",
+        "terms-article-7-p1": "Looptra s'engage à fournir ses services avec diligence et à maintenir la sécurité de son infrastructure de données. Cependant, notre responsabilité est limitée aux dommages directs et prévisibles. Nous ne saurions être tenus responsables :",
+        "terms-article-7-li1": "Des décisions prises sur la base des recommandations de nos agents",
+        "terms-article-7-li2": "Des dysfonctionnements liés à l'infrastructure OpenAI",
+        "terms-article-7-li3": "Des interruptions de services des APIs tierces",
+        "terms-article-7-li4": "Des dommages indirects ou de la perte de profits",
+        "terms-article-7-li5": "De la perte de données en cas de force majeure, sous réserve de nos obligations de sauvegarde",
+        "terms-article-7-p2": "<strong>Engagement sécurité :</strong> Nous nous engageons à maintenir des standards de sécurité élevés pour notre infrastructure et à vous informer dans les meilleurs délais de tout incident affectant vos données.",
+        "terms-article-7-subtitle-2": "7.2 Responsabilité de l'utilisateur",
+        "terms-article-7-p3": "Vous êtes responsable :",
+        "terms-article-7-li6": "De l'utilisation que vous faites de nos services",
+        "terms-article-7-li7": "De la véracité des informations fournies",
+        "terms-article-7-li8": "Des décisions prises sur la base des recommandations",
+        "terms-article-7-li9": "Du respect des conditions d'utilisation des services tiers",
+
+        // Limitation notice
+        "terms-limitation-notice": "<strong>Limitation de responsabilité :</strong> Nos agents IA fournissent des recommandations basées sur les données disponibles. Les décisions finales vous appartiennent et Looptra ne peut être tenu responsable des conséquences de vos choix.",
+
+        // Article 8 - Propriété intellectuelle
+        "terms-article-8-p1": "Tous les éléments de nos services (agents IA, algorithmes, interfaces, marques, etc.) sont protégés par les droits de propriété intellectuelle et appartiennent à Looptra ou à nos partenaires.",
+        "terms-article-8-p2": "Vous ne pouvez pas :",
+        "terms-article-8-li1": "Reproduire, copier ou distribuer nos services",
+        "terms-article-8-li2": "Procéder à de l'ingénierie inverse",
+        "terms-article-8-li3": "Utiliser nos marques sans autorisation",
+        "terms-article-8-li4": "Créer des services concurrents basés sur nos technologies",
+
+        // Article 9 - Données personnelles
+        "terms-article-9-p1": "Le traitement de vos données personnelles est régi par notre <a href=\"/politique-confidentialite\" style=\"color: #000; font-weight: 600;\">Politique de confidentialité</a>, qui fait partie intégrante des présentes conditions.",
+        "terms-article-9-p2": "En utilisant nos services, vous consentez au traitement de vos données conformément à cette politique.",
+
+        // Article 10 - Durée et résiliation
+        "terms-article-10-subtitle-1": "10.1 Durée",
+        "terms-article-10-p1": "Les présentes conditions s'appliquent tant que vous utilisez nos services. Les abonnements sont conclus pour la durée choisie et se renouvellent automatiquement sauf résiliation.",
+        "terms-article-10-subtitle-2": "10.2 Résiliation par l'utilisateur",
+        "terms-article-10-p2": "Vous pouvez résilier votre abonnement à tout moment depuis votre espace client. La résiliation prend effet à la fin de la période en cours.",
+        "terms-article-10-subtitle-3": "10.3 Résiliation par Looptra",
+        "terms-article-10-p3": "Nous pouvons résilier votre accès en cas de :",
+        "terms-article-10-li1": "Non-respect des présentes conditions",
+        "terms-article-10-li2": "Usage abusif ou frauduleux",
+        "terms-article-10-li3": "Non-paiement après mise en demeure",
+        "terms-article-10-subtitle-4": "10.4 Effets de la résiliation",
+        "terms-article-10-p4": "La résiliation entraîne la cessation immédiate de l'accès aux services. Les données peuvent être conservées selon notre politique de conservation.",
+
+        // Article 11 - Force majeure
+        "terms-article-11-p1": "Looptra ne saurait être tenu responsable de tout retard ou inexécution consécutif à la survenance d'un cas de force majeure, notamment :",
+        "terms-article-11-li1": "Catastrophes naturelles",
+        "terms-article-11-li2": "Défaillances des réseaux de télécommunication",
+        "terms-article-11-li3": "Actes de guerre, terrorisme, émeutes",
+        "terms-article-11-li4": "Décisions gouvernementales",
+        "terms-article-11-li5": "Grèves générales",
+
+        // Article 12 - Droit applicable et juridiction
+        "terms-article-12-p1": "Les présentes conditions sont régies par le droit français. En cas de litige, les parties s'efforceront de trouver une solution amiable.",
+        "terms-article-12-p2": "À défaut d'accord amiable, tout litige sera soumis à la compétence exclusive des tribunaux de [ville à compléter], France.",
+        "terms-article-12-subtitle-1": "12.1 Médiation",
+        "terms-article-12-p3": "Conformément à la réglementation, nous adhérons à un service de médiation de la consommation. En cas de litige, vous pouvez recourir gratuitement à ce service de médiation.",
+        "terms-article-12-subtitle-2": "12.2 Modifications",
+        "terms-article-12-p4": "Nous nous réservons le droit de modifier les présentes conditions à tout moment. Les modifications importantes vous seront notifiées au moins 30 jours avant leur entrée en vigueur.",
+
+        // Contact Information
+        "contact-title": "Questions juridiques",
+        "contact-intro": "Pour toute question relative aux présentes conditions :",
+        "contact-email": "contact@looptra.ai",
+        "contact-address": "Looptra<br>12 rue Letellier, 75015 Paris, France",
+
+        // Privacy Policy Content
+        "privacy-section-1-title": "1. Introduction",
+        "privacy-section-1-p1": "Looptra s'engage à protéger votre vie privée et vos données personnelles. Cette politique de confidentialité explique comment nous collectons, utilisons, partageons et protégeons vos informations lorsque vous utilisez nos agents IA spécialisés.",
+        "privacy-section-1-p2": "En utilisant nos services, vous acceptez les pratiques décrites dans cette politique.",
+        "privacy-section-2-title": "2. Données que nous collectons",
+        "privacy-section-2-intro": "Nous collectons différents types d'informations :",
+        "privacy-data-account": "<strong>Informations d'compte :</strong> Email, nom, préférences utilisateur",
+        "privacy-data-usage": "<strong>Données d'utilisation :</strong> Interactions avec nos agents, historiques de conversations",
+        "privacy-data-business": "<strong>Données métier :</strong> Informations partagées pour personnaliser nos agents (itinéraires, préférences de transport, tâches, contextes business)",
+        "privacy-data-technical": "<strong>Données techniques :</strong> Adresse IP, type de navigateur, données de performance",
+        "privacy-data-integration": "<strong>Données d'intégration :</strong> Informations récupérées via les APIs connectées (SNCF, Trainline, Notion, etc.) avec votre autorisation",
+        "privacy-data-contextual": "<strong>Données contextuelles :</strong> Informations stockées dans notre base de données sécurisée pour enrichir vos interactions avec nos agents",
+        "privacy-section-3-title": "3. Comment nous utilisons vos données",
+        "privacy-section-3-intro": "Vos données sont utilisées pour :",
+        "privacy-usage-1": "Fournir et améliorer nos agents IA spécialisés",
+        "privacy-usage-2": "Personnaliser les réponses et recommandations",
+        "privacy-usage-3": "Maintenir la sécurité et prévenir les abus",
+        "privacy-usage-4": "Communiquer avec vous sur nos services",
+        "privacy-usage-5": "Analyser l'utilisation pour améliorer nos produits",
+        "privacy-usage-6": "Respecter nos obligations légales",
+        "privacy-architecture-highlight": "<strong>Architecture de données :</strong> Nous construisons sur l'infrastructure OpenAI/ChatGPT ET nous maintenons notre propre base de données sécurisée. Cette architecture hybride nous permet d'enrichir vos interactions avec du contexte personnalisé tout en respectant les standards de sécurité les plus élevés. Vos données contextuelles sont stockées de manière chiffrée dans nos systèmes européens.",
+        "privacy-section-4-title": "4. Partage des données",
+        "privacy-section-4-intro": "Nous ne vendons jamais vos données personnelles. Nous pouvons les partager uniquement dans ces cas :",
+        "privacy-sharing-1": "<strong>Prestataires de services :</strong> OpenAI (ChatGPT), fournisseurs d'APIs (SNCF, Trainline, etc.)",
+        "privacy-sharing-2": "<strong>Obligations légales :</strong> Si requis par la loi",
+        "privacy-sharing-3": "<strong>Protection des droits :</strong> Pour protéger nos droits, votre sécurité ou celle d'autres utilisateurs",
+        "privacy-sharing-4": "<strong>Avec votre consentement :</strong> Dans tous les autres cas, uniquement avec votre accord explicite",
+        
+        // Section 5 - Security
+        "privacy-section-5-title": "5. Sécurité des données",
+        "privacy-section-5-intro": "Nous mettons en place des mesures de sécurité appropriées pour protéger vos données dans notre infrastructure :",
+        "privacy-security-1": "<strong>Chiffrement avancé :</strong> Données chiffrées en transit (TLS 1.3) et au repos (AES-256)",
+        "privacy-security-2": "<strong>Infrastructure européenne :</strong> Nos serveurs sont hébergés en Europe avec des partenaires certifiés",
+        "privacy-security-3": "<strong>Contrôles d'accès stricts :</strong> Authentification multi-facteurs et principe du moindre privilège",
+        "privacy-security-4": "<strong>Surveillance continue :</strong> Monitoring 24/7 et détection d'anomalies",
+        "privacy-security-5": "<strong>Sauvegardes sécurisées :</strong> Copies chiffrées avec rétention géographiquement distribuée",
+        "privacy-security-6": "<strong>Audits réguliers :</strong> Évaluations de sécurité par des tiers indépendants",
+        "privacy-security-7": "<strong>Formation de l'équipe :</strong> Sensibilisation continue aux bonnes pratiques de sécurité",
+        "privacy-security-standards": "Nos mesures de sécurité respectent les standards industrie (ISO 27001) et les exigences RGPD.",
+        
+        // Section 6 - Rights
+        "privacy-section-6-title": "6. Vos droits",
+        "privacy-section-6-intro": "Conformément au RGPD, vous disposez des droits suivants :",
+        "privacy-rights-1": "<strong>Accès :</strong> Obtenir une copie de vos données personnelles",
+        "privacy-rights-2": "<strong>Rectification :</strong> Corriger des données inexactes",
+        "privacy-rights-3": "<strong>Effacement :</strong> Demander la suppression de vos données",
+        "privacy-rights-4": "<strong>Limitation :</strong> Restreindre le traitement de vos données",
+        "privacy-rights-5": "<strong>Portabilité :</strong> Récupérer vos données dans un format lisible",
+        "privacy-rights-6": "<strong>Opposition :</strong> Vous opposer au traitement de vos données",
+        "privacy-rights-7": "<strong>Retrait du consentement :</strong> Retirer votre consentement à tout moment",
+        "privacy-rights-contact": "Pour exercer ces droits, contactez-nous à <a href=\"mailto:privacy@looptra.ai\" class=\"contact-email\">privacy@looptra.ai</a>",
+        
+        // Section 7 - Cookies
+        "privacy-section-7-title": "7. Cookies et technologies similaires",
+        "privacy-section-7-intro": "Nous utilisons des cookies pour :",
+        "privacy-cookies-1": "Maintenir votre session de connexion",
+        "privacy-cookies-2": "Mémoriser vos préférences",
+        "privacy-cookies-3": "Analyser l'utilisation de notre site",
+        "privacy-cookies-4": "Améliorer votre expérience utilisateur",
+        "privacy-cookies-note": "Vous pouvez configurer votre navigateur pour refuser les cookies, mais cela peut affecter le fonctionnement de nos services.",
+        
+        // Section 8 - Data Retention
+        "privacy-section-8-title": "8. Conservation des données",
+        "privacy-section-8-intro": "Nous conservons vos données selon les catégories suivantes :",
+        "privacy-retention-1": "<strong>Données de compte :</strong> Tant que votre compte est actif",
+        "privacy-retention-2": "<strong>Données contextuelles :</strong> Stockées dans notre BDD sécurisée pour améliorer vos interactions, supprimées à la fermeture du compte ou sur demande",
+        "privacy-retention-3": "<strong>Historiques d'utilisation :</strong> Conservés 2 ans maximum pour l'amélioration du service",
+        "privacy-retention-4": "<strong>Données de facturation :</strong> 10 ans conformément aux obligations légales",
+        "privacy-retention-5": "<strong>Logs techniques :</strong> 6 mois maximum pour la sécurité et le support",
+        "privacy-auto-deletion": "<strong>Suppression automatique :</strong> Toutes vos données contextuelles stockées dans notre infrastructure sont automatiquement supprimées 3 mois après la fermeture de votre compte, sauf obligation légale contraire.",
+        
+        // Section 9 - International Transfers
+        "privacy-section-9-title": "9. Transferts internationaux",
+        "privacy-infrastructure-eu": "<strong>Notre infrastructure :</strong> Vos données contextuelles sont stockées exclusivement sur des serveurs européens (France/Allemagne) respectant le RGPD.",
+        "privacy-openai-transfers": "<strong>Partenaires technologiques :</strong> Nos services utilisant l'infrastructure OpenAI, certaines données peuvent être transférées vers les États-Unis lors de vos interactions avec ChatGPT. Ces transferts sont effectués conformément aux mécanismes de protection appropriés :",
+        "privacy-transfer-1": "Clauses contractuelles types de la Commission européenne",
+        "privacy-transfer-2": "Mesures de sécurité supplémentaires (chiffrement renforcé)",
+        "privacy-transfer-3": "Minimisation des données transférées",
+        "privacy-transfer-4": "Conformité aux décisions d'adéquation en vigueur",
+        
+        // Section 10 - Policy Changes
+        "privacy-section-10-title": "10. Modifications de cette politique",
+        "privacy-modifications": "Nous nous réservons le droit de modifier cette politique de confidentialité. En cas de changements importants, nous vous en informerons par email ou via notre site web au moins 30 jours avant l'entrée en vigueur.",
+        
+        // Contact Information
+        "privacy-contact-title": "Questions sur cette politique ?",
+        "privacy-contact-dpo": "Contactez notre délégué à la protection des données :",
+        "privacy-contact-address": "Looptra<br>12 rue Letellier<br>75015 Paris, France"
     },
     en: {
         // Navigation & Header
@@ -270,7 +527,7 @@ const TRANSLATIONS = {
         "faq-subtitle": "Everything you need to know about Looptra helpers.",
         "faq-question-1": "How do I access Looptra helpers?",
         "faq-answer-1": "Our helpers are available directly in ChatGPT via the GPT Store. Simply type @Rundesk in your ChatGPT conversation to access transport expertise. No additional app to install, no account to create.",
-        "faq-question-2": "What differentiates Looptra from other AI helpers?"
+        "faq-question-2": "What differentiates Looptra from other AI helpers?",
         "faq-answer-2": "We build on existing OpenAI infrastructure instead of creating new models. Our helpers leverage GPT-4 and add specialized industry expertise. You automatically benefit from GPT evolutions without changing tools.",
         "faq-question-3": "Why do you talk about a \"new App Store\"?",
         "faq-answer-3": "We are pioneers of a new model: specialized helpers available directly in your generative AI tools. Like apps on your phone, but for industry expertise in ChatGPT. It's the natural evolution of generative AI towards specialization.",
@@ -284,12 +541,269 @@ const TRANSLATIONS = {
         "early-access-subtitle": "Be among the first to test our new applications and shape the future of your professional productivity.",
         "early-access-email-placeholder": "your.email@company.com",
         "early-access-button": "Join the list",
-        "early-access-benefits": "✨ Priority beta access  •  🎯 Roadmap influence  •  📄 0 spam guaranteed",
+        "early-access-benefits": "✨ Priority beta access  •  🎯 Roadmap influence",
 
         // Footer Section
         "footer-privacy": "Privacy Policy",
         "footer-terms": "Terms of Service",
-        "footer-copyright": "© 2025 Looptra. The intelligent agents studio."
+        "footer-copyright": "© 2025 Looptra. The intelligent agents studio.",
+
+        // Legal Pages
+        "back-home": "← Back to home",
+        "last-updated": "Last updated:",
+        "privacy-title": "Privacy Policy",
+        "privacy-subtitle": "How we collect, use and protect your personal data",
+        "terms-title": "Terms of Service",
+        "terms-subtitle": "Terms of use and sale of our specialized AI helpers",
+        "toc-title": "Table of Contents",
+        
+        // Table of Contents
+        "toc-article-1": "1. Purpose and scope",
+        "toc-article-2": "2. Acceptance of terms",
+        "toc-article-3": "3. Service description",
+        "toc-article-4": "4. Service access",
+        "toc-article-5": "5. Service usage",
+        "toc-article-6": "6. Financial terms",
+        "toc-article-7": "7. Responsibilities",
+        "toc-article-8": "8. Intellectual property",
+        "toc-article-9": "9. Personal data",
+        "toc-article-10": "10. Duration and termination",
+        "toc-article-11": "11. Force majeure",
+        "toc-article-12": "12. Applicable law and jurisdiction",
+        
+        // Article titles
+        "terms-article-1-title": "1. Purpose and scope",
+        "terms-article-2-title": "2. Acceptance of terms",
+        "terms-article-3-title": "3. Service description",
+        "terms-article-4-title": "4. Service access",
+        "terms-article-5-title": "5. Service usage",
+        "terms-article-6-title": "6. Financial terms",
+        "terms-article-7-title": "7. Responsibilities",
+        "terms-article-8-title": "8. Intellectual property",
+        "terms-article-9-title": "9. Personal data",
+        "terms-article-10-title": "10. Duration and termination",
+        "terms-article-11-title": "11. Force majeure",
+        "terms-article-12-title": "12. Applicable law and jurisdiction",
+        
+        // Article 1 - Purpose and scope
+        "terms-article-1-p1": "These general terms of use and sale (hereinafter \"Terms\") govern access to and use of services provided by Looptra, a company [legal form to be completed], registered under number [number to be completed], with registered office located at [address to be completed] (hereinafter \"Looptra\", \"we\", \"our\").",
+        "terms-article-1-p2": "These services include access to our specialized AI helpers integrated into the ChatGPT/OpenAI ecosystem, including:",
+        "terms-article-1-li1": "Rundesk: Helper specialized in logistics and transport",
+        "terms-article-1-li2": "Tasklane: Helper specialized in project management", 
+        "terms-article-1-li3": "Any other helper developed by Looptra",
+        
+        // Article 2 - Acceptance of terms
+        "terms-article-2-p1": "Access to and use of our services implies full acceptance of these Terms. If you do not accept these terms, you must not use our services.",
+        "terms-article-2-p2": "These terms also apply to OpenAI's terms of use, our technology partner for ChatGPT infrastructure.",
+        
+        // Highlight box
+        "terms-highlight": "<strong>Important:</strong> Our helpers operate within the ChatGPT ecosystem. You must also comply with OpenAI's terms of use.",
+        
+        // Article 3 - Service description
+        "terms-article-3-subtitle-1": "3.1 General description",
+        "terms-article-3-p1": "Looptra develops and offers specialized AI helpers accessible directly via ChatGPT. These helpers combine the power of GPT language models with specific business specializations and a proprietary contextual data layer.",
+        "terms-article-3-subtitle-2": "3.2 Technical architecture",
+        "terms-article-3-p2": "Our services are based on a hybrid architecture:",
+        "terms-article-3-li1": "<strong>ChatGPT/OpenAI Layer:</strong> Conversational interface and language models",
+        "terms-article-3-li2": "<strong>Looptra Layer:</strong> Secure database storing your preferences, history and business contexts",
+        "terms-article-3-li3": "<strong>Third-party integrations:</strong> Specialized APIs according to your business domain",
+        "terms-article-3-subtitle-3": "3.3 Features",
+        "terms-article-3-feature1": "Access to specialized helpers via ChatGPT",
+        "terms-article-3-feature2": "Integrations with third-party APIs (SNCF, Trainline, Notion, etc.)",
+        "terms-article-3-feature3": "Customization according to your business preferences",
+        "terms-article-3-feature4": "Automatic updates with the evolution of GPT models",
+        "terms-article-3-subtitle-4": "3.4 Availability",
+        "terms-article-3-p3": "We strive to keep our services available 24/7, but cannot guarantee absolute availability. Scheduled maintenance interruptions will be communicated in advance.",
+        
+        // Article 4 - Service access
+        "terms-article-4-subtitle-1": "4.1 Access conditions",
+        "terms-article-4-p1": "To access our services, you must:",
+        "terms-article-4-li1": "Be at least 18 years old or represent a legal entity",
+        "terms-article-4-li2": "Have an active ChatGPT account",
+        "terms-article-4-li3": "Have subscribed to a Looptra subscription if applicable",
+        "terms-article-4-li4": "Provide accurate and up-to-date information",
+        "terms-article-4-subtitle-2": "4.2 User account",
+        "terms-article-4-p2": "Creating an account may be necessary for certain services. You are responsible for the confidentiality of your credentials and all activities performed under your account.",
+
+        // Article 5 - Service usage
+        "terms-article-5-subtitle-1": "5.1 Authorized use",
+        "terms-article-5-p1": "Our services are intended for legitimate professional use. You agree to:",
+        "terms-article-5-li1": "Use the services in accordance with their intended purpose",
+        "terms-article-5-li2": "Comply with applicable laws and regulations",
+        "terms-article-5-li3": "Not infringe on the rights of third parties",
+        "terms-article-5-li4": "Provide accurate information",
+        "terms-article-5-subtitle-2": "5.2 Prohibited uses",
+        "terms-article-5-p2": "It is strictly prohibited to:",
+        "terms-article-5-li5": "Use our services for illegal or fraudulent purposes",
+        "terms-article-5-li6": "Attempt to circumvent security measures",
+        "terms-article-5-li7": "Copy, modify or distribute our services without authorization",
+        "terms-article-5-li8": "Use our services to directly compete with Looptra",
+        "terms-article-5-li9": "Overload our systems through abnormal usage",
+
+        // Article 6 - Financial terms
+        "terms-article-6-subtitle-1": "6.1 Pricing",
+        "terms-article-6-p1": "Our service rates are indicated on our website and may change. Price modifications do not apply to current subscriptions until their renewal.",
+        "terms-article-6-subtitle-2": "6.2 Payment terms",
+        "terms-article-6-p2": "Payment is made through the methods offered on our platform. For subscriptions, payment is made in advance according to the chosen frequency.",
+        "terms-article-6-subtitle-3": "6.3 Refund",
+        "terms-article-6-p3": "We offer a 30-day money-back guarantee for new subscriptions. After this period, no refund will be made except in special cases at our discretion.",
+        "terms-article-6-subtitle-4": "6.4 Payment delay",
+        "terms-article-6-p4": "In case of payment delay, access to services may be suspended after formal notice remains without effect.",
+
+        // Article 7 - Responsibilities
+        "terms-article-7-subtitle-1": "7.1 Looptra's responsibility",
+        "terms-article-7-p1": "Looptra undertakes to provide its services diligently and to maintain the security of its data infrastructure. However, our liability is limited to direct and foreseeable damages. We cannot be held responsible for:",
+        "terms-article-7-li1": "Decisions made based on recommendations from our helpers",
+        "terms-article-7-li2": "Malfunctions related to OpenAI infrastructure",
+        "terms-article-7-li3": "Third-party API service interruptions",
+        "terms-article-7-li4": "Indirect damages or loss of profits",
+        "terms-article-7-li5": "Data loss in case of force majeure, subject to our backup obligations",
+        "terms-article-7-p2": "<strong>Security commitment:</strong> We commit to maintaining high security standards for our infrastructure and to inform you as soon as possible of any incident affecting your data.",
+        "terms-article-7-subtitle-2": "7.2 User responsibility",
+        "terms-article-7-p3": "You are responsible for:",
+        "terms-article-7-li6": "Your use of our services",
+        "terms-article-7-li7": "The accuracy of information provided",
+        "terms-article-7-li8": "Decisions made based on recommendations",
+        "terms-article-7-li9": "Compliance with third-party service terms of use",
+
+        // Limitation notice
+        "terms-limitation-notice": "<strong>Liability limitation:</strong> Our AI helpers provide recommendations based on available data. Final decisions belong to you and Looptra cannot be held responsible for the consequences of your choices.",
+
+        // Article 8 - Intellectual property
+        "terms-article-8-p1": "All elements of our services (AI helpers, algorithms, interfaces, trademarks, etc.) are protected by intellectual property rights and belong to Looptra or our partners.",
+        "terms-article-8-p2": "You may not:",
+        "terms-article-8-li1": "Reproduce, copy or distribute our services",
+        "terms-article-8-li2": "Proceed with reverse engineering",
+        "terms-article-8-li3": "Use our trademarks without authorization",
+        "terms-article-8-li4": "Create competing services based on our technologies",
+
+        // Article 9 - Personal data
+        "terms-article-9-p1": "The processing of your personal data is governed by our <a href=\"/politique-confidentialite\" style=\"color: #000; font-weight: 600;\">Privacy Policy</a>, which is an integral part of these terms.",
+        "terms-article-9-p2": "By using our services, you consent to the processing of your data in accordance with this policy.",
+
+        // Article 10 - Duration and termination
+        "terms-article-10-subtitle-1": "10.1 Duration",
+        "terms-article-10-p1": "These terms apply as long as you use our services. Subscriptions are concluded for the chosen duration and automatically renew unless terminated.",
+        "terms-article-10-subtitle-2": "10.2 Termination by user",
+        "terms-article-10-p2": "You can terminate your subscription at any time from your customer area. Termination takes effect at the end of the current period.",
+        "terms-article-10-subtitle-3": "10.3 Termination by Looptra",
+        "terms-article-10-p3": "We can terminate your access in case of:",
+        "terms-article-10-li1": "Non-compliance with these terms",
+        "terms-article-10-li2": "Abusive or fraudulent use",
+        "terms-article-10-li3": "Non-payment after formal notice",
+        "terms-article-10-subtitle-4": "10.4 Effects of termination",
+        "terms-article-10-p4": "Termination results in immediate cessation of access to services. Data may be retained according to our retention policy.",
+
+        // Article 11 - Force majeure
+        "terms-article-11-p1": "Looptra cannot be held responsible for any delay or non-performance resulting from the occurrence of a force majeure event, including:",
+        "terms-article-11-li1": "Natural disasters",
+        "terms-article-11-li2": "Telecommunications network failures",
+        "terms-article-11-li3": "Acts of war, terrorism, riots",
+        "terms-article-11-li4": "Government decisions",
+        "terms-article-11-li5": "General strikes",
+
+        // Article 12 - Applicable law and jurisdiction
+        "terms-article-12-p1": "These terms are governed by French law. In case of dispute, the parties will endeavor to find an amicable solution.",
+        "terms-article-12-p2": "Failing an amicable agreement, any dispute will be subject to the exclusive jurisdiction of the courts of [city to be completed], France.",
+        "terms-article-12-subtitle-1": "12.1 Mediation",
+        "terms-article-12-p3": "In accordance with regulations, we adhere to a consumer mediation service. In case of dispute, you can resort to this mediation service free of charge.",
+        "terms-article-12-subtitle-2": "12.2 Modifications",
+        "terms-article-12-p4": "We reserve the right to modify these terms at any time. Important modifications will be notified to you at least 30 days before they take effect.",
+
+        // Contact Information
+        "contact-title": "Legal questions",
+        "contact-intro": "For any questions regarding these terms:",
+        "contact-email": "contact@looptra.ai",
+        "contact-address": "Looptra<br>12 rue Letellier, 75015 Paris, France",
+
+        // Privacy Policy Content
+        "privacy-section-1-title": "1. Introduction",
+        "privacy-section-1-p1": "Looptra is committed to protecting your privacy and personal data. This privacy policy explains how we collect, use, share and protect your information when you use our specialized AI helpers.",
+        "privacy-section-1-p2": "By using our services, you agree to the practices described in this policy.",
+        "privacy-section-2-title": "2. Data we collect",
+        "privacy-section-2-intro": "We collect different types of information:",
+        "privacy-data-account": "<strong>Account information:</strong> Email, name, user preferences",
+        "privacy-data-usage": "<strong>Usage data:</strong> Interactions with our helpers, conversation history",
+        "privacy-data-business": "<strong>Business data:</strong> Information shared to customize our helpers (itineraries, transport preferences, tasks, business contexts)",
+        "privacy-data-technical": "<strong>Technical data:</strong> IP address, browser type, performance data",
+        "privacy-data-integration": "<strong>Integration data:</strong> Information retrieved via connected APIs (SNCF, Trainline, Notion, etc.) with your authorization",
+        "privacy-data-contextual": "<strong>Contextual data:</strong> Information stored in our secure database to enrich your interactions with our helpers",
+        "privacy-section-3-title": "3. How we use your data",
+        "privacy-section-3-intro": "Your data is used to:",
+        "privacy-usage-1": "Provide and improve our specialized AI helpers",
+        "privacy-usage-2": "Personalize responses and recommendations",
+        "privacy-usage-3": "Maintain security and prevent abuse",
+        "privacy-usage-4": "Communicate with you about our services",
+        "privacy-usage-5": "Analyze usage to improve our products",
+        "privacy-usage-6": "Comply with our legal obligations",
+        "privacy-architecture-highlight": "<strong>Data architecture:</strong> We build on OpenAI/ChatGPT infrastructure AND we maintain our own secure database. This hybrid architecture allows us to enrich your interactions with personalized context while respecting the highest security standards. Your contextual data is stored encrypted in our European systems.",
+        "privacy-section-4-title": "4. Data sharing",
+        "privacy-section-4-intro": "We never sell your personal data. We may share it only in these cases:",
+        "privacy-sharing-1": "<strong>Service providers:</strong> OpenAI (ChatGPT), API providers (SNCF, Trainline, etc.)",
+        "privacy-sharing-2": "<strong>Legal obligations:</strong> If required by law",
+        "privacy-sharing-3": "<strong>Rights protection:</strong> To protect our rights, your security or that of other users",
+        "privacy-sharing-4": "<strong>With your consent:</strong> In all other cases, only with your explicit agreement",
+        
+        // Section 5 - Security
+        "privacy-section-5-title": "5. Data security",
+        "privacy-section-5-intro": "We implement appropriate security measures to protect your data in our infrastructure:",
+        "privacy-security-1": "<strong>Advanced encryption:</strong> Data encrypted in transit (TLS 1.3) and at rest (AES-256)",
+        "privacy-security-2": "<strong>European infrastructure:</strong> Our servers are hosted in Europe with certified partners",
+        "privacy-security-3": "<strong>Strict access controls:</strong> Multi-factor authentication and principle of least privilege",
+        "privacy-security-4": "<strong>Continuous monitoring:</strong> 24/7 monitoring and anomaly detection",
+        "privacy-security-5": "<strong>Secure backups:</strong> Encrypted copies with geographically distributed retention",
+        "privacy-security-6": "<strong>Regular audits:</strong> Security assessments by independent third parties",
+        "privacy-security-7": "<strong>Team training:</strong> Continuous awareness of security best practices",
+        "privacy-security-standards": "Our security measures comply with industry standards (ISO 27001) and GDPR requirements.",
+        
+        // Section 6 - Rights
+        "privacy-section-6-title": "6. Your rights",
+        "privacy-section-6-intro": "In accordance with GDPR, you have the following rights:",
+        "privacy-rights-1": "<strong>Access:</strong> Obtain a copy of your personal data",
+        "privacy-rights-2": "<strong>Rectification:</strong> Correct inaccurate data",
+        "privacy-rights-3": "<strong>Erasure:</strong> Request deletion of your data",
+        "privacy-rights-4": "<strong>Restriction:</strong> Restrict the processing of your data",
+        "privacy-rights-5": "<strong>Portability:</strong> Retrieve your data in a readable format",
+        "privacy-rights-6": "<strong>Objection:</strong> Object to the processing of your data",
+        "privacy-rights-7": "<strong>Withdrawal of consent:</strong> Withdraw your consent at any time",
+        "privacy-rights-contact": "To exercise these rights, contact us at <a href=\"mailto:privacy@looptra.ai\" class=\"contact-email\">privacy@looptra.ai</a>",
+        
+        // Section 7 - Cookies
+        "privacy-section-7-title": "7. Cookies and similar technologies",
+        "privacy-section-7-intro": "We use cookies to:",
+        "privacy-cookies-1": "Maintain your login session",
+        "privacy-cookies-2": "Remember your preferences",
+        "privacy-cookies-3": "Analyze usage of our site",
+        "privacy-cookies-4": "Improve your user experience",
+        "privacy-cookies-note": "You can configure your browser to refuse cookies, but this may affect the operation of our services.",
+        
+        // Section 8 - Data Retention
+        "privacy-section-8-title": "8. Data retention",
+        "privacy-section-8-intro": "We retain your data according to the following categories:",
+        "privacy-retention-1": "<strong>Account data:</strong> As long as your account is active",
+        "privacy-retention-2": "<strong>Contextual data:</strong> Stored in our secure database to improve your interactions, deleted when account is closed or upon request",
+        "privacy-retention-3": "<strong>Usage history:</strong> Retained for 2 years maximum for service improvement",
+        "privacy-retention-4": "<strong>Billing data:</strong> 10 years in accordance with legal obligations",
+        "privacy-retention-5": "<strong>Technical logs:</strong> 6 months maximum for security and support",
+        "privacy-auto-deletion": "<strong>Automatic deletion:</strong> All your contextual data stored in our infrastructure is automatically deleted 3 months after your account closure, unless otherwise required by law.",
+        
+        // Section 9 - International Transfers
+        "privacy-section-9-title": "9. International transfers",
+        "privacy-infrastructure-eu": "<strong>Our infrastructure:</strong> Your contextual data is stored exclusively on European servers (France/Germany) complying with GDPR.",
+        "privacy-openai-transfers": "<strong>Technology partners:</strong> Our services using OpenAI infrastructure, some data may be transferred to the United States during your interactions with ChatGPT. These transfers are carried out in accordance with appropriate protection mechanisms:",
+        "privacy-transfer-1": "Standard contractual clauses from the European Commission",
+        "privacy-transfer-2": "Additional security measures (enhanced encryption)",
+        "privacy-transfer-3": "Minimization of transferred data",
+        "privacy-transfer-4": "Compliance with current adequacy decisions",
+        
+        // Section 10 - Policy Changes
+        "privacy-section-10-title": "10. Changes to this policy",
+        "privacy-modifications": "We reserve the right to modify this privacy policy. In case of significant changes, we will inform you by email or via our website at least 30 days before implementation.",
+        
+        // Contact Information
+        "privacy-contact-title": "Questions about this policy?",
+        "privacy-contact-dpo": "Contact our data protection officer:",
+        "privacy-contact-address": "Looptra<br>12 rue Letellier, 75015 Paris, France"
     }
 };
 
@@ -353,6 +867,9 @@ class TranslationManager {
             // For FAQ buttons, preserve the + span
             const plusSpan = element.querySelector('span');
             element.innerHTML = translation + (plusSpan ? plusSpan.outerHTML : '<span>+</span>');
+        } else if (translation.includes('<strong>') || translation.includes('<em>') || translation.includes('<br>')) {
+            // For content with HTML tags, use innerHTML
+            element.innerHTML = translation;
         } else {
             element.textContent = translation;
         }

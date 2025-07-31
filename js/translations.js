@@ -26,7 +26,7 @@ const TRANSLATIONS = {
         "nav-cta": "Commencer",
 
         // Hero Section
-        "hero-title": "Une Galaxie d'Assistant IA directement dans ChatGPT",
+        "hero-title": "Une Galaxie d'Assistants IA directement dans ChatGPT",
         "hero-subtitle": "Accédez à des assistants spécialisés sans quitter votre interface IA habituelle. Looptra construit sur l'infrastructure existante pour créer le nouvel App Store des agents génératifs.",
         "hero-cta": "Découvrir nos assistants",
 

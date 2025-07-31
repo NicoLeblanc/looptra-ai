@@ -144,18 +144,31 @@ class EarlyAccessForm {
         this.clearMessage();
 
         try {
-            const response = await fetch('php/submit-email.php', {
+            // Get Supabase configuration
+            const supabaseConfig = window.env?.getSupabaseConfig();
+            
+            if (!supabaseConfig || !supabaseConfig.url || !supabaseConfig.anonKey) {
+                throw new Error('Supabase configuration not found');
+            }
+
+            const response = await fetch(`${supabaseConfig.url}/rest/v1/email_signups`, {
                 method: 'POST',
                 headers: {
+                    'apikey': supabaseConfig.anonKey,
+                    'Authorization': `Bearer ${supabaseConfig.anonKey}`,
                     'Content-Type': 'application/json',
+                    'Prefer': 'return=minimal'
                 },
-                body: JSON.stringify({ email })
+                body: JSON.stringify({ 
+                    email: email,
+                    source: 'early-access',
+                    created_at: new Date().toISOString()
+                })
             });
 
-            const data = await response.json();
-
-            if (data.success) {
-                this.showMessage(data.message || this.getMessage('success'), 'success');
+            if (response.ok) {
+                // Supabase returns 201 for successful creation
+                this.showMessage(this.getMessage('success'), 'success');
                 this.emailInput.value = '';
                 
                 // Optional: Track the conversion
@@ -167,10 +180,13 @@ class EarlyAccessForm {
                 }
             } else {
                 // Handle specific error cases
-                if (response.status === 409) {
+                const errorData = await response.json().catch(() => ({}));
+                
+                if (response.status === 409 || errorData.code === '23505') {
+                    // PostgreSQL unique constraint violation
                     this.showMessage(this.getMessage('duplicate'), 'error');
                 } else {
-                    this.showMessage(data.message || this.getMessage('error'), 'error');
+                    this.showMessage(errorData.message || this.getMessage('error'), 'error');
                 }
             }
         } catch (error) {

@@ -26,7 +26,7 @@ const TRANSLATIONS = {
         "nav-cta": "Commencer",
 
         // Hero Section
-        "hero-title": "Des assistants IA directement dans ChatGPT.",
+        "hero-title": "Une Galaxie d'Assistant IA directement dans ChatGPT",
         "hero-subtitle": "Accédez à des assistants spécialisés sans quitter votre interface IA habituelle. Looptra construit sur l'infrastructure existante pour créer le nouvel App Store des agents génératifs.",
         "hero-cta": "Découvrir nos assistants",
 
@@ -59,6 +59,30 @@ const TRANSLATIONS = {
         "tasklane-feature-3": "Algorithmes de priorisation sur modèles évolutifs",
         "tasklane-feature-4": "Mises à jour automatiques avec les nouveaux GPT",
         "tasklane-cta": "Être notifié",
+        
+        // MailFlow App
+        "mailflow-description": "L'assistant Inbox Zero qui transforme votre gestion d'emails. Triage intelligent, réponses automatisées et organisation optimale - directement dans ChatGPT pour atteindre la boîte de réception vide.",
+        "mailflow-feature-1": "Triage intelligent de vos emails via GPT",
+        "mailflow-feature-2": "Connexions Gmail, Outlook en temps réel",
+        "mailflow-feature-3": "Génération de réponses contextuelles",
+        "mailflow-feature-4": "Stratégies Inbox Zero personnalisées",
+        "mailflow-cta": "Être notifié",
+        
+        // NewsFlow App
+        "newsflow-description": "Votre veilleur sectoriel intelligent qui crée des podcasts personnalisés. Analyse les actualités de votre industrie, synthétise l'essentiel et vous l'envoie en format audio via WhatsApp.",
+        "newsflow-feature-1": "Veille sectorielle automatisée via GPT",
+        "newsflow-feature-2": "Génération de podcasts personnalisés",
+        "newsflow-feature-3": "Diffusion automatique via WhatsApp",
+        "newsflow-feature-4": "Analyse des tendances de votre marché",
+        "newsflow-cta": "Être notifié",
+        
+        // BizDev Pro App
+        "bizdev-description": "Votre coach en développement commercial personnel. Analyse vos prospects, optimise vos approches et vous guide dans vos négociations pour maximiser vos performances commerciales.",
+        "bizdev-feature-1": "Coaching commercial personnalisé via GPT",
+        "bizdev-feature-2": "Analyse de prospects et opportunités",
+        "bizdev-feature-3": "Scripts de vente adaptatifs",
+        "bizdev-feature-4": "Suivi des performances et KPIs",
+        "bizdev-cta": "Être notifié",
 
         // Ecosystem Section
         "ecosystem-title": "L'écosystème Looptra",
@@ -106,9 +130,82 @@ const TRANSLATIONS = {
         "agent-tasklane": "Tasklane",
         "agent-tasklane-desc": "Expert gestion de projet",
         "agent-tasklane-status": "Bientôt",
+        "agent-mailflow": "MailFlow",
+        "agent-mailflow-desc": "Expert gestion d'emails & Inbox Zero",
+        "agent-mailflow-status": "Bientôt",
+        "agent-newsflow": "NewsFlow",
+        "agent-newsflow-desc": "Expert veille sectorielle & podcasts",
+        "agent-newsflow-status": "Bientôt",
+        "agent-bizdev": "BizDev Pro",
+        "agent-bizdev-desc": "Expert développement commercial",
+        "agent-bizdev-status": "Bientôt",
         "agent-future": "Agent N+1",
         "agent-future-desc": "Spécialiste à définir",
         "agent-future-status": "À venir",
+        
+        // Integrations Section
+        "integrations-title": "Intégrations natives",
+        "integrations-subtitle": "Connectez vos assistants Looptra aux outils que vous utilisez déjà.",
+        "integrations-communication": "Communication",
+        "integrations-productivity": "Productivité",
+        "integrations-storage": "Stockage & Documents",
+        "integrations-calendar": "Calendrier & Planning",
+        "integrations-crm": "CRM & Ventes",
+        "integrations-analytics": "Analytics & Reporting",
+        
+        // Communication integrations
+        "integration-whatsapp": "WhatsApp",
+        "integration-slack": "Slack",
+        "integration-gmail": "Gmail",
+        "integration-teams": "Microsoft Teams",
+        "integration-outlook": "Outlook",
+        "integration-telegram": "Telegram",
+        
+        // Productivity integrations
+        "integration-notion": "Notion",
+        "integration-asana": "Asana",
+        "integration-trello": "Trello",
+        "integration-monday": "Monday.com",
+        "integration-clickup": "ClickUp",
+        "integration-airtable": "Airtable",
+        
+        // Storage & Documents integrations
+        "integration-gdrive": "Google Drive",
+        "integration-linkedin": "LinkedIn",
+        "integration-onedrive": "OneDrive",
+        "integration-box": "Box",
+        "integration-canva": "Canva",
+        "integration-figma": "Figma",
+        "integration-atlassian": "Atlassian",
+        
+        // Calendar & Planning integrations
+        "integration-gcalendar": "Google Calendar",
+        "integration-outlook-cal": "Outlook Calendar",
+        "integration-calendly": "Calendly",
+        "integration-acuity": "Acuity Scheduling",
+        "integration-doodle": "Doodle",
+        "integration-when2meet": "When2meet",
+        
+        // CRM & Sales integrations
+        "integration-hubspot": "HubSpot",
+        "integration-salesforce": "Salesforce",
+        "integration-pipedrive": "Pipedrive",
+        "integration-zendesk": "Zendesk",
+        "integration-stripe": "Stripe",
+        "integration-shopify": "Shopify",
+        
+        // Analytics & Reporting integrations
+        "integration-ganalytics": "Google Analytics",
+        "integration-tableau": "Tableau",
+        "integration-powerbi": "Power BI",
+        "integration-mixpanel": "Mixpanel",
+        "integration-hotjar": "Hotjar",
+        "integration-amplitude": "Amplitude",
+        
+        // Integrations CTA
+        "integrations-cta-title": "Vous souhaitez une autre intégration ? Contactez-nous...",
+        "integrations-cta-subtitle": "Nos assistants peuvent s'adapter à pratiquement n'importe quelle API ou service.",
+        "integrations-cta-button": "Demander une intégration",
         
         // Ecosystem Benefits
         "ecosystem-benefit-1-title": "Performance optimisée",
@@ -420,7 +517,7 @@ const TRANSLATIONS = {
         "nav-cta": "Get Started",
 
         // Hero Section
-        "hero-title": "AI helpers directly in ChatGPT.",
+        "hero-title": "A Galaxy of AI Assistants directly in ChatGPT",
         "hero-subtitle": "Access specialized helpers without leaving your usual AI interface. Looptra builds on existing infrastructure to create the new App Store for generative agents.",
         "hero-cta": "Discover our helpers",
 
@@ -453,6 +550,30 @@ const TRANSLATIONS = {
         "tasklane-feature-3": "Prioritization algorithms on evolving models",
         "tasklane-feature-4": "Automatic updates with new GPT versions",
         "tasklane-cta": "Get Notified",
+        
+        // MailFlow App
+        "mailflow-description": "The Inbox Zero helper that transforms your email management. Smart triage, automated responses and optimal organization - directly in ChatGPT to achieve empty inbox.",
+        "mailflow-feature-1": "Smart email triage via GPT",
+        "mailflow-feature-2": "Gmail, Outlook connections in real-time",
+        "mailflow-feature-3": "Contextual response generation",
+        "mailflow-feature-4": "Personalized Inbox Zero strategies",
+        "mailflow-cta": "Get Notified",
+        
+        // NewsFlow App
+        "newsflow-description": "Your intelligent sector watcher that creates personalized podcasts. Analyzes your industry news, synthesizes the essentials and sends it to you in audio format via WhatsApp.",
+        "newsflow-feature-1": "Automated sector monitoring via GPT",
+        "newsflow-feature-2": "Personalized podcast generation",
+        "newsflow-feature-3": "Automatic distribution via WhatsApp",
+        "newsflow-feature-4": "Market trend analysis",
+        "newsflow-cta": "Get Notified",
+        
+        // BizDev Pro App
+        "bizdev-description": "Your personal business development coach. Analyzes your prospects, optimizes your approaches and guides you in negotiations to maximize your commercial performance.",
+        "bizdev-feature-1": "Personalized business coaching via GPT",
+        "bizdev-feature-2": "Prospect and opportunity analysis",
+        "bizdev-feature-3": "Adaptive sales scripts",
+        "bizdev-feature-4": "Performance tracking and KPIs",
+        "bizdev-cta": "Get Notified",
 
         // Ecosystem Section
         "ecosystem-title": "The Looptra Ecosystem",
@@ -500,9 +621,82 @@ const TRANSLATIONS = {
         "agent-tasklane": "Tasklane",
         "agent-tasklane-desc": "Project management expert",
         "agent-tasklane-status": "Soon",
+        "agent-mailflow": "MailFlow",
+        "agent-mailflow-desc": "Email management & Inbox Zero expert",
+        "agent-mailflow-status": "Soon",
+        "agent-newsflow": "NewsFlow",
+        "agent-newsflow-desc": "Sector monitoring & podcast expert",
+        "agent-newsflow-status": "Soon",
+        "agent-bizdev": "BizDev Pro",
+        "agent-bizdev-desc": "Business development expert",
+        "agent-bizdev-status": "Soon",
         "agent-future": "Agent N+1",
         "agent-future-desc": "Specialist to be defined",
         "agent-future-status": "Coming",
+        
+        // Integrations Section
+        "integrations-title": "Native Integrations",
+        "integrations-subtitle": "Connect your Looptra assistants to the tools you already use.",
+        "integrations-communication": "Communication",
+        "integrations-productivity": "Productivity",
+        "integrations-storage": "Storage & Documents",
+        "integrations-calendar": "Calendar & Planning",
+        "integrations-crm": "CRM & Sales",
+        "integrations-analytics": "Analytics & Reporting",
+        
+        // Communication integrations
+        "integration-whatsapp": "WhatsApp",
+        "integration-slack": "Slack",
+        "integration-gmail": "Gmail",
+        "integration-teams": "Microsoft Teams",
+        "integration-outlook": "Outlook",
+        "integration-telegram": "Telegram",
+        
+        // Productivity integrations
+        "integration-notion": "Notion",
+        "integration-asana": "Asana",
+        "integration-trello": "Trello",
+        "integration-monday": "Monday.com",
+        "integration-clickup": "ClickUp",
+        "integration-airtable": "Airtable",
+        
+        // Storage & Documents integrations
+        "integration-gdrive": "Google Drive",
+        "integration-linkedin": "LinkedIn",
+        "integration-onedrive": "OneDrive",
+        "integration-box": "Box",
+        "integration-canva": "Canva",
+        "integration-figma": "Figma",
+        "integration-atlassian": "Atlassian",
+        
+        // Calendar & Planning integrations
+        "integration-gcalendar": "Google Calendar",
+        "integration-outlook-cal": "Outlook Calendar",
+        "integration-calendly": "Calendly",
+        "integration-acuity": "Acuity Scheduling",
+        "integration-doodle": "Doodle",
+        "integration-when2meet": "When2meet",
+        
+        // CRM & Sales integrations
+        "integration-hubspot": "HubSpot",
+        "integration-salesforce": "Salesforce",
+        "integration-pipedrive": "Pipedrive",
+        "integration-zendesk": "Zendesk",
+        "integration-stripe": "Stripe",
+        "integration-shopify": "Shopify",
+        
+        // Analytics & Reporting integrations
+        "integration-ganalytics": "Google Analytics",
+        "integration-tableau": "Tableau",
+        "integration-powerbi": "Power BI",
+        "integration-mixpanel": "Mixpanel",
+        "integration-hotjar": "Hotjar",
+        "integration-amplitude": "Amplitude",
+        
+        // Integrations CTA
+        "integrations-cta-title": "Need another integration? Contact us...",
+        "integrations-cta-subtitle": "Our assistants can adapt to virtually any API or service.",
+        "integrations-cta-button": "Request an integration",
         
         // Ecosystem Benefits
         "ecosystem-benefit-1-title": "Optimized Performance",

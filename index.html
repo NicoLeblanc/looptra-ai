@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Looptra - Galaxie d'applications intelligentes pour les pros. Des assistants IA spécialisés directement dans ChatGPT pour transformer votre productivité professionnelle.">
+    <meta property="og:title" content="Looptra - Galaxie d'applications intelligentes pour les pros">
+    <meta property="og:description" content="Des assistants IA spécialisés directement dans ChatGPT pour transformer votre productivité professionnelle.">
+    <meta name="twitter:title" content="Looptra - Galaxie d'applications intelligentes pour les pros">
+    <meta name="twitter:description" content="Des assistants IA spécialisés directement dans ChatGPT pour transformer votre productivité professionnelle.">
     <link rel="icon" type="image/png" href="img/Looptra_favicon.png">
-    <title>Looptra - Des assistants IA qui maîtrisent votre métier</title>
+    <title>Looptra - Galaxie d'applications intelligentes pour les pros</title>
     <link rel="stylesheet" href="css/looptra-styles.css">
+    <script src="js/env-loader.js"></script>
+    <script src="js/env.js" defer></script>
     <script src="js/translations.js" defer></script>
     <script src="js/early-access.js" defer></script>
 </head>
 <body>
     <header>
         <nav class="container">
-            <a href="#" class="logo"><img src="img/Looptra_favicon.png" alt="Looptra favicon" class="logo-favicon" /><img src="img/looptra_line_logo2.png" alt="Looptra" class="logo-main" /></a>
+            <a href="#" class="logo"><img src="img/looptra_line_logo2.png" alt="Looptra" class="logo-main" /></a>
             <ul class="nav-links">
                 <li><a href="#applications" data-translate="nav-applications">Applications</a></li>
                 <li><a href="#ecosysteme" data-translate="nav-ecosysteme">Écosystème</a></li>
-                <li><a href="#temoignages" data-translate="nav-temoignages">Témoignages</a></li>
                 <li><a href="#faq" data-translate="nav-faq">FAQ</a></li>
             </ul>
             <div class="nav-right">
@@ -42,7 +48,7 @@
         
         <div class="container">
             <div class="hero-content">
-                <h1 data-translate="hero-title">Des assistants IA directement dans ChatGPT.</h1>
+                <h1 data-translate="hero-title">Une Galaxie d'Assistant IA directement dans ChatGPT</h1>
                 <p class="subtitle" data-translate="hero-subtitle">Accédez à des assistants spécialisés sans quitter votre interface IA habituelle. Looptra construit sur l'infrastructure existante pour créer le nouvel App Store des agents génératifs.</p>
                 <a href="#applications" class="hero-cta">
                     <span data-translate="hero-cta">Découvrir nos assistants</span>
@@ -98,31 +104,87 @@
                 <p data-translate="applications-subtitle">Des spécialistes métier accessibles directement depuis ChatGPT. Pas d'installation, pas de configuration — juste l'expertise dont vous avez besoin.</p>
             </div>
 
-            <div class="apps-grid">
-                <div class="app-card fade-in">
-                    <span class="app-status available" data-translate="app-status-available">Disponible sur GPT Store</span>
-                    <h3>Rundesk</h3>
-                    <p data-translate="rundesk-description">Tapez @Rundesk dans ChatGPT pour accéder à votre assistant logistique. Exploite GPT-4 + nos spécialisations transport pour optimiser vos déplacements directement dans votre conversation.</p>
-                    <ul class="app-features">
-                        <li data-translate="rundesk-feature-1">Accessible via ChatGPT (aucune app à installer)</li>
-                        <li data-translate="rundesk-feature-2">Connecté aux APIs SNCF, Trainline en temps réel</li>
-                        <li data-translate="rundesk-feature-3">Mémoire de vos préférences et historiques</li>
-                        <li data-translate="rundesk-feature-4">Calculs et réservations dans la conversation</li>
-                    </ul>
-                    <a href="#" class="app-cta" onclick="showRundesk()" data-translate="rundesk-cta">Accéder sur ChatGPT</a>
+            <div class="apps-carousel-container">
+                <div class="apps-carousel-nav">
+                    <button class="carousel-nav-btn carousel-prev" onclick="slideCarousel(-1)">‹</button>
+                    <button class="carousel-nav-btn carousel-next" onclick="slideCarousel(1)">›</button>
                 </div>
+                
+                <div class="apps-carousel">
+                    <div class="apps-carousel-track">
+                        <div class="app-card fade-in">
+                            <span class="app-status available" data-translate="app-status-available">Disponible sur GPT Store</span>
+                            <h3>Rundesk</h3>
+                            <p data-translate="rundesk-description">Tapez @Rundesk dans ChatGPT pour accéder à votre assistant logistique. Exploite GPT-4 + nos spécialisations transport pour optimiser vos déplacements directement dans votre conversation.</p>
+                            <ul class="app-features">
+                                <li data-translate="rundesk-feature-1">Accessible via ChatGPT (aucune app à installer)</li>
+                                <li data-translate="rundesk-feature-2">Connecté aux APIs SNCF, Trainline en temps réel</li>
+                                <li data-translate="rundesk-feature-3">Mémoire de vos préférences et historiques</li>
+                                <li data-translate="rundesk-feature-4">Calculs et réservations dans la conversation</li>
+                            </ul>
+                            <a href="#" class="app-cta" onclick="showRundesk()" data-translate="rundesk-cta">Accéder sur ChatGPT</a>
+                        </div>
 
-                <div class="app-card fade-in">
-                    <span class="app-status coming" data-translate="app-status-coming">Bientôt sur GPT Store</span>
-                    <h3>Tasklane</h3>
-                    <p data-translate="tasklane-description">L'assistant de priorisation qui transforme votre ChatGPT en chef de projet expert. Analyse vos tâches via GPT et applique les méthodologies de gestion de projet avancées.</p>
-                    <ul class="app-features">
-                        <li data-translate="tasklane-feature-1">Intégration native dans votre workflow ChatGPT</li>
-                        <li data-translate="tasklane-feature-2">Connexions Asana, Notion via l'infrastructure GPT</li>
-                        <li data-translate="tasklane-feature-3">Algorithmes de priorisation sur modèles évolutifs</li>
-                        <li data-translate="tasklane-feature-4">Mises à jour automatiques avec les nouveaux GPT</li>
-                    </ul>
-                    <a href="#early-access" class="app-cta secondary" data-translate="tasklane-cta">Être notifié</a>
+                        <div class="app-card fade-in">
+                            <span class="app-status coming" data-translate="app-status-coming">Bientôt sur GPT Store</span>
+                            <h3>Tasklane</h3>
+                            <p data-translate="tasklane-description">L'assistant de priorisation qui transforme votre ChatGPT en chef de projet expert. Analyse vos tâches via GPT et applique les méthodologies de gestion de projet avancées.</p>
+                            <ul class="app-features">
+                                <li data-translate="tasklane-feature-1">Intégration native dans votre workflow ChatGPT</li>
+                                <li data-translate="tasklane-feature-2">Connexions Asana, Notion via l'infrastructure GPT</li>
+                                <li data-translate="tasklane-feature-3">Algorithmes de priorisation sur modèles évolutifs</li>
+                                <li data-translate="tasklane-feature-4">Mises à jour automatiques avec les nouveaux GPT</li>
+                            </ul>
+                            <a href="#early-access" class="app-cta secondary" data-translate="tasklane-cta">Être notifié</a>
+                        </div>
+
+                        <div class="app-card fade-in">
+                            <span class="app-status coming" data-translate="app-status-coming">Bientôt sur GPT Store</span>
+                            <h3>MailFlow</h3>
+                            <p data-translate="mailflow-description">L'assistant Inbox Zero qui transforme votre gestion d'emails. Triage intelligent, réponses automatisées et organisation optimale - directement dans ChatGPT pour atteindre la boîte de réception vide.</p>
+                            <ul class="app-features">
+                                <li data-translate="mailflow-feature-1">Triage intelligent de vos emails via GPT</li>
+                                <li data-translate="mailflow-feature-2">Connexions Gmail, Outlook en temps réel</li>
+                                <li data-translate="mailflow-feature-3">Génération de réponses contextuelles</li>
+                                <li data-translate="mailflow-feature-4">Stratégies Inbox Zero personnalisées</li>
+                            </ul>
+                            <a href="#early-access" class="app-cta secondary" data-translate="mailflow-cta">Être notifié</a>
+                        </div>
+
+                        <div class="app-card fade-in">
+                            <span class="app-status coming" data-translate="app-status-coming">Bientôt sur GPT Store</span>
+                            <h3>NewsFlow</h3>
+                            <p data-translate="newsflow-description">Votre veilleur sectoriel intelligent qui crée des podcasts personnalisés. Analyse les actualités de votre industrie, synthétise l'essentiel et vous l'envoie en format audio via WhatsApp.</p>
+                            <ul class="app-features">
+                                <li data-translate="newsflow-feature-1">Veille sectorielle automatisée via GPT</li>
+                                <li data-translate="newsflow-feature-2">Génération de podcasts personnalisés</li>
+                                <li data-translate="newsflow-feature-3">Diffusion automatique via WhatsApp</li>
+                                <li data-translate="newsflow-feature-4">Analyse des tendances de votre marché</li>
+                            </ul>
+                            <a href="#early-access" class="app-cta secondary" data-translate="newsflow-cta">Être notifié</a>
+                        </div>
+
+                        <div class="app-card fade-in">
+                            <span class="app-status coming" data-translate="app-status-coming">Bientôt sur GPT Store</span>
+                            <h3>BizDev Pro</h3>
+                            <p data-translate="bizdev-description">Votre coach en développement commercial personnel. Analyse vos prospects, optimise vos approches et vous guide dans vos négociations pour maximiser vos performances commerciales.</p>
+                            <ul class="app-features">
+                                <li data-translate="bizdev-feature-1">Coaching commercial personnalisé via GPT</li>
+                                <li data-translate="bizdev-feature-2">Analyse de prospects et opportunités</li>
+                                <li data-translate="bizdev-feature-3">Scripts de vente adaptatifs</li>
+                                <li data-translate="bizdev-feature-4">Suivi des performances et KPIs</li>
+                            </ul>
+                            <a href="#early-access" class="app-cta secondary" data-translate="bizdev-cta">Être notifié</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="goToSlide(0)"></span>
+                    <span class="dot" onclick="goToSlide(1)"></span>
+                    <span class="dot" onclick="goToSlide(2)"></span>
+                    <span class="dot" onclick="goToSlide(3)"></span>
+                    <span class="dot" onclick="goToSlide(4)"></span>
                 </div>
             </div>
         </div>
@@ -235,6 +297,21 @@
                             <p data-translate="agent-tasklane-desc">Expert gestion de projet</p>
                             <span class="status" data-translate="agent-tasklane-status">Bientôt</span>
                         </div>
+                        <div class="agent-card coming">
+                            <h5 data-translate="agent-mailflow">MailFlow</h5>
+                            <p data-translate="agent-mailflow-desc">Expert gestion d'emails & Inbox Zero</p>
+                            <span class="status" data-translate="agent-mailflow-status">Bientôt</span>
+                        </div>
+                        <div class="agent-card coming">
+                            <h5 data-translate="agent-newsflow">NewsFlow</h5>
+                            <p data-translate="agent-newsflow-desc">Expert veille sectorielle & podcasts</p>
+                            <span class="status" data-translate="agent-newsflow-status">Bientôt</span>
+                        </div>
+                        <div class="agent-card coming">
+                            <h5 data-translate="agent-bizdev">BizDev Pro</h5>
+                            <p data-translate="agent-bizdev-desc">Expert développement commercial</p>
+                            <span class="status" data-translate="agent-bizdev-status">Bientôt</span>
+                        </div>
                         <div class="agent-card future">
                             <h5 data-translate="agent-future">Agent N+1</h5>
                             <p data-translate="agent-future-desc">Spécialiste à définir</p>
@@ -265,6 +342,84 @@
                     <h4 data-translate="ecosystem-benefit-3-title">Évolutivité garantie</h4>
                     <p data-translate="ecosystem-benefit-3-text">L'ajout de nouveaux assistants, APIs ou moteurs LLM se fait sans impact sur l'existant.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="integrations" class="integrations-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 data-translate="integrations-title">Intégrations natives</h2>
+                <p data-translate="integrations-subtitle">Connectez vos assistants Looptra aux outils que vous utilisez déjà.</p>
+            </div>
+
+            <div class="integrations-grid fade-in">
+                <div class="integration-item">
+                    <img src="img/int/googlecalendar_logo.png" alt="Google Calendar" class="integration-logo">
+                    <span data-translate="integration-gcalendar">Google Calendar</span>
+                </div>
+                <div class="integration-item">
+                    <img src="img/int/gmail_logo.png" alt="Gmail" class="integration-logo">
+                    <span data-translate="integration-gmail">Gmail</span>
+                </div>
+                <div class="integration-item">
+                    <img src="img/int/notion_logo.png" alt="Notion" class="integration-logo">
+                    <span data-translate="integration-notion">Notion</span>
+                </div>
+                <div class="integration-item">
+                    <img src="img/int/hubspot_logo.png" alt="HubSpot" class="integration-logo">
+                    <span data-translate="integration-hubspot">HubSpot</span>
+                </div>
+                <div class="integration-item">
+                    <img src="img/int/asana_logo.png" alt="Asana" class="integration-logo">
+                    <span data-translate="integration-asana">Asana</span>
+                </div>
+                <div class="integration-item">
+                    <img src="img/int/monday_logo.png" alt="Monday.com" class="integration-logo">
+                    <span data-translate="integration-monday">Monday.com</span>
+                </div>
+                <div class="integration-item">
+                    <img src="img/int/drive_logo.png" alt="Google Drive" class="integration-logo">
+                    <span data-translate="integration-gdrive">Google Drive</span>
+                </div>
+                <div class="integration-item">
+                    <img src="img/int/Atlassian_logo.png" alt="Atlassian" class="integration-logo">
+                    <span data-translate="integration-atlassian">Atlassian</span>
+                </div>
+                <div class="integration-item">
+                    <img src="img/int/whatsapp_logo.png" alt="WhatsApp" class="integration-logo">
+                    <span data-translate="integration-whatsapp">WhatsApp</span>
+                </div>
+                <div class="integration-item">
+                    <img src="img/int/telegram_logo.png" alt="Telegram" class="integration-logo">
+                    <span data-translate="integration-telegram">Telegram</span>
+                </div>
+                <div class="integration-item">
+                    <img src="img/int/calendly_logo.png" alt="Calendly" class="integration-logo">
+                    <span data-translate="integration-calendly">Calendly</span>
+                </div>
+                <div class="integration-item">
+                    <img src="img/int/pipedrive_logo.png" alt="Pipedrive" class="integration-logo">
+                    <span data-translate="integration-pipedrive">Pipedrive</span>
+                </div>
+                <div class="integration-item">
+                    <img src="img/int/slack_logo.png" alt="Slack" class="integration-logo">
+                    <span data-translate="integration-slack">Slack</span>
+                </div>
+                <div class="integration-item">
+                    <img src="img/int/tableau_logo.png" alt="Tableau" class="integration-logo">
+                    <span data-translate="integration-tableau">Tableau</span>
+                </div>
+                <div class="integration-item">
+                    <img src="img/int/linkedin_logo.png" alt="LinkedIn" class="integration-logo">
+                    <span data-translate="integration-linkedin">LinkedIn</span>
+                </div>
+            </div>
+
+            <div class="integrations-cta fade-in">
+                <h3 data-translate="integrations-cta-title">Vous souhaitez une autre intégration ? Contactez-nous...</h3>
+                <p data-translate="integrations-cta-subtitle">Nos assistants peuvent s'adapter à pratiquement n'importe quelle API ou service.</p>
+                <a href="#early-access" class="integration-cta-btn" data-translate="integrations-cta-button">Demander une intégration</a>
             </div>
         </div>
     </section>
@@ -524,6 +679,94 @@
         function showRundesk() {
             window.location.href = 'rundesk.html';
         }
+
+        // Carousel functionality
+        let currentSlide = 0;
+        const totalSlides = 5;
+        
+        function updateCarousel() {
+            const track = document.querySelector('.apps-carousel-track');
+            const isMobile = window.innerWidth <= 768;
+            const cardWidth = isMobile ? 280 : 350;
+            const gap = 32;
+            const offset = currentSlide * (cardWidth + gap);
+            
+            if (track) {
+                track.style.transform = `translateX(-${offset}px)`;
+            }
+            
+            // Update navigation buttons
+            const prevBtn = document.querySelector('.carousel-prev');
+            const nextBtn = document.querySelector('.carousel-next');
+            
+            if (prevBtn) prevBtn.disabled = currentSlide === 0;
+            if (nextBtn) nextBtn.disabled = currentSlide === totalSlides - 1;
+            
+            // Update dots
+            document.querySelectorAll('.dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+        
+        function slideCarousel(direction) {
+            const newSlide = currentSlide + direction;
+            if (newSlide >= 0 && newSlide < totalSlides) {
+                currentSlide = newSlide;
+                updateCarousel();
+            }
+        }
+        
+        function goToSlide(index) {
+            if (index >= 0 && index < totalSlides) {
+                currentSlide = index;
+                updateCarousel();
+            }
+        }
+        
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        function handleTouchStart(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }
+        
+        function handleTouchEnd(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe left - next slide
+                    slideCarousel(1);
+                } else {
+                    // Swipe right - previous slide
+                    slideCarousel(-1);
+                }
+            }
+        }
+        
+        // Initialize carousel
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCarousel();
+            
+            // Add touch event listeners
+            const carousel = document.querySelector('.apps-carousel');
+            if (carousel) {
+                carousel.addEventListener('touchstart', handleTouchStart, false);
+                carousel.addEventListener('touchend', handleTouchEnd, false);
+            }
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                updateCarousel();
+            });
+        });
 
         // Translation functionality is now handled by js/translations.js
     </script>

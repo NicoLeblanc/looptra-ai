@@ -19,11 +19,11 @@ class EnvironmentConfig {
             return;
         }
 
-        // Configuration directe avec tes identifiants Supabase
+        // Configuration avec variables d'environnement pour la production
         this.config = {
-            SUPABASE_URL: 'https://dethftuebxxxiqxhmyvd.supabase.co',
-            SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRldGhmdHVlYnh4eGlxeGhteXZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM0MzQwMjYsImV4cCI6MjA2OTAxMDAyNn0.-PN6UmZSoZUYF8rXgs50TrbuujKNwNmi9MCvVlGt6gM',
-            NODE_ENV: 'development'
+            SUPABASE_URL: window.ENV?.SUPABASE_URL || 'https://dethftuebxxxiqxhmyvd.supabase.co',
+            SUPABASE_ANON_KEY: window.ENV?.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRldGhmdHVlYnh4eGlxeGhteXZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM0MzQwMjYsImV4cCI6MjA2OTAxMDAyNn0.-PN6UmZSoZUYF8rXgs50TrbuujKNwNmi9MCvVlGt6gM',
+            NODE_ENV: window.ENV?.NODE_ENV || 'production'
         };
     }
 

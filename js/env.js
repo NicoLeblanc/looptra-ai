@@ -19,12 +19,24 @@ class EnvironmentConfig {
             return;
         }
 
-        // Fallback to default values (for production, these should be replaced during build)
-        this.config = {
-            SUPABASE_URL: process.env.SUPABASE_URL || 'https://your-project-id.supabase.co',
-            SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY || 'your-anon-key-here',
-            NODE_ENV: process.env.NODE_ENV || 'development'
-        };
+        // Check if we're in development (localhost)
+        const isDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+        
+        if (isDev) {
+            // Configuration locale de développement
+            this.config = {
+                SUPABASE_URL: 'https://dethftuebxxxiqxhmyvd.supabase.co',
+                SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRldGhmdHVlYnh4eGlxeGhteXZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM0MzQwMjYsImV4cCI6MjA2OTAxMDAyNn0.-PN6UmZSoZUYF8rXgs50TrbuujKNwNmi9MCvVlGt6gM',
+                NODE_ENV: 'development'
+            };
+        } else {
+            // Configuration production - utilise les variables d'environnement injectées par Render
+            this.config = {
+                SUPABASE_URL: window.SUPABASE_URL || 'PLACEHOLDER_SUPABASE_URL',
+                SUPABASE_ANON_KEY: window.SUPABASE_ANON_KEY || 'PLACEHOLDER_SUPABASE_ANON_KEY',
+                NODE_ENV: 'production'
+            };
+        }
     }
 
     /**
@@ -58,9 +70,23 @@ class EnvironmentConfig {
      * @returns {object} Supabase config object
      */
     getSupabaseConfig() {
+        const url = this.get('SUPABASE_URL');
+        const anonKey = this.get('SUPABASE_ANON_KEY');
+        
+        // Vérification que les valeurs ne sont pas des placeholders
+        if (!url || !anonKey || 
+            url.includes('PLACEHOLDER') || 
+            anonKey.includes('PLACEHOLDER')) {
+            console.error('⚠️ Configuration Supabase manquante ou mal configurée !');
+            console.error('URL:', url);
+            return null;
+        }
+
+        console.log('✅ Configuration Supabase chargée:', { url });
+        
         return {
-            url: this.get('SUPABASE_URL'),
-            anonKey: this.get('SUPABASE_ANON_KEY')
+            url: url,
+            anonKey: anonKey
         };
     }
 }

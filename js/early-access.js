@@ -8,6 +8,7 @@ class EarlyAccessForm {
         this.emailInput = null;
         this.submitButton = null;
         this.messageContainer = null;
+        this.hasInteracted = false;
         this.translations = {
             fr: {
                 required: 'Adresse email requise',
@@ -46,8 +47,15 @@ class EarlyAccessForm {
         
         // Add event listeners
         this.form.addEventListener('submit', (e) => this.handleSubmit(e));
-        this.emailInput.addEventListener('input', () => this.clearMessage());
-        this.emailInput.addEventListener('blur', () => this.validateEmail());
+        this.emailInput.addEventListener('input', () => {
+            this.hasInteracted = true;
+            this.clearMessage();
+        });
+        this.emailInput.addEventListener('blur', () => {
+            if (this.hasInteracted) {
+                this.validateEmail();
+            }
+        });
     }
 
     createMessageContainer() {
@@ -131,6 +139,9 @@ class EarlyAccessForm {
 
     async handleSubmit(event) {
         event.preventDefault();
+        
+        // Mark as interacted for future validations
+        this.hasInteracted = true;
         
         // Validate email
         if (!this.validateEmail()) {

@@ -28,6 +28,7 @@ const TRANSLATIONS = {
         // Hero Section
         "hero-title": "Une Galaxie d'Applications Intelligentes directement dans ChatGPT",
         "hero-subtitle": "Accédez à des applications intelligentes spécialisées sans quitter votre interface IA habituelle. Looptra construit sur l'infrastructure existante pour créer le nouvel App Store des agents génératifs.",
+        "hero-cta-primary": "Rejoindre l'accès anticipé",
         "hero-cta": "Découvrir nos applications",
 
         // Benefits Section
@@ -60,13 +61,13 @@ const TRANSLATIONS = {
         "tasklane-feature-4": "Mises à jour automatiques avec les nouveaux GPT",
         "tasklane-cta": "Être notifié",
         
-        // TodoFlow App
-        "todoflow-description": "L'application intelligente de gestion de tâches conversationnelle. Ajoutez, organisez et suivez vos to-do en parlant naturellement avec votre assistant personnel directement dans ChatGPT.",
-        "todoflow-feature-1": "Gestion conversationnelle de vos tâches",
-        "todoflow-feature-2": "Découpage automatique des tâches complexes",
-        "todoflow-feature-3": "Planification journalière, hebdomadaire, mensuelle",
-        "todoflow-feature-4": "Rappels intelligents et reformulation de tâches",
-        "todoflow-cta": "Être notifié",
+        // Todozen App
+        "todozen-description": "L'application intelligente de gestion de tâches conversationnelle. Ajoutez, organisez et suivez vos to-do en parlant naturellement avec votre assistant personnel directement dans ChatGPT.",
+        "todozen-feature-1": "Gestion conversationnelle de vos tâches",
+        "todozen-feature-2": "Découpage automatique des tâches complexes",
+        "todozen-feature-3": "Planification journalière, hebdomadaire, mensuelle",
+        "todozen-feature-4": "Rappels intelligents et reformulation de tâches",
+        "todozen-cta": "Être notifié",
         
         // MailFlow App
         "mailflow-description": "L'assistant Inbox Zero qui transforme votre gestion d'emails. Triage intelligent, réponses automatisées et organisation optimale - directement dans ChatGPT pour atteindre la boîte de réception vide.",
@@ -138,9 +139,9 @@ const TRANSLATIONS = {
         "agent-tasklane": "Tasklane",
         "agent-tasklane-desc": "Expert gestion de projet",
         "agent-tasklane-status": "Bientôt",
-        "agent-todoflow": "TodoFlow",
-        "agent-todoflow-desc": "Expert gestion de tâches conversationnelle",
-        "agent-todoflow-status": "Bientôt",
+        "agent-todozen": "Todozen",
+        "agent-todozen-desc": "Expert gestion de tâches conversationnelle",
+        "agent-todozen-status": "Bientôt",
         "agent-mailflow": "MailFlow",
         "agent-mailflow-desc": "Expert gestion d'emails & Inbox Zero",
         "agent-mailflow-status": "Bientôt",
@@ -530,6 +531,7 @@ const TRANSLATIONS = {
         // Hero Section
         "hero-title": "A Galaxy of Intelligent Applications directly in ChatGPT",
         "hero-subtitle": "Access specialized intelligent applications without leaving your usual AI interface. Looptra builds on existing infrastructure to create the new App Store for intelligent applications.",
+        "hero-cta-primary": "Join Early Access",
         "hero-cta": "Discover our intelligent applications",
 
         // Benefits Section
@@ -562,13 +564,13 @@ const TRANSLATIONS = {
         "tasklane-feature-4": "Automatic updates with new GPT versions",
         "tasklane-cta": "Get Notified",
         
-        // TodoFlow App
-        "todoflow-description": "The conversational task management intelligent application. Add, organize and track your to-dos by speaking naturally with your personal assistant directly in ChatGPT.",
-        "todoflow-feature-1": "Conversational task management",
-        "todoflow-feature-2": "Automatic breakdown of complex tasks",
-        "todoflow-feature-3": "Daily, weekly, monthly planning",
-        "todoflow-feature-4": "Smart reminders and task reformulation",
-        "todoflow-cta": "Get Notified",
+        // Todozen App
+        "todozen-description": "The conversational task management intelligent application. Add, organize and track your to-dos by speaking naturally with your personal assistant directly in ChatGPT.",
+        "todozen-feature-1": "Conversational task management",
+        "todozen-feature-2": "Automatic breakdown of complex tasks",
+        "todozen-feature-3": "Daily, weekly, monthly planning",
+        "todozen-feature-4": "Smart reminders and task reformulation",
+        "todozen-cta": "Get Notified",
         
         // MailFlow App
         "mailflow-description": "The Inbox Zero intelligent application that transforms your email management. Smart triage, automated responses and optimal organization - directly in ChatGPT to achieve empty inbox.",
@@ -640,9 +642,9 @@ const TRANSLATIONS = {
         "agent-tasklane": "Tasklane",
         "agent-tasklane-desc": "Project management expert",
         "agent-tasklane-status": "Soon",
-        "agent-todoflow": "TodoFlow",
-        "agent-todoflow-desc": "Conversational task management expert",
-        "agent-todoflow-status": "Soon",
+        "agent-todozen": "Todozen",
+        "agent-todozen-desc": "Conversational task management expert",
+        "agent-todozen-status": "Soon",
         "agent-mailflow": "MailFlow",
         "agent-mailflow-desc": "Email management & Inbox Zero expert",
         "agent-mailflow-status": "Soon",
@@ -1041,7 +1043,7 @@ class TranslationManager {
     async changeLanguage(language) {
         // Validate language
         if (!this.translations[language]) {
-            console.warn(`Language ${language} not supported, falling back to ${this.defaultLanguage}`);
+            // Fallback to default language
             language = this.defaultLanguage;
         }
 

@@ -15,11 +15,9 @@ async function loadEnvironment() {
                 
                 // Set environment variables on window object
                 window.ENV = envVars;
-                console.log('Environment loaded:', Object.keys(envVars));
             }
         } catch (error) {
-            console.warn('Could not load .env file:', error.message);
-            console.log('Using default configuration');
+            // Silently fall back to default configuration
         }
     }
 }

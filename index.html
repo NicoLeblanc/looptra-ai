@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/looptra-styles.css">
     <script src="js/env-loader.js"></script>
     <script src="js/env.js" defer></script>
+    <script src="js/image-loader.js" defer></script>
     <script src="js/translations.js" defer></script>
     <script src="js/early-access.js" defer></script>
 </head>
@@ -50,10 +51,13 @@
             <div class="hero-content">
                 <h1 data-translate="hero-title">Une Galaxie d'Applications Intelligentes directement dans ChatGPT</h1>
                 <p class="subtitle" data-translate="hero-subtitle">Accédez à des applications intelligentes spécialisées sans quitter votre interface IA habituelle. Looptra construit sur l'infrastructure existante pour créer le nouvel App Store des applications intelligentes.</p>
-                <a href="#applications" class="hero-cta">
-                    <span data-translate="hero-cta">Découvrir nos applications intelligentes</span>
-                    <span>→</span>
-                </a>
+                <div class="hero-cta-container">
+                    <a href="#early-access" class="hero-cta-primary" data-translate="hero-cta-primary">Rejoindre l'accès anticipé</a>
+                    <a href="#applications" class="hero-cta-secondary">
+                        <span data-translate="hero-cta">Découvrir nos applications intelligentes</span>
+                        <span>→</span>
+                    </a>
+                </div>
                 <div class="hero-image">
                     <div class="hero-mockup">
                         <img src="img/chatgpt-rundesk-conversation.png" alt="ChatGPT avec application intelligente Rundesk en conversation" style="max-width:100%;border-radius:18px;box-shadow:0 2px 28px rgba(30,41,59,0.13);">
@@ -218,15 +222,15 @@
 
                         <div class="app-card fade-in">
                             <span class="app-status coming" data-translate="app-status-coming">Bientôt sur GPT Store</span>
-                            <h3>TodoFlow</h3>
-                            <p data-translate="todoflow-description">L'application intelligente de gestion de tâches conversationnelle. Ajoutez, organisez et suivez vos to-do en parlant naturellement avec votre assistant personnel directement dans ChatGPT.</p>
+                            <h3>Todozen</h3>
+                            <p data-translate="todozen-description">L'application intelligente de gestion de tâches conversationnelle. Ajoutez, organisez et suivez vos to-do en parlant naturellement avec votre assistant personnel directement dans ChatGPT.</p>
                             <ul class="app-features">
-                                <li data-translate="todoflow-feature-1">Gestion conversationnelle de vos tâches</li>
-                                <li data-translate="todoflow-feature-2">Découpage automatique des tâches complexes</li>
-                                <li data-translate="todoflow-feature-3">Planification journalière, hebdomadaire, mensuelle</li>
-                                <li data-translate="todoflow-feature-4">Rappels intelligents et reformulation de tâches</li>
+                                <li data-translate="todozen-feature-1">Gestion conversationnelle de vos tâches</li>
+                                <li data-translate="todozen-feature-2">Découpage automatique des tâches complexes</li>
+                                <li data-translate="todozen-feature-3">Planification journalière, hebdomadaire, mensuelle</li>
+                                <li data-translate="todozen-feature-4">Rappels intelligents et reformulation de tâches</li>
                             </ul>
-                            <a href="#early-access" class="app-cta secondary" data-translate="todoflow-cta">Être notifié</a>
+                            <a href="#early-access" class="app-cta secondary" data-translate="todozen-cta">Être notifié</a>
                         </div>
 
                         <div class="app-card fade-in">
@@ -389,9 +393,9 @@
                             <span class="status" data-translate="agent-tasklane-status">Bientôt</span>
                         </div>
                         <div class="agent-card coming">
-                            <h5 data-translate="agent-todoflow">TodoFlow</h5>
-                            <p data-translate="agent-todoflow-desc">Expert gestion de tâches conversationnelle</p>
-                            <span class="status" data-translate="agent-todoflow-status">Bientôt</span>
+                            <h5 data-translate="agent-todozen">Todozen</h5>
+                            <p data-translate="agent-todozen-desc">Expert gestion de tâches conversationnelle</p>
+                            <span class="status" data-translate="agent-todozen-status">Bientôt</span>
                         </div>
                         <div class="agent-card coming">
                             <h5 data-translate="agent-mailflow">MailFlow</h5>

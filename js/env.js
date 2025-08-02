@@ -61,18 +61,28 @@ class EnvironmentConfig {
         const url = this.get('SUPABASE_URL');
         const anonKey = this.get('SUPABASE_ANON_KEY');
         
-        // Vérification que les valeurs sont définies
         if (!url || !anonKey) {
-            console.error('⚠️ Configuration Supabase manquante !');
             return null;
         }
-
-        console.log('✅ Configuration Supabase chargée:', { url });
         
         return {
             url: url,
             anonKey: anonKey
         };
+    }
+
+    /**
+     * Generate Supabase Storage URL for images
+     * @param {string} imagePath - Image path in storage bucket
+     * @returns {string} Complete image URL
+     */
+    getImageUrl(imagePath) {
+        const supabaseUrl = this.get('SUPABASE_URL');
+        if (!supabaseUrl) {
+            return `img/${imagePath}`;
+        }
+        
+        return `${supabaseUrl}/storage/v1/object/public/image-looptra-vitrine/${imagePath}`;
     }
 }
 

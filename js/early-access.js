@@ -91,7 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         } catch (error) {
-            console.error('Form submission error:', error);
             showMessage('Erreur de connexion. Vérifiez votre connexion internet.', 'error');
         } finally {
             // Reset button state

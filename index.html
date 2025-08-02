@@ -293,22 +293,11 @@
             </div>
 
             <div class="ecosystem-diagram fade-in">
-                <!-- Suggestion: Diagramme complet de l'architecture Looptra -->
-                <!-- Alternative: Créer un SVG interactif de l'écosystème -->
-                <!-- Image suggérée: img/looptra-ecosystem-architecture.png -->
-                
-                <!-- Orchestrateur Central -->
-                <div class="central-orchestrator">
-                    <div class="orchestrator-core">
-                        <h3 data-translate="orchestrator-title">Looptra</h3>
-                        <p data-translate="orchestrator-subtitle">Orchestrateur Central</p>
-                    </div>
-                </div>
 
                 <!-- Base de données utilisateur -->
                 <div class="ecosystem-layer user-data">
                     <div class="layer-header">
-                        <h4 data-translate="user-data-title">🔐 Base de données Looptra sécurisée</h4>
+                        <h4 data-translate="user-data-title">Base de données Looptra sécurisée</h4>
                     </div>
                     <div class="layer-items">
                         <span class="data-item" data-translate="data-item-1">Préférences métier</span>
@@ -322,64 +311,24 @@
                 <!-- MCP et APIs -->
                 <div class="ecosystem-layer apis-layer">
                     <div class="layer-header">
-                        <h4 data-translate="apis-title">🔌 Looptra-MCP & APIs externes</h4>
+                        <h4 data-translate="apis-title">Looptra-MCP & APIs externes</h4>
                     </div>
-                    <div class="api-grid">
-                        <div class="api-category transport">
-                            <h5 data-translate="transport-category">Transport</h5>
-                            <span class="api-item" data-translate="transport-api-1">SNCF Connect</span>
-                            <span class="api-item" data-translate="transport-api-2">Trainline</span>
-                            <span class="api-item" data-translate="transport-api-3">Google Maps</span>
-                        </div>
-                        <div class="api-category productivity">
-                            <h5 data-translate="productivity-category">Productivité</h5>
-                            <span class="api-item" data-translate="productivity-api-1">Notion</span>
-                            <span class="api-item" data-translate="productivity-api-2">Asana</span>
-                            <span class="api-item" data-translate="productivity-api-3">Trello</span>
-                        </div>
-                        <div class="api-category booking">
-                            <h5 data-translate="booking-category">Réservation</h5>
-                            <span class="api-item" data-translate="booking-api-1">Booking.com</span>
-                            <span class="api-item" data-translate="booking-api-2">Hotels.com</span>
-                            <span class="api-item" data-translate="booking-api-3">Airbnb</span>
-                        </div>
-                        <div class="api-category expanding">
-                            <h5 data-translate="expanding-category">+ À venir</h5>
-                            <span class="api-item" data-translate="expanding-api-1">Calendly</span>
-                            <span class="api-item" data-translate="expanding-api-2">Slack</span>
-                            <span class="api-item" data-translate="expanding-api-3">HubSpot</span>
-                        </div>
+                    <div class="api-description">
+                        <p data-translate="api-description">Connexions sécurisées aux services externes nécessaires aux applications intelligentes : transport, productivité, réservation, communication et bien d'autres selon les besoins métier.</p>
                     </div>
                 </div>
 
-                <!-- Moteurs LLM -->
-                <div class="ecosystem-layer llm-layer">
-                    <div class="layer-header">
-                        <h4 data-translate="llm-title">🧠 Moteurs LLM spécialisés</h4>
+                <!-- Orchestrateur Central -->
+                <div class="orchestrator-middle">
+                    <div class="orchestrator-logo">
+                        <img src="" alt="Looptra" class="orchestrator-logo-img" data-supabase-image="looptra_line_logo.png">
                     </div>
-                    <div class="llm-items">
-                        <div class="llm-item">
-                            <span class="llm-name" data-translate="llm-gpt4">GPT-4</span>
-                            <span class="llm-desc" data-translate="llm-gpt4-desc">Base conversationnelle</span>
-                        </div>
-                        <div class="llm-item">
-                            <span class="llm-name" data-translate="llm-perplexity">Perplexity</span>
-                            <span class="llm-desc" data-translate="llm-perplexity-desc">Recherche temps réel</span>
-                        </div>
-                        <div class="llm-item">
-                            <span class="llm-name" data-translate="llm-grok">Grok</span>
-                            <span class="llm-desc" data-translate="llm-grok-desc">Analyse de données</span>
-                        </div>
-                        <div class="llm-item expanding">
-                            <span class="llm-name" data-translate="llm-others">+ Autres</span>
-                            <span class="llm-desc" data-translate="llm-others-desc">Moteurs spécialisés</span>
-                        </div>
-                    </div>
+                    <p data-translate="orchestrator-subtitle">Orchestrateur Central</p>
                 </div>
 
                 <div class="ecosystem-layer agents-layer">
                     <div class="layer-header">
-                        <h4 data-translate="agents-title">🤖 Applications Intelligentes spécialisées</h4>
+                        <h4 data-translate="agents-title">Applications Intelligentes spécialisées</h4>
                     </div>
                     <div class="agents-grid">
                         <div class="agent-card available">
@@ -424,7 +373,6 @@
                 <div class="connections">
                     <div class="connection-line data-to-core"></div>
                     <div class="connection-line apis-to-core"></div>
-                    <div class="connection-line llm-to-core"></div>
                     <div class="connection-line core-to-agents"></div>
                 </div>
             </div>

@@ -45,6 +45,13 @@ document.addEventListener('DOMContentLoaded', () => {
             img.src = window.env.getImageUrl(supabasePath);
         });
     });
+
+    // Handle Supabase images with data attribute
+    const supabaseImages = document.querySelectorAll('[data-supabase-image]');
+    supabaseImages.forEach(img => {
+        const imagePath = img.getAttribute('data-supabase-image');
+        img.src = window.env.getImageUrl(imagePath);
+    });
 });
 
 // Export for manual usage

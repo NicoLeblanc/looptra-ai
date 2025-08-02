@@ -829,39 +829,50 @@ nav {
     max-width: 1000px;
     margin: 80px auto;
     position: relative;
-    background: var(--color-background-grey);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+    border: 1px solid rgba(102, 126, 234, 0.15);
     border-radius: 20px;
     padding: 60px 40px;
 }
 
-.central-orchestrator {
+.orchestrator-middle {
+    text-align: center;
+    padding: 8px 0 16px 0;
+    margin: 8px 0;
+    position: relative;
+}
+
+.orchestrator-middle::before {
+    content: '';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 10;
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, rgba(102, 126, 234, 0.3) 50%, transparent 100%);
+    z-index: 0;
 }
 
-.orchestrator-core {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 24px 32px;
-    border-radius: var(--border-radius-xl);
-    text-align: center;
-    box-shadow: var(--shadow-lg);
+.orchestrator-logo {
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
 }
 
-.orchestrator-core h3 {
-    font-size: 24px;
-    font-weight: 700;
-    margin: 0 0 4px 0;
-    color: white;
-}
-
-.orchestrator-core p {
-    font-size: 14px;
-    margin: 0;
+.orchestrator-logo-img {
+    height: 32px;
+    width: auto;
     opacity: 0.9;
+}
+
+.orchestrator-middle p {
+    font-size: 16px;
+    margin: 0;
+    color: var(--color-text-light);
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
 }
 
 .ecosystem-layer {
@@ -895,39 +906,18 @@ nav {
     font-weight: 500;
 }
 
-.api-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 24px;
+.api-description {
+    text-align: center;
+    padding: 20px 0;
 }
 
-.api-category h5 {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-text-light);
-    margin: 0 0 12px 0;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.api-item {
-    display: block;
-    background: var(--color-background-light);
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-size: 13px;
-    color: #333;
-    margin-bottom: 6px;
-    transition: var(--transition-fast);
-}
-
-.api-item:hover {
-    background: #e8e8e8;
-}
-
-.api-category.expanding .api-item {
-    background: #fff8e1;
-    color: #8b6914;
+.api-description p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin: 0;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .llm-items {
@@ -973,11 +963,12 @@ nav {
     margin: 0 auto;
 }
 
-/* Limit to 3 columns maximum on laptop view - specific to agents grid only */
+/* Limit to 4 columns maximum on laptop view - specific to agents grid only */
 @media (min-width: 769px) {
     .ecosystem-section .agents-grid {
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 720px;
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 900px;
+        gap: 16px;
     }
 }
 
@@ -1767,18 +1758,21 @@ footer {
         margin: 40px auto;
     }
 
-    .orchestrator-core {
-        position: relative;
-        transform: none;
-        margin-bottom: 40px;
+    .orchestrator-middle {
+        padding: 6px 0 12px 0;
+        margin: 6px 0;
     }
-
-    .central-orchestrator {
-        position: relative;
-        top: auto;
-        left: auto;
-        transform: none;
-        margin-bottom: 40px;
+    
+    .orchestrator-logo-img {
+        height: 28px;
+    }
+    
+    .orchestrator-middle p {
+        font-size: 14px;
+    }
+    
+    .orchestrator-middle::before {
+        width: 150px;
     }
 
     .api-grid {
